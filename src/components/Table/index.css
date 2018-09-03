@@ -1,0 +1,6 @@
+.overflow {
+  overflow: auto;
+}
+.container {
+  min-width: 600px;
+}

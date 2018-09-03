@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  @media $m_min {
+    width: $size_s_min;
+    margin-left: auto;
+  }
+  @media $l_min {
+    width: 500px;
+  }
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+}
+.input {
+  margin-bottom: 0;
+}

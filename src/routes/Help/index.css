@@ -1,0 +1,8 @@
+.container {
+  position: relative;
+  padding: 30px;
+  @media $s_max {
+    padding: 30px 15px;
+    text-align: center;
+  }
+}

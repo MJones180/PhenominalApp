@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: $size_s_min;
+  max-width: $size_l_max;
+  min-height: 100vh;
+  @media min($size_l_max) {
+    margin: 0 auto;
+  }
+  & main {
+    flex-grow: 1;
+  }
+}

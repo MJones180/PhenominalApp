@@ -1,0 +1,22 @@
+.container {
+  padding: 30px;
+  white-space: nowrap;
+  background-color: $eggshell;
+  @media $s_max {
+    border-bottom: 1px solid $azure;
+  }
+  @media $m_min {
+    border-right: 1px solid $azure;
+  }
+  @media $l_min {
+    border-left: 1px solid $azure;
+  }
+}
+.title {
+  @media $m_min {
+    margin-bottom: 25px;
+  }
+  & a {
+    color: $azure;
+  }
+}

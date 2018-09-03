@@ -1,0 +1,12 @@
+.presets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+}
+.title {
+  margin-right: 15px;
+}
+.values {
+  display: flex;
+}

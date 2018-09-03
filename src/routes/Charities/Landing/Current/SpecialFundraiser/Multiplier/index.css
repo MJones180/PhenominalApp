@@ -1,0 +1,21 @@
+.tag {
+  padding-top: 10px;
+  color: $sand;
+  @media $s_max {
+    font-size: 15px;
+    text-align: center;
+  }
+  @media $m_min {
+    font-size: 18px;
+  }
+}
+.multiplier {
+  font-weight: 700;
+}
+.sponsor {
+  color: $sand;
+  border-bottom: 1px solid $sand;
+  &:hover {
+    border-bottom: 2px solid $sand;
+  }
+}

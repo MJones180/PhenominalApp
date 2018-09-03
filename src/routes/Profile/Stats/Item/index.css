@@ -1,0 +1,28 @@
+.item {
+  padding: 0 15px;
+  text-align: center;
+  @media $m_min {
+    width: 180px;
+  }
+  @media $l_min {
+    width: 250px;
+  }
+  span {
+    @media $s_max {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    @media $m_min {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}
+.value {
+  @media $s_max {
+    margin-bottom: -15px;
+  }
+  @media $m_min {
+    margin-bottom: -10px;
+  }
+}

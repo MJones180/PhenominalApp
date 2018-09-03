@@ -1,0 +1,11 @@
+.stat {
+  padding: 15px;
+  & span {
+    font-size: 14px;
+    line-height: 18px;
+    display: block;
+  }
+  @media $s_max {
+    width: 50%;
+  }
+}

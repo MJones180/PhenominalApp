@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $stone;
+  &:hover {
+    margin-top: -1px;
+    border-top: 1px solid $azure;
+    border-bottom: 1px solid $azure;
+    & * {
+      color: $azure;
+    }
+  }
+}

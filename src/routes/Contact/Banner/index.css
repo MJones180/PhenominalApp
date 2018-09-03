@@ -1,0 +1,24 @@
+.container {
+  padding: 175px 0;
+  @media $l_min {
+    padding: 350px 0;
+  }
+  @media min($size_l_max) {
+    margin-top: 30px;
+  }
+  @mixin parallaxBackdrop assets/Backgrounds/Contact.jpg;
+}
+.center {
+  text-align: center;
+}
+.text {
+  display: inline-block;
+  padding: 5px;
+  color: white;
+  background-color: $blacken50;
+  box-decoration-break: clone;
+  box-shadow: 0 0 1px 5px $blacken50;
+  @media $s_max {
+    box-shadow: 0 0;
+  }
+}

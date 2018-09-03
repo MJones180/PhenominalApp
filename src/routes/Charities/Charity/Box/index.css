@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto;
+  @media $s_max {
+    width: $size_s_min;
+    padding: 60px 10px;
+  }
+  @media $m_min {
+    width: 650px;
+    padding: 80px 30px;
+  }
+  @media $l_min {
+    width: 800px;
+  }
+}
+.title {
+  text-align: center;
+}

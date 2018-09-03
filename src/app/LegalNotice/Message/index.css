@@ -1,0 +1,9 @@
+.message {
+  @media $s_max {
+    max-width: 300px;
+    margin: auto;
+  }
+  @media $m_min {
+    max-width: 550px;
+  }
+}

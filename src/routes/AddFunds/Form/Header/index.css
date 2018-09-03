@@ -1,0 +1,15 @@
+.header {
+  margin-bottom: 30px;
+  @media $s_max {
+    text-align: center;
+  }
+  @media $m_min {
+    display: flex;
+    align-items: center;
+  }
+}
+.title {
+  @media $m_min {
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,10 @@
+.container {
+  max-width: 625px;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+  & img {
+    width: 100%;
+    margin-top: 15px;
+  }
+}

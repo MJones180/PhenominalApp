@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+  color: $stone;
+  &[class*="general"] {
+    color: $azure;
+    border-bottom: 1px solid $azure;
+    &:hover, &:active {
+      color: $darkAzure;
+      border-bottom: 1px solid $darkAzure;
+    }
+    &:active {
+      border-bottom: 2px solid $darkAzure;
+    }
+  }
+}

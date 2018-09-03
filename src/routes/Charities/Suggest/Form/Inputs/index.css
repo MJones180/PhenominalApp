@@ -1,0 +1,15 @@
+.container {
+  margin: 15px auto 30px;
+  @media $m_max {
+    width: 100%;
+    max-width: 450px;
+  }
+  @media $l_min {
+    width: 600px;
+  }
+}
+.checkbox {
+  @media $m_min {
+    text-align: center;
+  }
+}

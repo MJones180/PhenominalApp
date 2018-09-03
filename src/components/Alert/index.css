@@ -1,0 +1,12 @@
+.container {
+  font-family: inherit;
+  font-size: 18px;
+  padding: 15px;
+  box-shadow: $shadowLarge $darkStone;
+}
+.stone {
+  color: $stone;
+}
+.white {
+  color: white;
+}

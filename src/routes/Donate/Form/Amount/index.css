@@ -1,0 +1,9 @@
+.container {
+  padding: 30px;
+}
+.header {
+  padding-bottom: 15px;
+  @media $m_min {
+    display: flex;
+  }
+}

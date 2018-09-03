@@ -1,0 +1,28 @@
+$innerHeight: 25px;
+$outerPadding: 15px;
+.container {
+  height: calc(($outerPadding * 2) + $innerHeight);
+  padding: $outerPadding;
+  background-color: $eggshell;
+  box-shadow: $shadow $darkStone;
+}
+.background {
+  height: $innerHeight;
+  background-color: white;
+}
+.bar {
+  position: relative;
+  height: $innerHeight;
+  margin: -$innerHeight 0;
+  background-color: $sand;
+}
+.text {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: $innerHeight;
+  position: relative;
+  height: $innerHeight;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px white;
+}

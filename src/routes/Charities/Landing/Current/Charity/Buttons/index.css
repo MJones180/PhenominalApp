@@ -1,0 +1,15 @@
+.buttons {
+  display: flex;
+  padding: 15px 0 10px;
+  @media $m_only {
+    padding: 10px 0 20px 15px;
+  }
+  @media $l_min {
+    & a, & a:active {
+      box-shadow: none !important;
+    }
+  }
+}
+.button {
+  margin-right: 15px;
+}

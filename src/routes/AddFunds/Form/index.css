@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+  padding: 30px;
+  @media $m_max {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media $l_min {
+    width: 600px;
+  }
+}

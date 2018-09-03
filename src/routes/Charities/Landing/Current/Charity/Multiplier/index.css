@@ -1,0 +1,45 @@
+.tag {
+  @media $s_max {
+    font-size: 15px;
+    margin: -10px 0 10px;
+    text-align: center;
+    color: $sand;
+  }
+  @media $m_min {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background-color: $sand;
+  }
+  @media $m_only {
+    font-size: 16px;
+    right: 0;
+    padding: 5px 0 0 5px;
+    border-top-left-radius: $radius;
+  }
+  @media $l_min {
+    font-size: 18px;
+    left: 0;
+    padding: 10px 10px 0 0;
+    border-top-right-radius: $radius;
+  }
+}
+.multiplier {
+  font-weight: 700;
+}
+.sponsor {
+  @media $s_max {
+    color: $sand;
+    border-bottom: 1px solid $sand;
+    &:hover {
+      border-bottom: 2px solid $sand;
+    }
+  }
+  @media $m_min {
+    color: white;
+    border-bottom: 1px solid white;
+    &:hover {
+      border-bottom: 2px solid white;
+    }
+  }
+}

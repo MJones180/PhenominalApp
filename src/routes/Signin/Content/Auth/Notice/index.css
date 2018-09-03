@@ -1,0 +1,7 @@
+.container {
+  padding: 0 10px 10px;
+  & p {
+    font-weight: 200;
+    line-height: 18px;
+  }
+}

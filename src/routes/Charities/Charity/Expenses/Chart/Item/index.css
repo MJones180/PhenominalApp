@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.name {
+  padding: 5px;
+  text-align: left;
+  @media $s_max {
+    width: 160px;
+  }
+  @media $m_only {
+    width: 180px;
+  }
+  @media $l_min {
+    width: 200px;
+  }
+}
+.value {
+  padding-left: 5px;
+  color: $azure;
+}

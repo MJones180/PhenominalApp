@@ -1,0 +1,38 @@
+.container {
+  @media $s_max {
+    display: flex;
+    order: 1;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+.user {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 66px;
+  overflow: hidden;
+  min-width: 95px;
+  max-width: 175px;
+  height: 70px;
+  padding: 0 15px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: white;
+  border: 2px solid white;
+  background-color: $lighten10;
+  box-shadow: $shadow $darkStone;
+  &:hover {
+    color: $azure;
+    background-color: white;
+  }
+  &:active {
+    box-shadow: $shadowLarge $darkStone;
+  }
+  @media $m_min {
+    margin-top: 22.5px;
+    margin-left: 15px;
+  }
+}

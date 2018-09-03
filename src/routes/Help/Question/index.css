@@ -1,0 +1,29 @@
+.item {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  @media $s_max {
+    max-width: 450px;
+  }
+}
+.title {
+  cursor: pointer;
+  &:hover {
+    color: $darkStone;
+  }
+}
+.activeTitle * {
+  color: $azure;
+  &:hover {
+    color: $darkAzure;
+  }
+}
+.content {
+  padding: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $azure;
+  @media $s_max {
+    padding: 15px 0;
+  }
+}

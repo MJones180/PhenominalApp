@@ -1,0 +1,14 @@
+.container {
+  padding: 30px;
+}
+.message {
+  font-weight: 200;
+  text-align: center;
+  & span {
+    font-weight: 400;
+    color: $sand;
+  }
+}
+.button {
+  margin-top: 15px;
+}

@@ -1,0 +1,34 @@
+.centerLegend {
+  @media $s_max {
+    text-align: center;
+  }
+}
+.legend {
+  list-style: none;
+  @media $s_max {
+    display: inline-block;
+    margin-top: 15px;
+  }
+  @media $m_min {
+    padding-left: 20px;
+  }
+}
+.program {
+  border: 1px solid $sand;
+  border-left: 35px solid $sand;
+}
+.administrative {
+  margin-top: 2px;
+  border: 1px solid $darkSand;
+  border-left: 35px solid $darkSand;
+}
+.fundraising {
+  margin-top: 2px;
+  border: 1px solid $stone;
+  border-left: 35px solid $stone;
+}
+.other {
+  margin-top: 2px;
+  border: 1px solid $darkAzure;
+  border-left: 35px solid $darkAzure;
+}

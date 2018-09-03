@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  @media $m_only {
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+  @media $l_only {
+    width: 1000px;
+  }
+}
+.box {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid $stone;
+  border-radius: $radius;
+  background-color: $eggshell;
+  &:hover {
+    box-shadow: 0 0 0 5px white, 0 0 0 7px $azure;
+  }
+}
+.date {
+  margin-bottom: -5px;
+  padding: 15px;
+  color: $azure;
+}
+.charities li {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 5px 0 10px 0;
+  padding: 10px;
+  list-style: none;
+  border-top: 1px solid $stone;
+  border-bottom: 1px solid $stone;
+  background-color: white;
+  &:hover {
+    color: $azure;
+    border-top: 1px solid $azure;
+    border-bottom: 1px solid $azure;
+  }
+}

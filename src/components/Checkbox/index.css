@@ -1,0 +1,50 @@
+$stoneOutline: 0 0 0 2px white, 0 0 0 4px $stone;
+$azureOutline: 0 0 0 2px white, 0 0 0 4px $azure;
+.checkbox {
+  margin-top: 10px;
+  user-select: none;
+  label {
+    &:hover {
+      cursor: pointer;
+      & span {
+        box-shadow: $stoneOutline;
+      }
+      & input:checked + span {
+        box-shadow: $azureOutline;
+      }
+    }
+    &:active {
+      & span {
+        box-shadow: $azureOutline;
+      }
+      & input:checked + span {
+        box-shadow: $stoneOutline;
+      }
+    }
+  }
+  input {
+    display: none;
+    &:checked + span {
+      border: 1px solid $azure;
+      background-color: $azure;
+    }
+    &:checked ~ p {
+      color: $azure;
+    }
+  }
+  span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid $stone;
+    border-radius: $radius;
+    background-color: white;
+  }
+  p {
+    font-size: 20px;
+    line-height: inherit;
+    display: inline;
+    padding-left: 5px;
+    vertical-align: top;
+  }
+}

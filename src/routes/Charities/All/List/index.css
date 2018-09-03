@@ -1,0 +1,27 @@
+.container {
+  margin-top: 20px;
+}
+@media $s_max {
+  .name {
+    width: 70%;
+  }
+  .ein {
+    width: 30%;
+  }
+}
+@media $m_only {
+  .name {
+    width: 75%;
+  }
+  .ein {
+    width: 25%;
+  }
+}
+@media $l_min {
+  .name {
+    width: 80%;
+  }
+  .ein {
+    width: 20%;
+  }
+}

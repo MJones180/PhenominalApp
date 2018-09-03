@@ -1,0 +1,22 @@
+.container {
+  @media $s_max {
+    padding: 60px 10px 30px 10px;
+  }
+  @media $m_min {
+    padding: 80px 30px 40px 30px;
+  }
+}
+.chart {
+  @media $s_max {
+    padding-top: 25px;
+    & canvas {
+      margin: 0 auto;
+    }
+  }
+  @media $m_min {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+  }
+}

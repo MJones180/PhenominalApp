@@ -1,0 +1,21 @@
+.container {
+  padding: 175px 0;
+  @media $l_min {
+    padding: 350px 0;
+  }
+  @media min($size_l_max) {
+    margin: 30px 0;
+  }
+  @mixin parallaxBackdrop assets/Backgrounds/NotFound.jpg;
+}
+.content {
+  padding: 75px 50px;
+  color: white;
+  background-color: $blacken50;
+  @media $s_max {
+    text-align: center;
+  }
+}
+.title {
+  font-weight: 200;
+}

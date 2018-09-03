@@ -1,0 +1,23 @@
+.percentage {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+  padding: 10px 0;
+  & p {
+    padding: 5px;
+    padding-left: 0;
+  }
+  & div {
+    width: 100%;
+    border: 1px solid $sand;
+    border-radius: $radiusLarge;
+  }
+  & span {
+    display: block;
+    max-width: 100%;
+    height: 5px;
+    border-radius: $radiusLarge;
+    background-color: $sand;
+  }
+}

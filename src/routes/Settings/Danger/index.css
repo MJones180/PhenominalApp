@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+  padding: 30px;
+  background-color: $eggshell;
+  @mixin extendBackground $eggshell;
+}
+.info {
+  max-width: 600px;
+  margin: 0 auto 15px;
+  text-align: center;
+}

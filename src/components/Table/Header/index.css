@@ -1,0 +1,27 @@
+.header {
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border-bottom: 2px solid $azure;
+  & div {
+    display: flex;
+    align-items: center;
+  }
+  & * {
+    color: $azure;
+  }
+}
+.arrowDown, .arrowUp {
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+.arrowDown {
+  border-top: 5px solid $azure;
+}
+.arrowUp {
+  border-bottom: 5px solid $azure;
+}

@@ -1,0 +1,20 @@
+.name {
+  @media $s_max {
+    & div {
+      margin-top: 15px;
+    }
+  }
+  @media $m_min {
+    display: flex;
+    margin-top: 15px;
+    & div {
+      width: 50%;
+      &:first-of-type {
+        padding-right: 15px;
+      }
+      &:last-of-type {
+        padding-left: 15px;
+      }
+    }
+  }
+}

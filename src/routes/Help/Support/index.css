@@ -1,0 +1,12 @@
+.text {
+  margin-top: 15px;
+  & a {
+    color: $azure;
+    &:hover {
+      color: $darkAzure;
+    }
+    &:focus {
+      border-bottom: 1px solid $darkAzure;
+    }
+  }
+}

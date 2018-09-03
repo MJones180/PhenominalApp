@@ -1,0 +1,16 @@
+.mission {
+  margin-bottom: 10px;
+  white-space: pre-line;
+  @media $m_min {
+    overflow-y: auto;
+    max-height: 90px;
+  }
+  @media $l_min {
+    color: white;
+  }
+}
+.url {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 3px 5px;
+}

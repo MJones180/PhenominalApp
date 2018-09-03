@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: white;
+}
+.bgEggshell {
+  background-color: $eggshell;
+}
+.textarea textarea {
+  height: 110px;
+  min-height: 55px;
+  max-height: 550px;
+  resize: vertical;
+}
+.error {
+  order: 3;
+}
+.errorActive ~ .input {
+  border: 2px solid $coral;
+}
+.input {
+  font-size: 18px;
+  line-height: 18px;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  color: $stone;
+  border: 2px solid $stone;
+  border-radius: $radius;
+  background-color: inherit;
+  &.optional {
+    border-style: dashed;
+  }
+  &:hover, &:focus {
+    border: 2px solid $azure;
+  }
+  &:focus {
+    color: $azure;
+    outline: 0;
+  }
+  &:focus ~ label, &.notEmpty ~ label {
+    font-size: 14px;
+    line-height: 15px;
+    margin-top: -5px;
+  }
+}
+.label {
+  font-size: 20px;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: .2s ease all;
+  color: $stone;
+  background-color: inherit;
+}

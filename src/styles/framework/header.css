@@ -1,0 +1,89 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: .5px;
+  &[class*="general"] {
+    text-transform: uppercase;
+    color: $azure;
+    @media $s_max {
+      text-align: center;
+    }
+  }
+}
+@media $s_max {
+  h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 64px;
+  }
+  h3 {
+    font-size: 26px;
+    line-height: 52px;
+  }
+  h4 {
+    font-size: 20px;
+    line-height: 40px;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  h6 {
+    font-size: 8px;
+    line-height: 16px;
+  }
+}
+@media $m_only {
+  h1 {
+    font-size: 65px;
+    line-height: 65px;
+  }
+  h2 {
+    font-size: 42px;
+    line-height: 84px;
+  }
+  h3 {
+    font-size: 28px;
+    line-height: 56px;
+  }
+  h4 {
+    font-size: 22px;
+    line-height: 44px;
+  }
+  h5 {
+    font-size: 16px;
+    line-height: 32px;
+  }
+  h6 {
+    font-size: 10px;
+    line-height: 20px;
+  }
+}
+@media $l_min {
+  h1 {
+    font-size: 80px;
+    line-height: 80px;
+  }
+  h2 {
+    font-size: 50px;
+    line-height: 100px;
+  }
+  h3 {
+    font-size: 30px;
+    line-height: 60px;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 48px;
+  }
+  h5 {
+    font-size: 18px;
+    line-height: 36px;
+  }
+  h6 {
+    font-size: 12px;
+    line-height: 24px;
+  }
+}

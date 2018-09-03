@@ -1,0 +1,29 @@
+.box {
+  margin-bottom: 10px;
+  @media $m_min {
+    display: flex;
+  }
+}
+.title {
+  font-weight: 700;
+  @media $s_max {
+    width: 100%;
+  }
+  @media $m_min {
+    width: 175px;
+  }
+  @media $l_min {
+    width: 200px;
+  }
+}
+.content {
+  @media $s_max {
+    width: 100%;
+  }
+  @media $m_min {
+    width: 475px;
+  }
+  @media $l_min {
+    width: 600px;
+  }
+}

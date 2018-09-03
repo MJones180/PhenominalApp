@@ -1,0 +1,38 @@
+$size: 200px;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+.text {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: $size;
+  width: $size;
+  height: $size;
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+.inline {
+  margin: 50px auto;
+}
+.spinner {
+  width: $size;
+  height: $size;
+  margin-top: -$size;
+  animation: spin 2s linear infinite;
+  border: 16px solid $eggshell;
+  border-top: 16px solid $sand;
+  border-radius: 50%;
+  box-shadow: $shadow $darkStone;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

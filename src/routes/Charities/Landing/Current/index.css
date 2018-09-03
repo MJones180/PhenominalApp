@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  background-color: $eggshell;
+  @media $m_min {
+    padding: 0 30px 30px;
+  }
+  @mixin extendBackground $eggshell;
+}
+.header {
+  padding: 25px 0;
+  @media $m_min {
+    display: flex;
+    align-items: center;
+    margin-bottom: -20px;
+  }
+}
+.title {
+  @media $m_min {
+    margin-right: auto;
+  }
+}

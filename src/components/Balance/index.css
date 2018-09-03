@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  @media $s_max {
+    justify-content: center;
+  }
+  @media $m_min {
+    margin-left: auto;
+  }
+}
+.button {
+  margin-right: 15px;
+}
+.withButton {
+  border-left: 1px solid $stone;
+}
+.balance {
+  font-size: 12px;
+  line-height: normal;
+  padding: 5px 10px;
+  & span {
+    font-size: 18px;
+    display: block;
+    color: $sand;
+  }
+}

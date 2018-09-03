@@ -1,0 +1,7 @@
+.text {
+  margin-top: 15px;
+  @media $s_max {
+    padding: 0 15px;
+    text-align: center;
+  }
+}

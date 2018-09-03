@@ -1,0 +1,44 @@
+.container {
+  & h2, & h3, & h4 {
+    color: $azure;
+  }
+  & h3 {
+    padding-left: 15px;
+    @media $s_max {
+      border-left: 3px solid $azure;
+    }
+    @media $m_min {
+      border-left: 5px solid $azure;
+    }
+  }
+  & h4, & > p, & ul {
+    margin-top: 15px;
+  }
+  & li {
+    display: flex;
+    align-items: baseline;
+    margin-top: 5px;
+    &::before {
+      padding-right: 15px;
+      content: "\2022";
+    }
+  }
+  & hr {
+    margin: 20px auto;
+    border: 0;
+    border-top: 1px solid $azure;
+  }
+}
+.header {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  @media $s_max {
+    border-left: 3px solid $azure;
+  }
+  @media $m_min {
+    border-left: 5px solid $azure;
+  }
+}
+.title {
+  line-height: unset;
+}

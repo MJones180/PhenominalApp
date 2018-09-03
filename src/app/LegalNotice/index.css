@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  z-index: 100000;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: $shadowLarge $stone;
+  @media $s_max {
+    padding: 15px;
+    text-align: center;
+  }
+  @media $m_min {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+  }
+}
+.button {
+  @media $s_max {
+    margin-top: 10px;
+  }
+  @media $m_min {
+    margin-left: 30px;
+  }
+}

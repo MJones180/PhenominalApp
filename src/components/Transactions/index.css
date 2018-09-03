@@ -1,0 +1,51 @@
+@media $s_max {
+  .date {
+    width: 18%;
+  }
+  .type {
+    width: 15%;
+  }
+  .amount {
+    width: 16%;
+  }
+  .balance {
+    width: 16%;
+  }
+  .event {
+    width: 35%;
+  }
+}
+@media $m_only {
+  .date {
+    width: 15%;
+  }
+  .type {
+    width: 15%;
+  }
+  .amount {
+    width: 16%;
+  }
+  .balance {
+    width: 16%;
+  }
+  .event {
+    width: 38%;
+  }
+}
+@media $l_min {
+  .date {
+    width: 12%;
+  }
+  .type {
+    width: 12%;
+  }
+  .amount {
+    width: 15%;
+  }
+  .balance {
+    width: 15%;
+  }
+  .event {
+    width: 56%;
+  }
+}

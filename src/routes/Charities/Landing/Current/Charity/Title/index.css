@@ -1,0 +1,14 @@
+.title {
+  line-height: 30px;
+  & abbr {
+    font-weight: 200;
+  }
+  @media $m_only {
+    margin-bottom: -10px;
+    padding-top: 20px;
+    text-align: center;
+  }
+  @media $l_min {
+    color: white;
+  }
+}

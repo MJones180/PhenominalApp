@@ -1,0 +1,18 @@
+.container {
+  padding: 30px;
+  @media $s_max {
+    text-align: center;
+  }
+  @media $m_min {
+    display: flex;
+    align-items: center;
+  }
+}
+.title {
+  @media $s_max {
+    padding-bottom: 15px;
+  }
+  @media $m_min {
+    padding: 25px 25px 25px 0;
+  }
+}

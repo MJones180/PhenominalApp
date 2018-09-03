@@ -1,0 +1,11 @@
+.container {
+  @media $s_max {
+    padding: 30px 0;
+    text-align: center;
+  }
+  @media $m_min {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+  }
+}

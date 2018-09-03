@@ -1,0 +1,58 @@
+.charity {
+  position: relative;
+  display: flex;
+  @media $m_min {
+    margin-top: 20px;
+    border: 1px solid $stone;
+    &:hover {
+      transform: scale(1.005);
+    }
+  }
+  @media $m_only {
+    background-color: white;
+  }
+  @media $m_max {
+    flex-direction: column;
+  }
+  @media $l_min {
+    margin-top: 20px;
+  }
+}
+.multiplier {
+  @media $s_max {
+    border-top: 5px solid $sand;
+    border-bottom: 5px solid $sand;
+  }
+  @media $m_only {
+    border: 5px solid $sand;
+    outline: 1px solid $stone;
+  }
+  @media $l_min {
+    border: 10px solid $sand;
+    outline: 1px solid $stone;
+  }
+}
+.content {
+  @media $s_max {
+    width: $size_s_min;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  @media $m_only {
+    width: 675px;
+    margin: 0 auto;
+  }
+  @media $l_min {
+    right: 0;
+    display: flex;
+    width: 500px;
+    margin-left: -500px;
+    padding: 8px 30px;
+    color: white;
+    background-color: color(black alpha(75%));
+    & .contentCenter {
+      align-self: center;
+      width: 100%;
+    }
+  }
+}

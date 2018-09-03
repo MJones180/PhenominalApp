@@ -1,0 +1,8 @@
+.error {
+  font-size: 14px;
+  line-height: 24px;
+  color: $coral;
+  &:before {
+    content: "\200b";
+  }
+}

@@ -1,0 +1,19 @@
+.logo {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 15px auto 30px;
+  @media $s_max {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+.mission {
+  white-space: pre-line;
+}
+.lastUpdated {
+  padding-top: 15px;
+  & span {
+    font-weight: 700;
+  }
+}

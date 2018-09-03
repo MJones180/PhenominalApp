@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0;
+  border: 1px solid $stone;
+  background-color: color($sand lightness(95%));
+  box-shadow: $shadow $stone;
+  @media $s_max {
+    width: 325px;
+  }
+}
+.stats {
+  display: flex;
+  border-bottom: 1px solid $stone;
+  background-color: white;
+  @media $s_max {
+    flex-wrap: wrap;
+  }
+}
