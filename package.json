@@ -34,6 +34,7 @@
     "react-toastify": "^3.3.4",
     "react-typist": "^2.0.4",
     "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.5",
     "yup": "^0.25.1"
   },
   "devDependencies": {
