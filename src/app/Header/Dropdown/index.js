@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import signout from 'utils/auth/signout';
 import styles from './index.css';
 
-export default ({ dropdownClick }) => (
+export default ({ dropdownClick, hideDropdown }) => (
   <div onClick={dropdownClick} className={styles.dropdown}>
-    <Link to={'/profile'}>
+    <Link onClick={() => hideDropdown()} to={'/profile'}>
       Profile
     </Link>
-    <Link to="/settings">
+    <Link onClick={() => hideDropdown()} to="/settings">
       Settings
     </Link>
     <div onClick={() => signout()}>

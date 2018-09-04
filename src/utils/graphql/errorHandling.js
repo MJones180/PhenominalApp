@@ -14,4 +14,5 @@ const unauthUser = () => {
 module.exports = {
   CorruptAuthToken: unauthUser,
   InvalidUser: unauthUser,
+  NotAuthenticated: unauthUser,
 };

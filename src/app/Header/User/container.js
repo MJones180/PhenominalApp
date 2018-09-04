@@ -10,6 +10,7 @@ export default Component => currentUser(
       super(props);
       // Bind `this` to all class functions, makes them callable
       this.setDropdownClicked = this.setDropdownClicked.bind(this);
+      this.setHideDropdown = this.setHideDropdown.bind(this);
       this.handleClick = this.handleClick.bind(this);
       this.click = this.click.bind(this);
       // Initial State
@@ -22,6 +23,13 @@ export default Component => currentUser(
     setDropdownClicked(bool) {
       this.setState({
         dropdownClicked: bool,
+      });
+    }
+    // Hide the dropdown
+    setHideDropdown() {
+      this.handleClick();
+      this.setState({
+        dropdownVisible: false,
       });
     }
     // Check whether the dropdown should be displayed or not
@@ -54,6 +62,7 @@ export default Component => currentUser(
           click={this.click}
           displayDropdown={dropdownVisible}
           dropdownClick={() => this.setDropdownClicked(true)}
+          hideDropdown={() => this.setHideDropdown()}
           name={`${user.nameFirst} ${user.nameLast}`}
         />
       );

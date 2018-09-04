@@ -124,8 +124,8 @@ module.exports = (env = {}, { mode }) => {
     // Strip out "locale" from the moment.js library while keeping "en"
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
     new MiniCssExtractPlugin({
-      filename: __DEV__ ? '[name].css' : '[name].[hash].css',
-      chunkFilename: __DEV__ ? '[id].css' : '[id].[hash].css',
+      filename: __DEV__ ? '[name].css' : 'assets/css/[name].[hash].css',
+      chunkFilename: __DEV__ ? '[id].css' : 'assets/css/[id].[hash].css',
     }),
   ];
 
@@ -139,7 +139,16 @@ module.exports = (env = {}, { mode }) => {
   // Production only plugins
   if (__PROD__) {
     plugins.push(
-      new FaviconsWebpackPlugin(paths.root('favicon.png')),
+      new FaviconsWebpackPlugin({
+        background: require(`${paths.src('styles/variables')}`).darkAzure,
+        emitStats: false,
+        inject: true,
+        logo: paths.root('favicon.png'),
+        persistentCache: true,
+        prefix: 'icons-[hash]/',
+        statsFilename: 'iconstats-[hash].json',
+        title: 'Phenominal',
+      }),
       new CopyWebpackPlugin([{
         from: './static',
         to: './',
@@ -171,8 +180,8 @@ module.exports = (env = {}, { mode }) => {
       rules,
     },
     output: {
-      chunkFilename: __DEV__ ? '[id].js' : '[id].[chunkhash].js',
-      filename: __DEV__ ? '[name].js' : '[name].[chunkhash].js',
+      chunkFilename: __DEV__ ? '[id].js' : 'assets/js/[id].[chunkhash].js',
+      filename: __DEV__ ? '[name].js' : 'assets/js/[name].[chunkhash].js',
       path: paths.root('dist'),
       publicPath: '/',
     },
