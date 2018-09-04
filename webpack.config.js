@@ -2,6 +2,7 @@ const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssClean = require('postcss-clean');
@@ -138,7 +139,11 @@ module.exports = (env = {}, { mode }) => {
   // Production only plugins
   if (__PROD__) {
     plugins.push(
-      new FaviconsWebpackPlugin(paths.root('favicon.png'))
+      new FaviconsWebpackPlugin(paths.root('favicon.png')),
+      new CopyWebpackPlugin([{
+        from: './static',
+        to: './',
+      }])
     );
   }
 
