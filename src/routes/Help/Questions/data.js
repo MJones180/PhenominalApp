@@ -12,7 +12,7 @@ export default [{
 }, {
   title: 'How does the charity rotation work?',
   content: `
-    Every Sunday at 12:01 AM (EST) new charities will be available.
+    Every Tuesday at 12:01 AM (UTC) new charities will be available.
     Along with this, the current charities will no longer be up for donations.
     When natural disasters and such occur a special event may be added as well.
   `,
