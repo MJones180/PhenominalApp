@@ -44,7 +44,11 @@ module.exports = (env = {}, { mode }) => {
             'babel-plugin-transform-runtime',
           ],
           presets: [
-            'babel-preset-env',
+            ['babel-preset-env', {
+              targets: {
+                browsers: ['>0.25%'],
+              },
+            }],
             'babel-preset-react',
           ],
         },
