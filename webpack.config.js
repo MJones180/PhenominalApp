@@ -46,7 +46,7 @@ module.exports = (env = {}, { mode }) => {
           presets: [
             ['babel-preset-env', {
               targets: {
-                browsers: ['>0.25%'],
+                browsers: ['>0.25%', 'ie 11'],
               },
             }],
             'babel-preset-react',
