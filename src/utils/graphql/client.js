@@ -27,11 +27,8 @@ export default (str, vars) => {
       // Handle the error if necessary
       const handler = errorHandling[errorCode];
       if (handler) handler();
-      // Only in dev mode
-      if (__DEV__) {
-        // Log each error
-        _.forEach(errors, error => console.log('GraphQL Error: ', error));
-      }
+      // Log each error
+      _.forEach(errors, error => console.log('GraphQL Error: ', error));
       return { errors };
     });
 };
