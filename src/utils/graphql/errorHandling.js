@@ -11,7 +11,7 @@ const unauthUser = () => {
   push('/signin');
 };
 
-module.exports = {
+export default {
   CorruptAuthToken: unauthUser,
   InvalidUser: unauthUser,
   NotAuthenticated: unauthUser,

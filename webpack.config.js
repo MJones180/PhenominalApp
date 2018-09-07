@@ -34,18 +34,20 @@ module.exports = (env = {}, { mode }) => {
       use: [{
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
           plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/plugin-proposal-object-rest-spread',
+            '@babel/plugin-syntax-dynamic-import',
+            '@babel/plugin-transform-runtime',
             'babel-plugin-graphql-tag',
             'babel-plugin-lodash',
-            'babel-plugin-syntax-dynamic-import',
-            'babel-plugin-transform-class-properties',
-            'babel-plugin-transform-object-rest-spread',
-            'babel-plugin-transform-runtime',
           ],
           presets: [
-            'babel-preset-env',
-            'babel-preset-react',
+            ['@babel/preset-env', {
+              targets: '> 0.25%, not dead',
+              modules: 'commonjs',
+            }],
+            '@babel/preset-react',
           ],
         },
       }],
