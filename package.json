@@ -13,6 +13,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "chart.js": "^2.7.1",
+    "detect-browser": "^3.0.0",
     "formik": "^1.0.1",
     "graphql-anywhere": "^4.1.8",
     "graphql-request": "^1.5.1",

@@ -43,10 +43,7 @@ module.exports = (env = {}, { mode }) => {
             'babel-plugin-lodash',
           ],
           presets: [
-            ['@babel/preset-env', {
-              targets: '> 0.25%, not dead',
-              modules: 'commonjs',
-            }],
+            '@babel/preset-env',
             '@babel/preset-react',
           ],
         },

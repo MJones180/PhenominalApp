@@ -22,7 +22,7 @@ export default class extends React.Component {
   }
   render() {
     if (this.state.error) {
-      return <FatalError message="Oops, something went wrong :(" />;
+      return <FatalError message="Something went wrong, please wait and try again." />;
     }
     return this.props.children;
   }
