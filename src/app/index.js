@@ -17,8 +17,8 @@ import Header from './Header';
 import Footer from './Footer';
 
 export default () => (
-  <ErrorBoundary>
-    <BrowserCompatibility>
+  <BrowserCompatibility>
+    <ErrorBoundary>
       <Provider store={store}>
         <Router history={history}>
           <ScrollToTop>
@@ -37,6 +37,6 @@ export default () => (
           </ScrollToTop>
         </Router>
       </Provider>
-    </BrowserCompatibility>
-  </ErrorBoundary>
+    </ErrorBoundary>
+  </BrowserCompatibility>
 );
