@@ -34,11 +34,16 @@ export default [{
   content: `
     Money can be added to your account with the "Add Funds" buttons located throughout the site.
     Please note, these buttons will not be visible if you are not signed in.
-    Currently, all payments will be processed with Stripe.
+    Currently, all payments will be processed through Stripe.
   `,
 }, {
   title: 'When are the proceeds donated to the charities?',
   content: `
     At the end of every month all of the money raised will be sent to the corresponding charities.
+  `,
+}, {
+  title: 'Does Phenominal keep any portion of the donation?',
+  content: `
+    No. Phenominal donates 100% of all donations received.
   `,
 }];

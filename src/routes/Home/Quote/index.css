@@ -8,6 +8,7 @@
 }
 .quote {
   text-align: center;
+  color: $azure;
   &::before {
     content: "\201C";
   }
