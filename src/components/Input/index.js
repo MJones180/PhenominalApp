@@ -52,7 +52,7 @@ export const CurrencyInput = connect(({ formik: { handleBlur, setFieldValue, val
     // Necessary to signify the input has been touched
     onBlur: handleBlur,
     // Update the state with the value in pennies
-    onChange: (event, formattedValue, rawValue) => setFieldValue(props.name, _.round(rawValue * 100)),
+    onChangeEvent: (event, formattedValue, rawValue) => setFieldValue(props.name, _.round(rawValue * 100)),
     prefix: '$',
     // Convert back to a float
     value: values[props.name] / 100,

@@ -24,7 +24,7 @@
     "react": "^16.1.0",
     "react-chartjs-2": "^2.6.2",
     "react-collapsible": "^2.0.4",
-    "react-currency-input": "1.2.6",
+    "react-currency-input": "git+https://github.com/jsillitoe/react-currency-input.git",
     "react-dom": "^16.1.0",
     "react-facebook-login": "^4.0.1",
     "react-google-login": "^3.0.10",
