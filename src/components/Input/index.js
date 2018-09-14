@@ -47,10 +47,10 @@ export const BasicInput = ({ onChange, value, ...props }) => (
 );
 
 // A connected input that handles formatted currency
-export const CurrencyInput = connect(({ formik: { handleBlur, setFieldValue, values }, ...props }) => (
+export const CurrencyInput = connect(({ formik: { setFieldTouched, setFieldValue, values }, ...props }) => (
   Input(props, Currency, {
     // Necessary to signify the input has been touched
-    onBlur: handleBlur,
+    onBlur: () => setFieldTouched(props.name),
     // Update the state with the value in pennies
     onChangeEvent: (event, formattedValue, rawValue) => setFieldValue(props.name, _.round(rawValue * 100)),
     prefix: '$',
