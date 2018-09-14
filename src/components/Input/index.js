@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'formik';
-import Currency from 'react-currency-input';
+import Currency from 'react-intl-currency-input';
 import FormError from 'components/FormError';
 import styles from './index.css';
 
@@ -47,13 +47,12 @@ export const BasicInput = ({ onChange, value, ...props }) => (
 );
 
 // A connected input that handles formatted currency
-export const CurrencyInput = connect(({ formik: { setFieldTouched, setFieldValue, values }, ...props }) => (
+export const CurrencyInput = connect(({ formik: { handleBlur, setFieldValue, values }, ...props }) => (
   Input(props, Currency, {
     // Necessary to signify the input has been touched
-    onBlur: () => setFieldTouched(props.name),
+    onBlur: handleBlur,
     // Update the state with the value in pennies
-    onChangeEvent: (event, formattedValue, rawValue) => setFieldValue(props.name, _.round(rawValue * 100)),
-    prefix: '$',
+    onChange: (event, value) => setFieldValue(props.name, _.round(value * 100)),
     // Convert back to a float
     value: values[props.name] / 100,
   })
