@@ -1,11 +1,10 @@
 import React from 'react';
-import _ from 'lodash';
 import { connect } from 'formik';
-import Currency from 'react-intl-currency-input';
+import { currency as formatCurrency } from 'utils/number';
 import FormError from 'components/FormError';
 import styles from './index.css';
 
-const Input = ({ className, disableErrors, eggshell, label, name, optional }, InputType, InputProps) => (
+const Input = ({ className, disableErrors, eggshell, label, name, optional }, InputProps, InputType = 'input') => (
   <div className={`${styles.container} ${eggshell && styles.bgEggshell} ${className}`}>
     {!disableErrors && <FormError active={styles.errorActive} className={styles.error} name={name} />}
     <InputType
@@ -21,11 +20,11 @@ const Input = ({ className, disableErrors, eggshell, label, name, optional }, In
 
 // Create a connected input
 const defaultConnected = connect(({ formik: { handleBlur, handleChange, values }, ...props }) => (
-  Input(props, props.InputType || 'input', {
+  Input(props, {
     onBlur: handleBlur,
     onChange: handleChange,
     value: values[props.name],
-  })
+  }, props.InputType)
 ));
 
 // Create an input, connected by default
@@ -40,20 +39,22 @@ export const Textarea = props => defaultConnected({
 
 // A non-connected input for use outside of a form
 export const BasicInput = ({ onChange, value, ...props }) => (
-  Input({ disableErrors: true, ...props }, 'input', {
-    onChange,
-    value,
-  })
+  Input({ disableErrors: true, ...props }, { onChange, value })
 );
 
 // A connected input that handles formatted currency
 export const CurrencyInput = connect(({ formik: { handleBlur, setFieldValue, values }, ...props }) => (
-  Input(props, Currency, {
+  // strips everything that is not a number (positive or negative).
+  Input(props, {
     // Necessary to signify the input has been touched
     onBlur: handleBlur,
-    // Update the state with the value in pennies
-    onChange: (event, value) => setFieldValue(props.name, _.round(value * 100)),
-    // Convert back to a float
-    value: values[props.name] / 100,
+    onChange: (event) => {
+      // Convert to raw number
+      const val = Number(event.target.value.toString().replace(/[^0-9-]/g, ''));
+      // Update the state
+      setFieldValue(props.name, val);
+    },
+    // Format the number as currency for display
+    value: formatCurrency(values[props.name]),
   })
 ));
