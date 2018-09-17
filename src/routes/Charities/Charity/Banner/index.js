@@ -16,9 +16,11 @@ export default ({ data }) => (
       <h2 className={styles.align} key="title">
         <span className={styles.title}>
           {data.name} {' '}
-          <abbr>
-            {data.acronym}
-          </abbr>
+          {data.acronym && (
+            <abbr>
+              {data.acronym}
+            </abbr>
+          )}
         </span>
       </h2>
     </div>
