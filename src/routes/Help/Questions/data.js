@@ -37,7 +37,7 @@ export default [{
 }, {
   title: 'How does the charity rotation work?',
   content: `
-    Every Tuesday at 12:01 AM (UTC) new charities will be available.
+    Every Tuesday at 12:01 AM (UTC) [8:01 PM (EST)] new charities will be available.
     Along with this, the current charities will no longer be up for donations.
     When natural disasters and such occur a special event may be added as well.
   `,
@@ -57,6 +57,6 @@ export default [{
 }, {
   title: 'When are the proceeds donated to the charities?',
   content: `
-    At the end of every month all of the money raised will be sent to the corresponding charities.
+    The aggregate of the money raised for each event will be transfered within 72 hours of the event's ending.
   `,
 }];
