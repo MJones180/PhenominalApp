@@ -57,6 +57,6 @@ export default [{
 }, {
   title: 'When are the proceeds donated to the charities?',
   content: `
-    The aggregate of the money raised for each event will be transfered within 72 hours of the event's ending.
+    The aggregate of the money raised for each event will be sent within 72 hours of the event's ending.
   `,
 }];
