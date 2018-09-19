@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { image } from 'utils/endpoints';
+import Social from './Social';
 import styles from './index.css';
 
 export default () => (
@@ -32,16 +33,11 @@ export default () => (
         </Link>
       </p>
     </div>
-    <div className={styles.socialMedia}>
-      <a className={styles.facebook} href="https://facebook.com/PhenominalFund">
-        <img src={image('logos/SocialMedia_Facebook.svg')} alt="Icon" />
-      </a>
-      <a className={styles.twitter} href="https://twitter.com/PhenominalFund">
-        <img src={image('logos/SocialMedia_Twitter.svg')} alt="Icon" />
-      </a>
-      <a className={styles.youtube} href="https://www.youtube.com/channel/UCPf040JYs-pU5sb-kv_HqEg">
-        <img src={image('logos/SocialMedia_Youtube.svg')} alt="Icon" />
-      </a>
+    <div className={styles.social}>
+      <Social name="Facebook" link="https://facebook.com/PhenominalFund" />
+      <Social name="Twitter" link="https://twitter.com/PhenominalFund" />
+      <Social name="Instagram" link="https://www.instagram.com/phenominalfund/" />
+      <Social name="Youtube" link="https://www.youtube.com/channel/UCPf040JYs-pU5sb-kv_HqEg" />
     </div>
     <p className={styles.copyright}>
       © 2018 Phenominal LLC. All rights reserved.
