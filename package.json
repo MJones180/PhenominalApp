@@ -26,6 +26,7 @@
     "react-collapsible": "^2.0.4",
     "react-dom": "^16.1.0",
     "react-facebook-login": "^4.0.1",
+    "react-ga": "^2.5.3",
     "react-google-login": "^3.0.10",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",

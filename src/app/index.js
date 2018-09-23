@@ -6,10 +6,11 @@ import { Provider } from 'react-redux';
 import store from 'utils/redux';
 import history from 'utils/history';
 import Routes from 'routes';
+import Analytics from './Analytics';
 import AuthWrapper from './AuthWrapper';
 import BrowserCompatibility from './BrowserCompatibility';
 import ErrorBoundary from './ErrorBoundary';
-import HeadTags from './headTags';
+import HeadTags from './RootHeadTags';
 import LegalNotice from './LegalNotice';
 import ScrollToTop from './ScrollToTop';
 import styles from './index.css';
@@ -23,6 +24,7 @@ export default () => (
         <Router history={history}>
           <ScrollToTop>
             <AuthWrapper>
+              <Analytics />
               <HeadTags />
               <ToastContainer />
               <div className={styles.wrapper}>
