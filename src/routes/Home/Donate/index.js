@@ -8,10 +8,10 @@ export default () => (
       Donate what you want.
     </h4>
     <p>
-      It does not matter how much you donate, it is the intention that is valuable.
-      Imagine a thousand donations consisting of two cents each, that would raise two hundred dollars.
-      It does not take a lot to make a difference, instead it takes the pocket change from a group of individuals.
-      At Phenominal there is no minimum donation; let us create change together.
+      The amount donated is not as important as the intention of wanting to help a cause.
+      Phenominal provides a gateway to make this happen by allowing donations of any denomination.
+      When all of the individual donations are totaled together, large sums of money will follow.
+      At Phenominal, there is no minimum donation; let us create change together.
     </p>
     <Button to="/charities" className={styles.button}>
       View Today&apos;s Charities

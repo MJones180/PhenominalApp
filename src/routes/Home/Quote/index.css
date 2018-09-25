@@ -1,10 +1,7 @@
 .container {
-  position: relative;
   max-width: 625px;
   margin: 0 auto;
   padding: 50px 25px;
-  background-color: $eggshell;
-  @mixin extendBackground $eggshell;
 }
 .quote {
   text-align: center;
