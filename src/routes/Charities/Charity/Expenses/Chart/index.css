@@ -32,3 +32,9 @@
   border: 1px solid $darkAzure;
   border-left: 35px solid $darkAzure;
 }
+.lastUpdated {
+  padding-top: 15px;
+  & span {
+    font-weight: 700;
+  }
+}

@@ -4,7 +4,7 @@ import Item from './Item';
 import PieChart from './PieChart';
 import styles from './index.css';
 
-export default Container(({ p, a, f, o }) => ([
+export default Container(({ p, a, f, o, u }) => ([
   <PieChart
     program={p}
     administrative={a}
@@ -19,5 +19,8 @@ export default Container(({ p, a, f, o }) => ([
       <Item className={styles.fundraising} name="Fundraising" value={f} />
       <Item className={styles.other} name="Other" value={o} />
     </ul>
+    <p className={styles.lastUpdated} key="lastUpdated">
+      Expense breakdown last updated <span>{u}</span>.
+    </p>
   </div>,
 ]));

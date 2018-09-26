@@ -6,5 +6,6 @@ export default gql`
     expensesAdministrative
     expensesFundraising
     expensesOther
+    expensesUpdated
   }
 `;
