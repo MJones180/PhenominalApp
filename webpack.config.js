@@ -1,8 +1,8 @@
 const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssClean = require('postcss-clean');
@@ -82,19 +82,6 @@ module.exports = (env = {}, { mode }) => {
             ],
           },
         },
-      ],
-    },
-    // Images
-    {
-      test: /\.(png|jpe?g|svg)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name: 'images/[name].[hash].[ext]',
-          },
-        },
-        'image-webpack-loader',
       ],
     },
   ];

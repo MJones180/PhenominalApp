@@ -10,7 +10,7 @@ module.exports = {
   // =================================
   // Image fetch
   // =================================
-  image: route => `url("images/${route}")`,
+  image: route => `url("https://res.cloudinary.com/phenominal/${route}")`,
 
   // =================================
   // Media Shorthand Functions

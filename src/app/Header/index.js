@@ -7,7 +7,7 @@ import styles from './index.css';
 export default () => (
   <header className={styles.container}>
     <Link to="/" className={styles.logo}>
-      <img src={image('logos/logoFull.png')} alt="Logo" />
+      <img src={image('logos/logoFull.png', { width: 350 })} alt="Logo" />
     </Link>
     <div className={styles.tabs}>
       <Link to="/" className={styles.tab}>
