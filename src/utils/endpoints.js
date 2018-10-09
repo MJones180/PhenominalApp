@@ -6,8 +6,8 @@ export const graphqlBase = __DEV__ ? 'http://localhost:4000' : 'https://phenomin
 export const image = (route, props = {}) => {
   const options = {};
   if (props.width) {
-    options.width = props.width;
     options.crop = 'scale';
+    options.width = props.width;
   }
   return cloudinary.url(route, options);
 };

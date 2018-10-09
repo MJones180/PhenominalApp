@@ -8,7 +8,7 @@ export default () => (
   <footer className={styles.container}>
     <div className={styles.logo}>
       <Link to="/">
-        <img src={image('logos/logoIconBlank.png', { width: 50 })} alt="Icon" />
+        <img src={image('logos/logoIconBlank.png', { width: 100 })} alt="Icon" />
       </Link>
     </div>
     <div className={styles.links}>
