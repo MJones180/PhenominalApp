@@ -2,7 +2,7 @@
 // - PATH: Relative to current file
 // - VERSION: Name of file
 // - OUTPUT: Relative to package.json
-// Example: yarn genLegal ./terms 1.0 ./src/routes/Legal/Documents/Terms.js
+// Example: yarn genLegal ./terms 2.0 ./src/routes/Legal/Documents/Terms.js
 
 const fs = require('fs');
 const _ = require('lodash');
@@ -34,8 +34,10 @@ const transformations = {
 // Inline variables that should be replaced with React
 const replacements = {
   email: '<a className="general" href="mailto:support@phenominal.fund">support@phenominal.fund</a>',
-  terms: '<Link className="general" to="/legal/terms">Terms of Service</Link>',
+  google_analytics: '<a target="_blank" rel="noopener noreferrer" className="general" href="https://www.google.com/analytics/terms/us.html">Google Analytics</a>',
   privacy: '<Link className="general" to="/legal/privacy">Privacy Policy</Link>',
+  stripe_terms: '<a target="_blank" rel="noopener noreferrer" className="general" href="https://stripe.com/us/legal">terms of service</a>',
+  terms: '<Link className="general" to="/legal/terms">Terms of Service</Link>',
 };
 
 // The base template for the new file
