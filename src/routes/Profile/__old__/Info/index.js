@@ -1,9 +1,12 @@
 import React from 'react';
+import Balance from 'components/Balance';
 import Container from './container';
+import Welcome from './Welcome';
 import styles from './index.css';
 
-export default Container(({ data: { currentUser } }) => (
+export default Container(data => (
   <section className={styles.container}>
-    Test: {currentUser.nameFirst} {currentUser.nameLast}
+    <Welcome {...data} />
+    <Balance />
   </section>
 ));

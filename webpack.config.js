@@ -187,6 +187,7 @@ module.exports = (env = {}, { mode }) => {
       contentBase: paths.src(),
       historyApiFallback: true,
       hot: true,
+      https: true,
       lazy: false,
       port: 3000,
       publicPath: '/',

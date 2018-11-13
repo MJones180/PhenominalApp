@@ -15,6 +15,7 @@ export default (provider, token, newUser) => (
           id
           nameFirst
           nameLast
+          username
         }
       }
     `,

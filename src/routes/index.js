@@ -62,8 +62,7 @@ export default () => (
     />
     <Route
       exact
-      path="/profile"
-      requireAuth
+      path="/profile/:username?"
       mod={() => import(/* webpackChunkName: "Profile" */ './Profile')}
     />
     <Route

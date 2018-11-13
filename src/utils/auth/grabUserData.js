@@ -14,6 +14,7 @@ const grabData = () => (
           id
           nameFirst
           nameLast
+          username
         }
       }
     `,

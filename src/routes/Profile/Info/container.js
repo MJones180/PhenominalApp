@@ -1,11 +1,5 @@
-import React from 'react';
-import { prettifyDate } from 'utils/time';
+import frag from './frag';
 
 export default Component => (
-  ({ data }) => (
-    <Component
-      createdAt={prettifyDate(data.createdAt)}
-      name={`${data.nameFirst} ${data.nameLast}`}
-    />
-  )
+  ({ profileQuery }) => profileQuery(frag, Component)
 );

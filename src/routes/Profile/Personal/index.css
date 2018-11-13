@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.transactions {
+  margin-left: auto;
+}
+.settings {
+  margin: 0 15px;
+}

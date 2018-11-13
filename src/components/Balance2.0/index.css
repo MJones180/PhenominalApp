@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: $shadow $stone;
+}
+.button {
+  margin-right: 15px;
+}
+.balance {
+  font-size: 12px;
+  line-height: normal;
+  padding: 0 5px;
+  & span {
+    font-size: 18px;
+    display: block;
+    color: $sand;
+  }
+}
