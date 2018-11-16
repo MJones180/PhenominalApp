@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  width: 180px;
+}
+.boost {
+  line-height: 30px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  margin-bottom: -15px;
+  text-align: center;
+  color: white;
+  border-radius: 100%;
+  background-color: $sand;
+  box-shadow: $shadow $darkStone;
+}
+.picProgress {
+  display: flex;
+  align-items: center;
+}
+.pic {
+  width: 160px;
+  height: 160px;
+  margin-left: -170px;
+  border-radius: 100%;
+  box-shadow: 0 0 2px 2px white, 0 0 10px 10px $darkStone;
+}
+.rank {
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  color: $sand;
+}
+.frac {
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  color: $stone;
+}

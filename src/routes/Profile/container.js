@@ -5,30 +5,32 @@ import query from 'utils/graphql/query';
 
 // Connect to the user state in Redux
 export default Component => currentUser(
-  ({ match, user }) => {
+  ({ match, user: authUser }) => {
     // Bool for whether the user is viewing their own profile
     let ownProfile = true;
-    // Root depends on who is viewing the profile
-    // Default is a user viewing their own profile
-    let queryRoot = 'currentUser';
+    // Grab the requested username from the URL params
+    const { username: requestedUser } = match.params;
+    // The username of the profile being viewed
+    let profileUsername = requestedUser;
+    // User is not viewing their own profile
+    if (requestedUser && (requestedUser != authUser.username)) ownProfile = false;
+    // No profile requested
+    if (!requestedUser) {
+      // No authUser, redirect to signin
+      if (!isAuth()) return <Redirect to="/signin" />;
+      // Set the username from the auth state
+      profileUsername = authUser.username;
+    }
     // The root query
     const profileQuery = (content, Component) => (
       query({
-        query: `query { ${queryRoot} { ${content} } }`,
+        query: `query($username: String) { ${content} }`,
+        variables: {
+          username: profileUsername,
+        },
         Component,
       })
     );
-    // Grab the username from the URL params
-    const { username } = match.params;
-    // If a username is passed and its not the authUsers
-    if (username && (username != user.username)) {
-      // Not the authUser's profile
-      ownProfile = false;
-      // Query to view other profile
-      queryRoot = `user(where: {username: "${username}"} )`;
-    }
-    // No profile requested and no authUser, redirect to signin
-    if (!user && !isAuth()) return <Redirect to="/signin" />;
     // Render the component
     return <Component ownProfile={ownProfile} profileQuery={profileQuery} />;
   }

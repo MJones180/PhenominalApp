@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 45px;
+}
+.stats {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.dots {
+  margin-left: 15px;
+  padding-left: 5px;
+  color: $sand;
+}

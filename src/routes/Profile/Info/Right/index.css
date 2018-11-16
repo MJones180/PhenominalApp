@@ -1,0 +1,10 @@
+.container {
+  width: 425px;
+  margin-left: auto;
+  text-align: right;
+}
+.date {
+  font-weight: bold;
+  margin-top: 15px;
+  color: $darkStone;
+}
