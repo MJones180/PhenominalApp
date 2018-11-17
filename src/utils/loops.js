@@ -46,5 +46,5 @@ export default (loops) => {
   // Loop goal of next stage
   const goal = (index > 0) && stages[index - 1][0];
 
-  return { min, rank, boost, goal, currentLoops: loops };
+  return { min, rank, boost, goal, current: loops };
 };

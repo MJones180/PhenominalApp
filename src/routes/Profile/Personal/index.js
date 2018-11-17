@@ -5,12 +5,14 @@ import styles from './index.css';
 
 export default () => (
   <section className={styles.container}>
-    <Button to="/transactions" className={styles.transactions}>
-      Transactions
-    </Button>
-    <Button to="/settings" className={styles.settings}>
-      Setings
-    </Button>
+    <div className={styles.links}>
+      <Button to="/transactions">
+        Transactions
+      </Button>
+      <Button to="/settings" className={styles.settings}>
+        Setings
+      </Button>
+    </div>
     <Balance />
   </section>
 );

@@ -1,13 +1,21 @@
 .container {
   position: relative;
   background-color: $eggshell;
-  @media $s_max {
-    padding: 30px 0;
+  @media $m_max {
+    padding: 30px 15px;
   }
-  @media $m_min {
+  @media $l_min {
     display: flex;
     align-items: center;
     padding: 50px;
   }
   @mixin extendBackground $eggshell;
+}
+.firstTier {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media $s_max {
+    flex-direction: column;
+  }
 }

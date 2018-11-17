@@ -1,17 +1,17 @@
 import React from 'react';
 import { image } from 'utils/endpoints';
+import Boost from './Boost';
+import Rank from './Rank';
 import Progress from './Progress';
-import Container from './container';
 import styles from './index.css';
 
-export default Container(({ boost, currentLoops, goal, rank }) => (
+export default ({ boost, current, goal, rank, picture }) => (
   <div className={styles.container}>
-    <p className={styles.boost}> 3x </p>
-    <div className={styles.picProgress}>
-      <Progress count={currentLoops} goal={goal} />
+    <Boost value={boost} />
+    <div className={styles.picAlign}>
+      <Progress count={current} goal={goal} />
       <img className={styles.pic} src={image('MichaelJones.jpg')} alt="Icon" />
     </div>
-    <p className={styles.rank}> {rank} </p>
-    <p className={styles.frac}> {currentLoops} / {goal} </p>
+    <Rank rank={rank} current={current} goal={goal} />
   </div>
-));
+);

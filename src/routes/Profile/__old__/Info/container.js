@@ -1,10 +1,10 @@
 import React from 'react';
-import { prettifyDate } from 'utils/time';
+import { writtenDate } from 'utils/time';
 
 export default Component => (
   ({ data }) => (
     <Component
-      createdAt={prettifyDate(data.createdAt)}
+      createdAt={writtenDate(data.createdAt)}
       name={`${data.nameFirst} ${data.nameLast}`}
     />
   )

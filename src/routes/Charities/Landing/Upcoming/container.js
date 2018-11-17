@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { prettifyDate } from 'utils/time';
+import { writtenDate } from 'utils/time';
 
 export default Component => (
   ({ data }) => (
@@ -15,7 +15,7 @@ export default Component => (
           ),
           // Loop through every edge
           date => ({
-            startDate: prettifyDate(date),
+            startDate: writtenDate(date),
             // Remove all falsey values
             charities: _.compact(
               // Add event for corresponding date

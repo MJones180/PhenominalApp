@@ -2,10 +2,22 @@
   display: flex;
   align-items: center;
   padding: 15px;
+  @media $s_max {
+    flex-direction: column;
+  }
+  @media $m_max {
+    justify-content: center;
+  }
+  @media $l_min {
+    justify-content: flex-end;
+  }
 }
-.transactions {
-  margin-left: auto;
+.links {
+  display: flex;
 }
 .settings {
   margin: 0 15px;
+  @media $s_max {
+    margin: 0 0 15px 15px;
+  }
 }

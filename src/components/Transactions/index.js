@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { currency } from 'utils/number';
-import { simplifyDate } from 'utils/time';
+import { compactDate } from 'utils/time';
 import Table from 'components/Table';
 import styles from './index.css';
 
@@ -36,7 +36,7 @@ export default ({ data }) => {
   }) => ({
     amount: currency(amount),
     balance: currency(balance),
-    date: simplifyDate(createdAt),
+    date: compactDate(createdAt),
     event: grabEvent(event),
     type: _.capitalize(_.replace(type, '_', ' ')),
     // The raw values, necessary for sorting

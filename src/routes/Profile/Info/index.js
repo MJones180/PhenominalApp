@@ -1,16 +1,16 @@
 import React from 'react';
+import Bio from './Bio';
+import Info from './Info';
 import Pic from './Pic';
-import Center from './Center';
-import Right from './Right';
 import Container from './container';
 import styles from './index.css';
 
-// <Pic loopCount={data.grabLoops.count} />
-
-export default Container(({ data }) => (
+export default Container(({ dots, loops, bio, created, nameFirst, nameLast, picture, username }) => (
   <section className={styles.container}>
-    <Pic loopCount={314} />
-    <Center />
-    <Right />
+    <div className={styles.firstTier}>
+      <Pic {...loops} picture={picture} />
+      <Info first={nameFirst} last={nameLast} username={username} loops={loops.current} dots={dots} />
+    </div>
+    <Bio bio={bio} created={created} />
   </section>
 ));
