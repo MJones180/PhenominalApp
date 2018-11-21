@@ -1,0 +1,17 @@
+.tab {
+  font-size: 15px;
+  padding: 0 5px 5px;
+  cursor: pointer;
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+  &:hover {
+    color: $azure;
+  }
+  &:active {
+    border-bottom: 1px solid $azure;
+  }
+}
+.activeTab {
+  border-bottom: 1px solid $azure;
+}

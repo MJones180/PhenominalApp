@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { Redirect } from 'react-router-dom';
 import { currentUser, isAuth } from 'utils/auth/user';
 import query from 'utils/graphql/query';
@@ -13,7 +14,7 @@ export default Component => currentUser(
     // The username of the profile being viewed
     let profileUsername = requestedUser;
     // User is not viewing their own profile
-    if (requestedUser && (requestedUser != authUser.username)) ownProfile = false;
+    if (requestedUser && (_.toLower(requestedUser) != _.toLower(authUser.username || ''))) ownProfile = false;
     // No profile requested
     if (!requestedUser) {
       // No authUser, redirect to signin

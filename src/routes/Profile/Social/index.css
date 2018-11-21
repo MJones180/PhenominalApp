@@ -1,43 +1,8 @@
 .container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $darkStone;
   @mixin extendBackground $darkStone;
-}
-.block {
-  position: relative;
-  width: 650px;
-  height: 200px;
-  margin-left: calc(80% - 650px);
-  background-color: white;
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    content: "";
-    border-right: 200px solid white;
-    border-bottom: 200px solid white;
-    border-left: 100px solid $darkStone;
-  }
-  &:after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    content: "";
-    border-top: 200px solid white;
-    border-right: 100px solid $darkStone;
-    border-left: 200px solid white;
-  }
-}
-.content {
-  position: relative;
-  z-index: 5;
-  top: 10px;
-  width: 400px;
-  height: 180px;
-  margin: auto;
-  border: 1px solid $azure;
 }

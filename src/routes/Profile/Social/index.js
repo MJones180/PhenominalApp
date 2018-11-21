@@ -1,12 +1,12 @@
 import React from 'react';
+import Donate from './Donate';
+import Tabs from './Tabs';
+import Container from './container';
 import styles from './index.css';
 
-export default () => (
+export default Container(props => (
   <section className={styles.container}>
-    <div className={styles.block}>
-      <div className={styles.content}>
-        Test
-      </div>
-    </div>
+    <Donate />
+    <Tabs {...props} />
   </section>
-);
+));

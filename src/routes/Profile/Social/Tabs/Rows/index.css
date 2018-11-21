@@ -1,0 +1,16 @@
+.row {
+  display: block;
+  padding: 8px;
+  &:nth-child(even) {
+    background-color: $eggshell;
+  }
+  & p {
+    display: inline;
+  }
+  &:hover p {
+    color: $azure;
+  }
+  &:active p {
+    border-bottom: 1px solid $azure;
+  }
+}

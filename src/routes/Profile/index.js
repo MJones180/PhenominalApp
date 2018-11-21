@@ -10,6 +10,6 @@ export default Container(({ ownProfile, profileQuery }) => (
     <HeadTags />
     {ownProfile && <Personal />}
     <Info profileQuery={profileQuery} />
-    <Social />
+    <Social profileQuery={profileQuery} />
   </main>
 ));
