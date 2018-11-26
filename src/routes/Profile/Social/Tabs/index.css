@@ -1,6 +1,16 @@
 .wrapper {
   position: relative;
-  margin-left: 100px;
+  @media $s_max {
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px;
+  }
+  @media $m_only {
+    margin-top: 50px;
+  }
+  @media $l_min {
+    margin-left: 100px;
+  }
   &:before {
     position: absolute;
     top: 0;
@@ -9,18 +19,29 @@
     width: 100%;
     height: 100%;
     content: " ";
-    transform: skew(-20deg, 0deg);
     background: white;
     box-shadow: inset -10px 0 10px -10px $darkStone, inset 10px 0 10px -10px $darkStone;
+    @media $m_only {
+      transform: skew(-10deg, 0deg);
+    }
+    @media $l_min {
+      transform: skew(-20deg, 0deg);
+    }
   }
 }
 .container {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 550px;
   height: 200px;
-  margin: 25px 75px;
+  @media $m_only {
+    width: 500px;
+    margin: 25px 50px;
+  }
+  @media $l_min {
+    width: 550px;
+    margin: 25px 75px;
+  }
 }
 .tabs {
   display: flex;

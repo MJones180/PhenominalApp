@@ -7,7 +7,7 @@ export default () => (
     <h3 className={styles.title}>
       Donate Now
     </h3>
-    <Button to="/charities" className={styles.button}>
+    <Button to="/charities" floatingBorder>
       View Today&apos;s Charities
     </Button>
   </div>

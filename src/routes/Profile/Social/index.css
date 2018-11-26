@@ -5,4 +5,13 @@
   align-items: center;
   background-color: $darkStone;
   @mixin extendBackground $darkStone;
+  @media $s_max {
+    padding: 15px 30px;
+  }
+  @media $m_only {
+    padding: 50px 0;
+  }
+  @media $m_max {
+    flex-direction: column;
+  }
 }

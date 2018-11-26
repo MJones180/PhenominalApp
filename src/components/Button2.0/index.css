@@ -1,3 +1,6 @@
+.container {
+  position: relative;
+}
 .center {
   text-align: center;
 }
@@ -15,7 +18,6 @@
   border: 0;
   border-radius: $radius;
   outline: 0;
-  box-shadow: 0 3px 12px 1px $stone;
   &:disabled {
     cursor: not-allowed;
     background-color: $stone;
@@ -27,9 +29,6 @@
     &:hover {
       transform: translateY(-1px);
       background-color: $darkAzure;
-    }
-    &:active {
-      box-shadow: 0 6px 16px 1px $stone;
     }
     &.special {
       background-color: $sand;
@@ -43,5 +42,33 @@
         background-color: color($coral blackness(40%));
       }
     }
+  }
+}
+.shadow {
+  box-shadow: 0 3px 12px 1px $stone;
+  &:active {
+    box-shadow: 0 6px 16px 1px $stone;
+  }
+}
+.floatingBorder {
+  &:before {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    display: block;
+    content: "";
+    border: 2px solid $azure;
+    border-radius: $radiusLarge;
+  }
+  &:active:before {
+    border: 2px solid $darkAzure;
+  }
+  &.special:before {
+    border: 2px solid $sand;
+  }
+  &.special:active:before {
+    border: 2px solid $darkSand;
   }
 }
