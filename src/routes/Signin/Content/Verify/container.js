@@ -32,7 +32,7 @@ export default Component => (
             $nameFirst: String!
             $nameLast: String!
           ) {
-            updateUserPersonal(
+            updateUser(
               email: $email
               nameFirst: $nameFirst
               nameLast: $nameLast

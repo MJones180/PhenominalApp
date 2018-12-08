@@ -7,7 +7,7 @@ export default gql`
         count
       }
     }
-    transactions: transactionsAggregate {
+    transactions: aggregateDonations {
       count
       total
     }

@@ -20,7 +20,7 @@ export default Component => (
       mutation({
         mutation: gql`
           mutation {
-            updateUserSecurityToken
+            updateUser(securityToken: true)
           }
         `,
         success: () => {

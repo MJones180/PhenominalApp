@@ -15,10 +15,8 @@ export default Component => (
       // Send the mutation
       mutation({
         mutation: gql`
-          mutation(
-            $allowDonationEmails: Boolean!
-          ) {
-            updateUserPreferences(
+          mutation($allowDonationEmails: Boolean!) {
+            updateUser(
               allowDonationEmails: $allowDonationEmails
             )
           }

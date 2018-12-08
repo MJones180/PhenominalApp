@@ -25,7 +25,7 @@ export default Component => (
       }
       formatData() {
         // Grab the passed data
-        const { eventsCurrent, grabUserBalance } = this.props.data;
+        const { eventsCurrent, currentUserBalance } = this.props.data;
         // Format all of the events
         const events = _.map(eventsCurrent, ({ id, charity, specialFundraiser }) => ({
           id,
@@ -35,7 +35,7 @@ export default Component => (
         const checkedEvent = _.filter(eventsCurrent, ({ id }) => id == match.params.eventID)[0];
         // Return the formatted data
         return ({
-          balance: grabUserBalance.balance,
+          balance: currentUserBalance,
           checkedEvent: checkedEvent && checkedEvent.id,
           events,
         });
@@ -65,9 +65,7 @@ export default Component => (
               name
             }
           }
-          grabUserBalance {
-            balance
-          }
+          currentUserBalance
         }
       `,
       Component: RenderComponent,

@@ -4,12 +4,10 @@ import { currentUser } from 'utils/auth/user';
 export default Component => currentUser(
   ({ handleSubmit, setFieldValue, user, values }) => {
     const { amount } = values;
-    const { email } = user;
     const submit = (token) => {
       // Information necessary to process the funds addition
       setFieldValue('submitData', {
         amount,
-        email,
         token: token.id,
       });
       // Submit the form
@@ -18,7 +16,7 @@ export default Component => currentUser(
     return (
       <Component
         amount={amount}
-        email={email}
+        email={user.email}
         submit={submit}
       />
     );

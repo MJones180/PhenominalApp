@@ -5,13 +5,13 @@ import query from 'utils/graphql/query';
 // Load all of the necessary aggregate data
 // Done this way because of current Prisma limitations
 export default ({ data, tag: Tag }) => {
-  const RenderComponent = ({ data: { transactionsAggregate } }) => (
-    <Tag data={{ ...data, ...transactionsAggregate }} />
+  const RenderComponent = ({ data: { aggregateDonations } }) => (
+    <Tag data={{ ...data, ...aggregateDonations }} />
   );
   return query({
     query: gql`
       query($eventID: String!) {
-        transactionsAggregate(forEvent: $eventID) {
+        aggregateDonations(forEvent: $eventID) {
           count
           total
         }

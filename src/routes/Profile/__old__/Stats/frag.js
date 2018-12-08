@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export default gql`
   fragment ProfileStats on Query {
-    transactions: transactionsAggregate(forUser: true) {
+    transactions: aggregateDonations(forUser: true) {
       count
       total
     }

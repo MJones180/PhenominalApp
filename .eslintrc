@@ -5,7 +5,7 @@
   "extends": [
     "airbnb"
   ],
-  "globals" : {
+  "globals": {
     "__DEV__": false,
     "__PROD__": false
   },

@@ -35,12 +35,10 @@ export default Component => currentUser(
         mutation: gql`
           mutation(
             $amount: Int!
-            $email: String!
             $token: String!
           ) {
             addFunds(
               amount: $amount
-              email: $email
               token: $token
             ) {
               amountCharged

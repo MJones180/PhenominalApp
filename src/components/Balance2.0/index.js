@@ -33,16 +33,16 @@ export default ({ justFunds }) => {
     </p>
   );
   // Balance container
-  const Component = ({ data: { grabUserBalance: { balance } } }) => (
+  const Component = ({ data: { currentUserBalance } }) => (
     <div className={styles.container}>
       {!justFunds && <AddFunds />}
-      <Balance balance={currency(balance)} />
+      <Balance balance={currency(currentUserBalance)} />
     </div>
   );
   // Grab the authUser's balance
   return (
     query({
-      query: 'query { grabUserBalance { balance } }',
+      query: 'query { currentUserBalance }',
       Component,
     })
   );

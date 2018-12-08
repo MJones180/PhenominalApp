@@ -20,7 +20,7 @@ export default ({ noAddFunds }) => {
       // Initial State
       this.state = {
         // Format the user's balance
-        balance: currency(props.data.grabUserBalance.balance),
+        balance: currency(props.data.currentUserBalance),
       };
     }
     render() {
@@ -44,9 +44,7 @@ export default ({ noAddFunds }) => {
     query({
       query: gql`
         query {
-          grabUserBalance {
-            balance
-          }
+          currentUserBalance
         }
       `,
       Component,

@@ -7,10 +7,6 @@ export default `
     picture
     username
   }
-  grabDots(username: $username) {
-    total
-  }
-  grabLoops(username: $username) {
-    count
-  }
+  userDots(username: $username)
+  userLoops(username: $username)
 `;

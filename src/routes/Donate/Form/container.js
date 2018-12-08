@@ -1,12 +1,11 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import gql from 'graphql-tag';
-import { currentUser } from 'utils/auth/user';
 import mutation from 'utils/graphql/mutation';
 import { createAlert } from 'components/Alert';
 
 // Grab the current user's data
-export default Component => currentUser(
+export default Component => (
   withFormik({
     // Grab the base input values
     mapPropsToValues: ({ data: { checkedEvent } }) => ({
@@ -29,12 +28,10 @@ export default Component => currentUser(
         mutation: gql`
           mutation(
             $amount: Int!
-            $email: String!
             $events: [ID!]
           ) {
-            addDonations(
+            donation(
               amount: $amount
-              email: $email
               events: $events
             ) {
               amount
@@ -46,14 +43,13 @@ export default Component => currentUser(
         `,
         variables: {
           amount: values.amount,
-          email: props.user.email,
           events: values.checkedEvents,
         },
-        success: ({ addDonations }) => {
+        success: ({ donation }) => {
           // Donation successful
           props.setParentState({
             processing: false,
-            results: addDonations,
+            results: donation,
           });
         },
         error: () => {
