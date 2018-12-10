@@ -24,11 +24,12 @@ export default (str, vars) => {
     .catch(({ response }) => {
       const { errors } = response;
       const errorCode = errors[0].name;
-      // Handle the error if necessary
-      const handler = errorHandling[errorCode];
-      if (handler) handler();
+      // Handle the error if necessary (non application specific)
+      const topLevelError = errorHandling[errorCode];
+      if (topLevelError) topLevelError();
       // Log each error
       _.forEach(errors, error => console.log('GraphQL Error: ', error));
+      // Pass down all of the errors
       return { errors };
     });
 };

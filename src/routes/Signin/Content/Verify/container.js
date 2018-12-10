@@ -1,24 +1,44 @@
-import { withFormik } from 'formik';
+import React from 'react';
+import _ from 'lodash';
+import { connect, withFormik } from 'formik';
 import * as yup from 'yup';
 import gql from 'graphql-tag';
 import mutation from 'utils/graphql/mutation';
 import { push } from 'utils/history';
 import { updateUser } from 'utils/auth/user';
 
-export default Component => (
-  withFormik({
-    // Grab the base input values
-    mapPropsToValues: props => ({
-      email: props.data.email,
-      nameFirst: props.data.nameFirst,
-      nameLast: props.data.nameLast,
-    }),
+const takenUsernames = [];
+let inputValues = {};
+
+export default (Component) => {
+  // Wrapper to do an on mount validation
+  class RenderComponent extends React.Component {
+    componentDidMount() {
+      // Validate the form on load
+      this.props.formik.validateForm();
+      // Check the username to see if it already exists
+      this.props.formik.setFieldTouched('username');
+    }
+    render() {
+      return <Component />;
+    }
+  }
+  return withFormik({
+    // Default to data passed in on account creation
+    // Since component is remounted due to loading bar, must also store form values
+    // Form values will take precedence over default values
+    mapPropsToValues: props => _.assign({}, props.data, inputValues),
     // Validate the data
     validationSchema: () => (
       yup.object().shape({
-        email: yup.string().required('Required field.').email('Email is invalid.'),
+        email: yup.string().required('Required field.')
+          .email('Email is invalid.'),
         nameFirst: yup.string().required('Required field.'),
         nameLast: yup.string().required('Required field.'),
+        username: yup.string().required('Required field.')
+          .lowercase()
+          .trim()
+          .notOneOf(takenUsernames, 'Username already taken.'),
       })
     ),
     handleSubmit: (values, { props }) => {
@@ -31,11 +51,13 @@ export default Component => (
             $email: String!
             $nameFirst: String!
             $nameLast: String!
+            $username: String!
           ) {
             updateUser(
               email: $email
               nameFirst: $nameFirst
               nameLast: $nameLast
+              username: $username
             )
           }
         `,
@@ -46,11 +68,21 @@ export default Component => (
           // Redirect the user to their profile
           push('/profile');
         },
-        error: () => {
-          // Redirect the user to their profile
-          push('/profile');
+        error: (errors) => {
+          // Set error if the username already exists
+          if (errors[0].name == 'UsernameAlreadyExists') {
+            // Append the trimmed username
+            takenUsernames.push(_.trim(_.toLower(values.username)));
+            // Update the form state, necessary because the component remounts
+            inputValues = values;
+          }
+          // Hide the loader
+          props.setLoading(false);
         },
       });
     },
-  })(Component)
-);
+  })(
+    // Inject formik props
+    connect(RenderComponent)
+  );
+};

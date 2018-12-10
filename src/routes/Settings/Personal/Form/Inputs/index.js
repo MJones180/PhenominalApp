@@ -5,6 +5,7 @@ import styles from './index.css';
 
 export default Container(props => (
   <div>
+    <Input {...props('username', 'Username')} />
     <div className={styles.name}>
       <Input {...props('nameFirst', 'First Name')} />
       <Input {...props('nameLast', 'Last Name')} />

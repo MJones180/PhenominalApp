@@ -3,7 +3,6 @@ import mutation from 'utils/graphql/mutation';
 import { push } from 'utils/history';
 import { set } from 'utils/storage';
 import { updateUser } from './user';
-import grabUserData from './grabUserData';
 
 export default (provider, token, newUser) => (
   mutation({
@@ -13,6 +12,7 @@ export default (provider, token, newUser) => (
           authToken
           email
           id
+          isNewUser
           nameFirst
           nameLast
           username
@@ -24,23 +24,17 @@ export default (provider, token, newUser) => (
       token,
     },
     success: async ({ signin }) => {
-      const { authToken, ...data } = signin;
+      const { authToken, isNewUser, ...data } = signin;
       // Hide the legal notice if it is not already
       set.hideLegalNotice();
       // Set the auth cookie
       set.auth(authToken);
-      // Email is only set if the user is new
-      if (data.email) {
-        // Update the state
-        updateUser(data);
-        // Return the new user's data
-        newUser(data);
-      } else {
-        // Grab the current user's data and update the state if they are auth
-        await grabUserData();
-        // Reroute the user
-        push('/profile');
-      }
+      // Update the state
+      updateUser(data);
+      // If the user is new, return their data for verification
+      if (isNewUser) newUser(data);
+      // Reroute the user
+      else push('/profile');
     },
   })
 );
