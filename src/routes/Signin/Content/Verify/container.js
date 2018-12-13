@@ -31,19 +31,26 @@ export default (Component) => {
     // Validate the data
     validationSchema: () => (
       yup.object().shape({
-        email: yup.string().required('Required field.')
-          .email('Email is invalid.'),
-        nameFirst: yup.string().required('Required field.'),
-        nameLast: yup.string().required('Required field.'),
+        email: yup.string().required('Required field.').trim().email('Email is invalid.'),
+        nameFirst: yup.string().required('Required field.').trim().max(30, 'Please enter a valid first name.'),
+        nameLast: yup.string().required('Required field.').trim().max(30, 'Please enter a valid last name.'),
         username: yup.string().required('Required field.')
           .lowercase()
           .trim()
-          .notOneOf(takenUsernames, 'Username already taken.'),
+          .notOneOf(takenUsernames, 'Username already taken.')
+          .min(5, 'Must be at least 5 characters.')
+          .max(30, 'Can be no more than 30 characters.')
+          .matches(/^[a-zA-Z0-9_]+$/, {
+            message: 'Letters, numbers, and underscores only.',
+            excludeEmptyString: true,
+          }),
       })
     ),
     handleSubmit: (values, { props }) => {
       // Display the loader
       props.setLoading(true);
+      // Trimmed input values
+      const trimmedValues = _.mapValues(values, value => _.trim(value));
       // Send the mutation
       mutation({
         mutation: gql`
@@ -61,10 +68,10 @@ export default (Component) => {
             )
           }
         `,
-        variables: values,
+        variables: trimmedValues,
         success: () => {
           // Update the user's information in the state
-          updateUser(values);
+          updateUser(trimmedValues);
           // Redirect the user to their profile
           push('/profile');
         },
@@ -72,9 +79,9 @@ export default (Component) => {
           // Set error if the username already exists
           if (errors[0].name == 'UsernameAlreadyExists') {
             // Append the trimmed username
-            takenUsernames.push(_.trim(_.toLower(values.username)));
+            takenUsernames.push(_.toLower(trimmedValues.username));
             // Update the form state, necessary because the component remounts
-            inputValues = values;
+            inputValues = trimmedValues;
           }
           // Hide the loader
           props.setLoading(false);

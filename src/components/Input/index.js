@@ -19,9 +19,11 @@ const Input = ({ className, disableErrors, eggshell, label, name, optional }, In
 );
 
 // Create a connected input
-const defaultConnected = connect(({ formik: { handleBlur, handleChange, values }, ...props }) => (
+const defaultConnected = connect(({ formik: { handleBlur, handleChange, setFieldTouched, values }, ...props }) => (
   Input(props, {
     onBlur: handleBlur,
+    // Set the field as touched so errors can be seen immediately
+    onFocus: () => setFieldTouched(props.name, true),
     onChange: handleChange,
     value: values[props.name],
   }, props.InputType)
@@ -43,14 +45,16 @@ export const BasicInput = ({ onChange, value, ...props }) => (
 );
 
 // A connected input that handles formatted currency
-export const CurrencyInput = connect(({ formik: { handleBlur, setFieldValue, values }, ...props }) => (
+export const CurrencyInput = connect(({ formik: { handleBlur, setFieldTouched, setFieldValue, values }, ...props }) => (
   // strips everything that is not a number (positive or negative).
   Input(props, {
     // Necessary to signify the input has been touched
     onBlur: handleBlur,
+    // Set the field as touched so errors can be seen immediately
+    onFocus: () => setFieldTouched(props.name, true),
     onChange: (event) => {
       // Convert to raw number
-      const val = Number(event.target.value.toString().replace(/[^0-9-]/g, ''));
+      const val = Number(event.target.value.toString().replace(/[^0-9]/g, ''));
       // Update the state
       setFieldValue(props.name, val);
     },
