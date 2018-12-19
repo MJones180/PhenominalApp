@@ -1,0 +1,77 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+.track {
+  position: relative;
+  display: block;
+  height: 5px;
+  cursor: pointer;
+  border-radius: $radiusLarge;
+  background: color($stone lightness(80%));
+}
+.activeTrack {
+  height: 5px;
+  transition: left .3s ease-out, width .3s ease-out;
+  border-radius: $radiusLarge;
+  background: $azure;
+}
+.sliderContainer {
+  transition: left .3s ease-out;
+}
+.slider {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: -22.5px;
+  margin-left: -12.5px;
+  cursor: pointer;
+  transition: transform .3s ease-out, box-shadow .3s ease-out;
+  border: 1px solid $azure;
+  border-radius: 100%;
+  outline: none;
+  background: $azure;
+  &:active {
+    transform: scale(1.2);
+  }
+}
+.labels {
+  font-size: 16px;
+  line-height: 16px;
+}
+.labelMin, .labelMax {
+  position: absolute;
+  top: 12px;
+}
+.labelMin {
+  left: 0;
+}
+.labelMax {
+  right: 0;
+}
+.labelSlider {
+  position: relative;
+  top: -32.5px;
+  display: block;
+  width: 20px;
+  margin-left: -12.5px;
+  text-align: center;
+  color: $azure;
+}
+.disabled {
+  & .slider {
+    margin-top: -12.5px;
+    transform: none;
+    border: 1px solid $stone;
+    background: $stone;
+    box-shadow: none;
+  }
+  & .activeTrack {
+    background: color($stone lightness(80%));
+  }
+  & .labelSlider {
+    display: none;
+  }
+}

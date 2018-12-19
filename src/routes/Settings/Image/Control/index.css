@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+.zoom {
+  position: absolute;
+}
+.imageEdit {
+  z-index: 5;
+}
+.imageUpload {
+  width: 168px;
+  height: 168px;
+}
+.dropContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed $stone;
+  border-radius: 100%;
+  &:hover {
+    cursor: pointer;
+    border: 2px dashed $azure;
+    & .hover {
+      display: block;
+    }
+  }
+}
+.activeDropContainer {
+  border: 2px dashed $azure;
+}
+.pic {
+  border-radius: 100%;
+}
+.uploadHover {
+  line-height: 160px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: none;
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  color: white;
+  border-radius: 100%;
+  background-color: color($darkStone alpha(50%));
+}
