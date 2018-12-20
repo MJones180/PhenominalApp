@@ -1,21 +1,21 @@
-.container {
+.rootContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 200px;
 }
-.zoom {
+.zoomSlider {
   position: absolute;
 }
-.imageEdit {
+.pictureEditContainer {
   z-index: 5;
 }
-.imageUpload {
+.pictureUploadContainer {
   width: 168px;
   height: 168px;
 }
-.dropContainer {
+.dropzone {
   position: relative;
   display: flex;
   justify-content: center;
@@ -27,22 +27,20 @@
   &:hover {
     cursor: pointer;
     border: 2px dashed $azure;
-    & .hover {
+    & .uploadHover {
       display: block;
     }
   }
 }
-.activeDropContainer {
+.activeDropzone {
   border: 2px dashed $azure;
 }
-.pic {
+.picture {
   border-radius: 100%;
 }
 .uploadHover {
   line-height: 160px;
   position: absolute;
-  top: 2px;
-  left: 2px;
   display: none;
   width: 160px;
   height: 160px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from 'components/Input';
+import Input, { Textarea } from 'components/Input';
 import Container from './container';
 import styles from './index.css';
 
@@ -11,5 +11,6 @@ export default Container(props => (
       <Input {...props('nameLast', 'Last Name')} />
     </div>
     <Input {...props('email', 'Email')} />
+    <Textarea {...props('bio', 'Bio')} />
   </div>
 ));

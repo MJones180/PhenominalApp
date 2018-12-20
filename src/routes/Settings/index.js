@@ -1,20 +1,17 @@
 import React from 'react';
-import { filter } from 'graphql-anywhere';
 import HeadTags from './headTags';
 import Container from './container';
-import Image from './Image';
-import Personal from './Personal';
-import PersonalFrag from './Personal/frag';
+import Picture from './Picture';
+import Information from './Information';
 import Preferences from './Preferences';
-import PreferencesFrag from './Preferences/frag';
 import Danger from './Danger';
 
-export default Container(({ data }) => (
+export default Container(({ settingsQuery }) => (
   <main>
     <HeadTags />
-    <Image />
-    <Personal data={filter(PersonalFrag, data.currentUser)} />
-    <Preferences data={filter(PreferencesFrag, data.currentUser)} />
+    <Picture settingsQuery={settingsQuery} />
+    <Information settingsQuery={settingsQuery} />
+    <Preferences settingsQuery={settingsQuery} />
     <Danger />
   </main>
 ));

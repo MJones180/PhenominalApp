@@ -7,7 +7,7 @@ export default Component => (
   withFormik({
     // Grab the base input values
     mapPropsToValues: props => ({
-      allowDonationEmails: props.data.preferences.allowDonationEmails,
+      allowDonationEmails: props.allowDonationEmails,
     }),
     handleSubmit: (values, { setSubmitting }) => {
       // Alert the user that their account is being updated

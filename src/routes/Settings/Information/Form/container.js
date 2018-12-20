@@ -12,14 +12,16 @@ export default Component => (
   withFormik({
     // Grab the base input values
     mapPropsToValues: props => ({
-      email: props.data.email,
-      nameFirst: props.data.nameFirst,
-      nameLast: props.data.nameLast,
-      username: props.data.username,
+      bio: props.bio || '',
+      email: props.email,
+      nameFirst: props.nameFirst,
+      nameLast: props.nameLast,
+      username: props.username,
     }),
     // Validate the data
     validationSchema: () => (
       yup.object().shape({
+        bio: yup.string().nullable().trim().max(250, 'Max length of paragraph is 250 characters.'),
         email: yup.string().required('Required field.').trim().email('Email is invalid.'),
         nameFirst: yup.string().required('Required field.').trim().max(30, 'Please enter a valid first name.'),
         nameLast: yup.string().required('Required field.').trim().max(30, 'Please enter a valid last name.'),
@@ -44,12 +46,14 @@ export default Component => (
       mutation({
         mutation: gql`
           mutation(
+            $bio: String!
             $email: String!
             $nameFirst: String!
             $nameLast: String!
             $username: String!
           ) {
             updateUser(
+              bio: $bio
               email: $email
               nameFirst: $nameFirst
               nameLast: $nameLast

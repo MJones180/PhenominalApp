@@ -1,22 +1,16 @@
-import gql from 'graphql-tag';
+import React from 'react';
 import query from 'utils/graphql/query';
-import PersonalFrag from './Personal/frag';
-import PreferencesFrag from './Preferences/frag';
 
 export default Component => (
-  () => (
-    query({
-      query: gql`
-        query {
-          currentUser {
-            ...SettingsPersonal
-            ...SettingsPreferences
-          }
-          ${PersonalFrag}
-          ${PreferencesFrag}
-        }
-      `,
-      Component,
-    })
-  )
+  () => {
+    // Default settings query
+    const settingsQuery = (content, Component) => (
+      query({
+        query: `query { currentUser { ${content} } }`,
+        Component,
+      })
+    );
+    // Render the component
+    return <Component settingsQuery={settingsQuery} />;
+  }
 );
