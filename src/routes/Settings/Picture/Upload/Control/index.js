@@ -12,7 +12,7 @@ export default ({ newPic, picture, scale, setEditorRef, updatePicture, updateZoo
       </div>
     )}
     <div className={newPic ? styles.pictureEditContainer : styles.pictureUploadContainer}>
-      <Dropzone disabled={newPic} accept="image/*" multiple={false} onDrop={updatePicture}>
+      <Dropzone disabled={newPic} accept="image/jpeg, image/png" multiple={false} onDrop={updatePicture}>
         {({ getRootProps, getInputProps, isDragActive }) => (
           <div {...getRootProps()} className={`${!newPic && styles.dropzone} ${isDragActive && styles.activeDropzone}`}>
             <input {...getInputProps()} />

@@ -1,5 +1,9 @@
+import 'blueimp-canvas-to-blob';
 import React from 'react';
-import { image } from 'utils/endpoints';
+import mutation from 'utils/graphql/apolloMutation';
+import { imageS3 } from 'utils/endpoints';
+import { updatableAlert } from 'components/Alert';
+import mutationQuery from './mutation.graphql';
 
 export default Component => (
   class extends React.Component {
@@ -13,32 +17,58 @@ export default Component => (
       // Initial State
       this.state = {
         newPic: false,
-        picture: this.props.picture || image('MichaelJones.jpg'),
+        picture: this.props.picture ? imageS3(this.props.picture) : imageS3('assets/Random/DefaultUserPicture.png'),
         scale: 1,
       };
     }
     // Gain access to the image canvas
     setEditorRef(editor) { this.editor = editor; }
     updatePicture([picture]) {
-      // Ensure a picture was uploaded
+      // Ensure a picture format was uploaded
       if (picture) {
         // Set the new picture in the state
         this.setState({
           newPic: true,
           picture,
+          scale: 1,
         });
       }
     }
     // Update the zoom level of the image
     updateZoom(zoom) {
-      // Zoom ranges from 0 - 100, so scale ranges from 1x - 2x
+      // Zoom ranges from 0 - 100, so scales from 1x - 2x
       this.setState({
         scale: 1 + (zoom * 0.01),
       });
     }
     // Upload the new picture
     submit() {
-      console.log(this.editor.getImageScaledToCanvas());
+      // Alert the user that their picture is being updated
+      const updateAlert = updatableAlert('Updating your picture.');
+      // Set back to upload mode
+      this.setState({
+        newPic: false,
+      });
+      // Send the picture for upload
+      this.editor.getImage().toBlob(picture => (
+        mutation({
+          mutation: mutationQuery,
+          variables: { picture },
+          success: () => {
+            // Alert success
+            updateAlert({
+              updatedText: 'Your picture has been updated.',
+            });
+          },
+          error: () => {
+            // Alert failure
+            updateAlert({
+              type: 'error',
+              updatedText: 'An error has occured, please try again soon.',
+            });
+          },
+        })
+      ));
     }
     render() {
       return (

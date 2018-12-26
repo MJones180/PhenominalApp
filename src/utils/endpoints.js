@@ -11,3 +11,6 @@ export const image = (route, props = {}) => {
   }
   return cloudinary.url(route, options);
 };
+
+// Image stored in AWS S3
+export const imageS3 = route => `https://picture-assets.s3.amazonaws.com/${route}`;
