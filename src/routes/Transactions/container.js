@@ -1,29 +1,10 @@
-import gql from 'graphql-tag';
-import query from 'utils/graphql/query';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default Component => (
   () => (
-    query({
-      query: gql`
-        query {
-          currentUser {
-            transactions(orderBy: createdAt_DESC) {
-              createdAt
-              amount
-              balance
-              type
-              event {
-                charity {
-                  name
-                }
-                specialFundraiser {
-                  name
-                }
-              }
-            }
-          }
-        }
-      `,
+    Query({
+      query,
       Component,
     })
   )

@@ -1,0 +1,14 @@
+mutation(
+  $amount: Int!
+  $events: [ID!]
+) {
+  donation(
+    amount: $amount
+    events: $events
+  ) {
+    amount
+    balances
+    events
+    ids
+  }
+}

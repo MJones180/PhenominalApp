@@ -1,15 +1,14 @@
 import React from 'react';
 import HeadTags from './headTags';
-import Container from './container';
 import All from './All';
 import Current from './Current';
 import Upcoming from './Upcoming';
 
-export default Container(({ data }) => (
+export default () => (
   <main>
     <HeadTags />
-    <Current data={data.CurrentEvents} />
-    <Upcoming data={data.UpcomingEvents} />
+    <Current />
+    <Upcoming />
     <All />
   </main>
-));
+);

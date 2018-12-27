@@ -1,0 +1,8 @@
+query($ein: String) {
+  charity(where: { ein: $ein }) {
+    bannerCredit
+    ein
+    name
+    acronym
+  }
+}

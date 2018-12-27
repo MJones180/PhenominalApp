@@ -1,0 +1,6 @@
+query {
+  charities(orderBy: name_ASC) {
+    ein
+    name
+  }
+}

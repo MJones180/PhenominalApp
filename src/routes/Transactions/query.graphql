@@ -1,0 +1,18 @@
+query {
+  currentUser {
+    transactions(orderBy: createdAt_DESC) {
+      createdAt
+      amount
+      balance
+      type
+      event {
+        charity {
+          name
+        }
+        specialFundraiser {
+          name
+        }
+      }
+    }
+  }
+}

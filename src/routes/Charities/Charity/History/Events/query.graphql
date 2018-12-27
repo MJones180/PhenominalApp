@@ -1,0 +1,6 @@
+query($eventID: String!) {
+  aggregateDonations(forEvent: $eventID) {
+    count
+    total
+  }
+}

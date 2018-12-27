@@ -1,11 +1,9 @@
-import gql from 'graphql-tag';
-
-export default gql`
-  fragment CharityExpenses on Charity {
+query($ein: String) {
+  charity(where: { ein: $ein }) {
     expensesProgram
     expensesAdministrative
     expensesFundraising
     expensesOther
     expensesUpdated
   }
-`;
+}

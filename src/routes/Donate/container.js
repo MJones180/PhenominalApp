@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import gql from 'graphql-tag';
-import query from 'utils/graphql/query';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default Component => (
   ({ match }) => {
@@ -51,23 +51,8 @@ export default Component => (
       }
     }
 
-    return query({
-      query: gql`
-        query {
-          eventsCurrent(
-            orderBy: endDate_ASC
-          ) {
-            id
-            charity {
-              name
-            }
-            specialFundraiser {
-              name
-            }
-          }
-          currentUserBalance
-        }
-      `,
+    return Query({
+      query,
       Component: RenderComponent,
     });
   }

@@ -1,0 +1,11 @@
+mutation($provider: String!, $token: String!) {
+  signin(provider: $provider, token: $token) {
+    authToken
+    email
+    id
+    isNewUser
+    nameFirst
+    nameLast
+    username
+  }
+}

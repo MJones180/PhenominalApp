@@ -1,9 +1,9 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import gql from 'graphql-tag';
 import { currentUser } from 'utils/auth/user';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { createAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 // Grab the current user's data
 export default Component => currentUser(
@@ -31,23 +31,8 @@ export default Component => currentUser(
         processing: true,
       });
       // Process the funds addition
-      mutation({
-        mutation: gql`
-          mutation(
-            $amount: Int!
-            $token: String!
-          ) {
-            addFunds(
-              amount: $amount
-              token: $token
-            ) {
-              amountCharged
-              amountReceived
-              balance
-              transactionID
-            }
-          }
-        `,
+      Mutation({
+        mutation,
         variables: submitData,
         success: ({ addFunds }) => {
           props.setParentState({

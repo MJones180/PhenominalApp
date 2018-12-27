@@ -1,9 +1,9 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import gql from 'graphql-tag';
 import { push } from 'utils/history';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { createAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 export default Component => (
   withFormik({
@@ -23,24 +23,8 @@ export default Component => (
       })
     ),
     handleSubmit: (values) => {
-      mutation({
-        mutation: gql`
-          mutation(
-            $ein: String
-            $email: String!
-            $name: String!
-            $representative: Boolean
-            $url: String
-          ) {
-            charitySuggestion(
-              ein: $ein
-              email: $email
-              name: $name
-              representative: $representative
-              url: $url
-            )
-          }
-        `,
+      Mutation({
+        mutation,
         variables: values,
         success: () => {
           // Route the user back to the charities

@@ -1,40 +1,16 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import gql from 'graphql-tag';
-import query from 'utils/graphql/query';
-import AboutFrag from './About/frag';
-import BannerFrag from './Banner/frag';
-import ExpensesFrag from './Expenses/frag';
-import HistoryFrag from './History/frag';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default Component => (
   ({ match }) => {
-    const RenderComponent = ({ data }) => (
+    const RenderComponent = ({ data: { charity } }) => (
       // Verify the charity exists
-      data.charity ? <Component data={data} /> : <Redirect to="/charities" />
+      charity ? <Component ein={charity.ein} name={charity.name} /> : <Redirect to="/charities" />
     );
-
-    return query({
-      query: gql`
-        query(
-          $ein: String
-        ) {
-          charity(where: {
-            ein: $ein
-          }) {
-            ...CharityAbout
-            ...CharityBanner
-            ...CharityExpenses
-          }
-          eventsPast(charityEIN: $ein) {
-            ...CharityHistory
-          }
-          ${AboutFrag}
-          ${BannerFrag}
-          ${ExpensesFrag}
-          ${HistoryFrag}
-        }
-      `,
+    return Query({
+      query,
       variables: {
         ein: match.params.charityEIN,
       },

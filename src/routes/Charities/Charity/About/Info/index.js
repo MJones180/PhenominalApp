@@ -3,28 +3,28 @@ import { image } from 'utils/endpoints';
 import Item from './Item';
 import styles from './index.css';
 
-export default ({ data }) => (
+export default ({ ein, location, mission, name, phoneNumber, website, updatedAt }) => (
   <div>
     <img
-      src={image(`charities/logos/${data.ein}.png`)}
-      alt={`${data.name} Logo`}
+      src={image(`charities/logos/${ein}.png`)}
+      alt={`${name} Logo`}
       className={styles.logo}
       key="logo"
     />
     <Item title="Mission">
       <span className={styles.mission}>
-        {data.mission}
+        {mission}
       </span>
     </Item>
-    <Item title="Location"> {data.location} </Item>
-    <Item title="Phone Number"> {data.phoneNumber} </Item>
+    <Item title="Location"> {location} </Item>
+    <Item title="Phone Number"> {phoneNumber} </Item>
     <Item title="Website">
-      <a className="general" href={data.website} target="_blank" rel="noopener noreferrer" key="website">
+      <a className="general" href={website} target="_blank" rel="noopener noreferrer" key="website">
         View Site
       </a>
     </Item>
     <p className={styles.lastUpdated} key="lastUpdated">
-      Charity data last updated on <span>{data.updatedAt}</span>.
+      Charity data last updated on <span>{updatedAt}</span>.
     </p>
   </div>
 );

@@ -1,0 +1,14 @@
+mutation(
+  $amount: Int!
+  $token: String!
+) {
+  addFunds(
+    amount: $amount
+    token: $token
+  ) {
+    amountCharged
+    amountReceived
+    balance
+    transactionID
+  }
+}

@@ -1,16 +1,18 @@
 import React from 'react';
 import _ from 'lodash';
 import { writtenDate } from 'utils/time';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
-export default Component => (
-  ({ data }) => (
+export default (Component) => {
+  const RenderComponent = ({ data: { eventsUpcoming } }) => (
     <Component
       data={
         _.map(
           // Grab a unique list of the start dates
           _.uniq(_.map(
             // Display only charities, not special fundraisers
-            _.filter(data, ({ charity }) => charity),
+            _.filter(eventsUpcoming, ({ charity }) => charity),
             ({ startDate }) => startDate)
           ),
           // Loop through every edge
@@ -19,7 +21,7 @@ export default Component => (
             // Remove all falsey values
             charities: _.compact(
               // Add event for corresponding date
-              _.map(data, ({ startDate, charity }) => (
+              _.map(eventsUpcoming, ({ startDate, charity }) => (
                 (startDate == date) &&
                   {
                     ein: charity.ein,
@@ -31,5 +33,6 @@ export default Component => (
         )
       }
     />
-  )
-);
+  );
+  return () => <Query query={query} Component={RenderComponent} />;
+};

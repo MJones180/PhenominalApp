@@ -1,8 +1,8 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { createAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 export default Component => (
   withFormik({
@@ -21,20 +21,8 @@ export default Component => (
       })
     ),
     handleSubmit: (values, { resetForm }) => {
-      mutation({
-        mutation: gql`
-          mutation(
-            $email: String!
-            $message: String!
-            $name: String!
-          ) {
-            contactMessage(
-              email: $email
-              message: $message
-              name: $name
-            )
-          }
-        `,
+      Mutation({
+        mutation,
         variables: values,
         success: () => {
           // Reset the form

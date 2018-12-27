@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import gql from 'graphql-tag';
-import query from 'utils/graphql/query';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default (Component) => {
   class Container extends React.Component {
@@ -44,15 +44,8 @@ export default (Component) => {
     }
   }
 
-  return () => query({
-    query: gql`
-      query {
-        charities(orderBy: name_ASC) {
-          ein
-          name
-        }
-      }
-    `,
+  return () => Query({
+    query,
     Component: Container,
   });
 };

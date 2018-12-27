@@ -1,24 +1,12 @@
-import gql from 'graphql-tag';
 import { simple } from 'utils/graphql/query';
 import { get, remove } from 'utils/storage';
-import { updateUser } from './user';
+import { updateUser } from '../user';
+import query from './query.graphql';
 
 // Grab the user's data
 const grabData = () => (
   // Make sure an auth token exists
-  get.auth() && simple({
-    query: gql`
-      query {
-        currentUser {
-          email
-          id
-          nameFirst
-          nameLast
-          username
-        }
-      }
-    `,
-  }).then(({ data }) => data)
+  get.auth() && simple({ query }).then(({ data }) => data)
 );
 
 export default async () => {

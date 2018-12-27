@@ -39,7 +39,6 @@ module.exports = (env = {}, { mode }) => {
             '@babel/plugin-proposal-object-rest-spread',
             '@babel/plugin-syntax-dynamic-import',
             '@babel/plugin-transform-runtime',
-            'babel-plugin-graphql-tag',
             'babel-plugin-lodash',
           ],
           presets: [

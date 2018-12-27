@@ -1,24 +1,12 @@
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { push } from 'utils/history';
 import { set } from 'utils/storage';
-import { updateUser } from './user';
+import { updateUser } from '../user';
+import mutation from './mutation.graphql';
 
 export default (provider, token, newUser) => (
-  mutation({
-    mutation: gql`
-      mutation($provider: String!, $token: String!) {
-        signin(provider: $provider, token: $token) {
-          authToken
-          email
-          id
-          isNewUser
-          nameFirst
-          nameLast
-          username
-        }
-      }
-    `,
+  Mutation({
+    mutation,
     variables: {
       provider,
       token,

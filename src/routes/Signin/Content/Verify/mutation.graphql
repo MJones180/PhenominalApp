@@ -1,0 +1,13 @@
+mutation(
+  $email: String!
+  $nameFirst: String!
+  $nameLast: String!
+  $username: String!
+) {
+  updateUser(
+    email: $email
+    nameFirst: $nameFirst
+    nameLast: $nameLast
+    username: $username
+  )
+}

@@ -1,8 +1,8 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { createAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 // Grab the current user's data
 export default Component => (
@@ -24,23 +24,8 @@ export default Component => (
         processing: true,
       });
       // Process the donations
-      mutation({
-        mutation: gql`
-          mutation(
-            $amount: Int!
-            $events: [ID!]
-          ) {
-            donation(
-              amount: $amount
-              events: $events
-            ) {
-              amount
-              balances
-              events
-              ids
-            }
-          }
-        `,
+      Mutation({
+        mutation,
         variables: {
           amount: values.amount,
           events: values.checkedEvents,

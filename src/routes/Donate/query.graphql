@@ -1,0 +1,14 @@
+query {
+  eventsCurrent(
+    orderBy: endDate_ASC
+  ) {
+    id
+    charity {
+      name
+    }
+    specialFundraiser {
+      name
+    }
+  }
+  currentUserBalance
+}

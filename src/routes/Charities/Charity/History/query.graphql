@@ -1,0 +1,7 @@
+query($ein: String) {
+  eventsPast(charityEIN: $ein) {
+    id
+    startDate
+    goal
+  }
+}

@@ -1,7 +1,5 @@
-import gql from 'graphql-tag';
-
-export default gql`
-  fragment CharitiesCurrent on Event {
+query {
+  eventsCurrent(orderBy: endDate_ASC) {
     id
     endDate
     goal
@@ -21,4 +19,4 @@ export default gql`
       name
     }
   }
-`;
+}
