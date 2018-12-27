@@ -5,7 +5,7 @@ import styles from './index.css';
 export default ({ click, name }) => (
   <div className={`${styles.button} ${styles[name]}`} onClick={click}>
     <div className={styles.logo}>
-      <img src={image(`logos/${name}Logo.png`, { width: 50 })} alt={`Continue with ${name}`} />
+      <img src={image(`logos/${name}Logo.png`)} alt={`Continue with ${name}`} />
     </div>
     <span> Continue With {name} </span>
   </div>

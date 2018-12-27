@@ -1,7 +1,7 @@
 import React from 'react';
 import { writtenDateFull } from 'utils/time';
 import Loops from 'utils/loops';
-import { imageS3 } from 'utils/endpoints';
+import { image } from 'utils/endpoints';
 import { comma } from 'utils/number';
 import Query from 'utils/graphql/query';
 import query from './query.graphql';
@@ -18,7 +18,7 @@ export default (Component) => {
     // const dots = comma(data.userDots);
     const dots = comma(31415926);
     // Grab the picture if the user has one
-    const picture = data.user.picture ? imageS3(data.user.picture) : imageS3('assets/Random/DefaultUserPicture.png');
+    const picture = data.user.picture ? image(data.user.picture) : image('assets/Random/DefaultUserPicture.png');
     return (
       // Render the Component with the unnested props
       <Component

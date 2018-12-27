@@ -7,6 +7,6 @@ export default () => (
     <h4 className="general">
       Yes, it is spelled wrong.
     </h4>
-    <img src={image('logos/nameExplanation.png', { width: 1000 })} alt="Explanation" />
+    <img src={image('logos/nameExplanation.png')} alt="Explanation" />
   </section>
 );

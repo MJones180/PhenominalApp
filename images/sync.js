@@ -1,14 +1,7 @@
 const fs = require('fs');
 const jsonfile = require('jsonfile');
 const _ = require('lodash');
-const cloudinary = require('cloudinary');
-
-// Cloudinary info
-cloudinary.config({
-  cloud_name: 'phenominal',
-  api_key: '984625116129754',
-  api_secret: 'svjXcCkqqVUSvWwchBxAP9gDtok',
-});
+const { s3 } = require('./aws');
 
 // The current file layout
 const fileTree = [];
@@ -51,34 +44,56 @@ const addedFiles = _.difference(fileTree, mapping);
 // Files deleted since last sync
 const deletedFiles = _.difference(mapping, fileTree);
 
-// Remove leading './' and extension
-// Example: ./logos/icon.png > logos/icon
-const public_id = file => _.slice(file, 2, -4).join('');
+// Remove leading './'
+const toKey = file => _.slice(file, 2).join('');
+
+// Return mimetype of file extension
+const mimetype = (file) => {
+  // Grab file's extension
+  const extension = _.last(_.split(file, '.'));
+  // Return corresponding mimetype
+  if (extension == 'jpg' || extension == 'jpeg') return 'image/jpeg';
+  if (extension == 'png') return 'image/png';
+  if (extension == 'svg') return 'image/svg+xml';
+};
 
 // Update the map file
 const updateMap = data => jsonfile.writeFileSync(mapFile, data, { spaces: 2 });
 
 // Upload a file
 const addFile = (file) => {
-  cloudinary.v2.uploader.upload(file, { public_id: public_id(file) }, (error) => {
-    if (error) console.log('Error: ', error);
-    else {
-      console.log('Added: ', file);
-      // Saves the sorted mapping with the new file
-      mapping = _.sortBy(_.concat(mapping, file));
-      // Update the mapping file
-      updateMap(mapping);
-      // Remove the file from addedFiles
-      _.pull(addedFiles, file);
-      // Add any other files if necessary
-      if (addedFiles[0]) addFile(addedFiles[0]);
-    }
+  // Read the file in from the filesystem
+  fs.readFile(file, (err, fileContents) => {
+    // Upload the file
+    s3.upload({
+      // Make viewable to all
+      ACL: 'public-read',
+      // Path and name of file
+      Key: toKey(file),
+      // Enable picture to be seen without download
+      ContentType: mimetype(file),
+      // Picture file
+      Body: fileContents,
+    }, (error) => {
+      if (error) console.log('Error: ', error);
+      else {
+        console.log('Added: ', file);
+        // Saves the sorted mapping with the new file
+        mapping = _.sortBy(_.concat(mapping, file));
+        // Update the mapping file
+        updateMap(mapping);
+        // Remove the file from addedFiles
+        _.pull(addedFiles, file);
+        // Add any other files if necessary
+        if (addedFiles[0]) addFile(addedFiles[0]);
+      }
+    });
   });
 };
 
 // Remove a file
 const deleteFile = (file) => {
-  cloudinary.v2.uploader.destroy(public_id(file), { invalidate: true }, (error) => {
+  s3.deleteObject({ Key: toKey(file) }, (error) => {
     if (error) console.log('Error: ', error);
     else {
       console.log('Deleted: ', file);

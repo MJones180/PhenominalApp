@@ -1,7 +1,7 @@
 import 'blueimp-canvas-to-blob';
 import React from 'react';
 import Mutation from 'utils/graphql/mutation';
-import { imageS3 } from 'utils/endpoints';
+import { image } from 'utils/endpoints';
 import { updatableAlert } from 'components/Alert';
 import mutation from './mutation.graphql';
 
@@ -17,7 +17,7 @@ export default Component => (
       // Initial State
       this.state = {
         newPic: false,
-        picture: this.props.picture ? imageS3(this.props.picture) : imageS3('assets/Random/DefaultUserPicture.png'),
+        picture: this.props.picture ? image(this.props.picture) : image('assets/Random/DefaultUserPicture.png'),
         scale: 1,
       };
     }
