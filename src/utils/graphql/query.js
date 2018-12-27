@@ -14,9 +14,11 @@ class Wrapper extends React.Component {
   }
   componentDidMount() {
     const { query, variables } = this.props;
-    client(query, variables)
+    client
+      .query({ query, variables })
       .then(({ data, errors }) => {
-        this.setState({ data, errors });
+        const error = errors ? errors[0] : undefined;
+        this.setState({ data, errors: error });
       });
   }
   render() {
@@ -32,5 +34,5 @@ export default props => <Wrapper {...props} />;
 
 export const simple = ({ query, variables }) => (
   // Will return { data, errors }
-  client(query, variables)
+  client.query({ query, variables })
 );

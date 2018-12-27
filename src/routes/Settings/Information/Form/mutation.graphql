@@ -1,0 +1,15 @@
+mutation(
+  $bio: String!
+  $email: String!
+  $nameFirst: String!
+  $nameLast: String!
+  $username: String!
+) {
+  updateUser(
+    bio: $bio
+    email: $email
+    nameFirst: $nameFirst
+    nameLast: $nameLast
+    username: $username
+  )
+}

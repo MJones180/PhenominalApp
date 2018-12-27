@@ -1,7 +1,7 @@
 import { withFormik } from 'formik';
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { updatableAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 export default Component => (
   withFormik({
@@ -13,14 +13,8 @@ export default Component => (
       // Alert the user that their account is being updated
       const updateAlert = updatableAlert('Updating your preferences.');
       // Send the mutation
-      mutation({
-        mutation: gql`
-          mutation($allowDonationEmails: Boolean!) {
-            updateUser(
-              allowDonationEmails: $allowDonationEmails
-            )
-          }
-        `,
+      Mutation({
+        mutation,
         variables: values,
         success: () => {
           // Enable the button

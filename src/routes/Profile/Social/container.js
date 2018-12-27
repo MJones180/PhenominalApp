@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import frag from './frag';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default (Component) => {
   const RenderComponent = ({ data: { user: { circles, followedCharities } } }) => (
@@ -11,5 +12,5 @@ export default (Component) => {
       followedCharitiesCount={followedCharities.length}
     />
   );
-  return ({ profileQuery }) => profileQuery(frag, RenderComponent);
+  return username => <Query query={query} variables={username} Component={RenderComponent} />;
 };

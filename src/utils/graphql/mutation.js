@@ -1,8 +1,9 @@
 import client from './client';
 
 export default ({ mutation, variables, success, error }) => {
-  client(mutation, variables)
+  client
+    .mutate({ mutation, variables })
     .then(({ data, errors }) => (
-      data ? success(data) : error(errors)
+      data ? success(data) : error(errors ? errors[0] : undefined)
     ));
 };

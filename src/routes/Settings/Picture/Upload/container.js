@@ -1,9 +1,9 @@
 import 'blueimp-canvas-to-blob';
 import React from 'react';
-import mutation from 'utils/graphql/apolloMutation';
+import Mutation from 'utils/graphql/mutation';
 import { imageS3 } from 'utils/endpoints';
 import { updatableAlert } from 'components/Alert';
-import mutationQuery from './mutation.graphql';
+import mutation from './mutation.graphql';
 
 export default Component => (
   class extends React.Component {
@@ -51,8 +51,8 @@ export default Component => (
       });
       // Send the picture for upload
       this.editor.getImage().toBlob(picture => (
-        mutation({
-          mutation: mutationQuery,
+        Mutation({
+          mutation,
           variables: { picture },
           success: () => {
             // Alert success

@@ -7,6 +7,6 @@ export default () => (
     <h3 className={`general ${styles.title}`}>
       Add Funds
     </h3>
-    <Balance noAddFunds />
+    <Balance justFunds />
   </div>
 );

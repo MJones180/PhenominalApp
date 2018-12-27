@@ -1,5 +1,4 @@
 import React from 'react';
-import { image } from 'utils/endpoints';
 import Boost from './Boost';
 import Rank from './Rank';
 import Progress from './Progress';
@@ -10,7 +9,7 @@ export default ({ boost, current, goal, rank, picture }) => (
     <Boost value={boost} />
     <div className={styles.picAlign}>
       <Progress count={current} goal={goal} />
-      <img className={styles.pic} src={image('MichaelJones.jpg')} alt="Icon" />
+      <img className={styles.pic} src={picture} alt="Icon" />
     </div>
     <Rank rank={rank} current={current} goal={goal} />
   </div>

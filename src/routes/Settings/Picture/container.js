@@ -1,5 +1,4 @@
 import React from 'react';
-// import Query from 'utils/graphql/apolloQuery';
 import Query from 'utils/graphql/query';
 import query from './query.graphql';
 

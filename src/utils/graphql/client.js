@@ -1,35 +1,76 @@
-import { GraphQLClient } from 'graphql-request';
-import _ from 'lodash';
-import { graphqlBase } from 'utils/endpoints';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { createUploadLink } from 'apollo-upload-client';
+import { setContext } from 'apollo-link-context';
+import { onError } from 'apollo-link-error';
+import { ApolloLink } from 'apollo-link';
+import { graphqlEndpoint } from 'utils/endpoints';
 import { get } from 'utils/storage';
 import errorHandling from './errorHandling';
 
-export default (str, vars) => {
-  // Request headers
-  const headers = {};
+// Client's cache (required)
+const cache = new InMemoryCache();
 
-  // Attach the Authorization token if one exists
-  const token = get.auth();
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
-  // The request client
-  // Must be reinitialized every time so the most recent auth cookie is grabbed
-  const client = new GraphQLClient(graphqlBase, { headers });
-
-  // Make the request
-  return client.request(str, vars)
-    .then(data => ({ data }))
-    .catch(({ response }) => {
-      const { errors } = response;
-      const errorCode = errors[0].name;
-      // Handle the error if necessary (non application specific)
-      const topLevelError = errorHandling[errorCode];
-      if (topLevelError) topLevelError();
-      // Log each error
-      _.forEach(errors, error => console.log('GraphQL Error: ', error));
-      // Pass down all of the errors
-      return { errors };
-    });
+// Policies attached to every query/mutation
+// No caching and pass all errors
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+  mutation: {
+    errorPolicy: 'all',
+  },
 };
+
+// Graphql endpoint, createUploadLink to support file uploads
+const httpLink = createUploadLink({
+  uri: graphqlEndpoint,
+});
+
+// Auth header
+const authLink = setContext((req, { headers }) => {
+  // Get the authToken
+  const token = get.auth();
+  // Return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+// Handle errors
+const error = onError(({ graphQLErrors }) => {
+  // Errors exist
+  if (graphQLErrors) {
+    // Loop through each of the errors
+    graphQLErrors.map(({ message, name }) => {
+      // Handle the error if necessary (non application specific)
+      const topLevelError = errorHandling[name];
+      if (topLevelError) topLevelError();
+      // Log the error
+      return console.log(`[GraphQL error]: (${name}) ${message}`);
+    });
+  }
+});
+
+// Build the complete link chain
+const link = ApolloLink.from([
+  // Handle the errors
+  error,
+  // Attach the auth header to the request
+  authLink.concat(httpLink),
+]);
+
+// Create the client
+export default new ApolloClient({
+  cache,
+  defaultOptions,
+  link,
+});

@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import { Redirect } from 'react-router-dom';
 import { currentUser, isAuth } from 'utils/auth/user';
-import query from 'utils/graphql/query';
 
 // Connect to the user state in Redux
 export default Component => currentUser(
@@ -22,17 +21,7 @@ export default Component => currentUser(
       // Set the username from the auth state
       profileUsername = authUser.username;
     }
-    // The root query
-    const profileQuery = (content, Component) => (
-      query({
-        query: `query($username: String) { ${content} }`,
-        variables: {
-          username: profileUsername,
-        },
-        Component,
-      })
-    );
     // Render the component
-    return <Component ownProfile={ownProfile} profileQuery={profileQuery} />;
+    return <Component ownProfile={ownProfile} username={profileUsername} />;
   }
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import Balance from 'components/Balance2.0';
+import Balance from 'components/Balance';
 import Button from 'components/Button';
 import styles from './index.css';
 

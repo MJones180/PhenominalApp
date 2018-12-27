@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import { updateUser } from 'utils/auth/user';
 import { updatableAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 const takenUsernames = [];
 
@@ -43,24 +43,8 @@ export default Component => (
       // Trimmed input values
       const trimmedValues = _.mapValues(values, value => _.trim(value));
       // Send the mutation
-      mutation({
-        mutation: gql`
-          mutation(
-            $bio: String!
-            $email: String!
-            $nameFirst: String!
-            $nameLast: String!
-            $username: String!
-          ) {
-            updateUser(
-              bio: $bio
-              email: $email
-              nameFirst: $nameFirst
-              nameLast: $nameLast
-              username: $username
-            )
-          }
-        `,
+      Mutation({
+        mutation,
         variables: trimmedValues,
         success: () => {
           // Enable the button

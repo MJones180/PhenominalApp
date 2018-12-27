@@ -6,7 +6,7 @@ import styles from './index.css';
 export default props => (
   <section className={styles.container}>
     <div className={styles.header}>
-      <h3 className="general">
+      <h3 className={`general ${styles.title}`}>
         Choose the amount:
       </h3>
       <Balance />

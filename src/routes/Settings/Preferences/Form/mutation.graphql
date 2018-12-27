@@ -1,0 +1,5 @@
+mutation($allowDonationEmails: Boolean!) {
+  updateUser(
+    allowDonationEmails: $allowDonationEmails
+  )
+}

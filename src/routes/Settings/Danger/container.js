@@ -1,8 +1,8 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import mutation from 'utils/graphql/mutation';
+import Mutation from 'utils/graphql/mutation';
 import signout from 'utils/auth/signout';
 import { createAlert } from 'components/Alert';
+import mutation from './mutation.graphql';
 
 export default Component => (
   class extends React.Component {
@@ -17,12 +17,8 @@ export default Component => (
     }
     click() {
       this.setState({ disable: true });
-      mutation({
-        mutation: gql`
-          mutation {
-            updateUser(securityToken: true)
-          }
-        `,
+      Mutation({
+        mutation,
         success: () => {
           // Sign the user out
           signout();

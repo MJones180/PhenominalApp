@@ -1,9 +1,8 @@
 import React from 'react';
-import frag from './frag';
+import Query from 'utils/graphql/query';
+import query from './query.graphql';
 
 export default (Component) => {
-  const RenderComponent = ({ data: { currentUser } }) => (
-    <Component {...currentUser} />
-  );
-  return ({ settingsQuery }) => settingsQuery(frag, RenderComponent);
+  const RenderComponent = ({ data: { currentUser } }) => <Component {...currentUser} />;
+  return () => <Query query={query} Component={RenderComponent} />;
 };
