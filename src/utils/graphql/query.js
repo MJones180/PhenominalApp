@@ -16,10 +16,7 @@ class Wrapper extends React.Component {
     const { query, variables } = this.props;
     client
       .query({ query, variables })
-      .then(({ data, errors }) => {
-        const error = errors ? errors[0] : undefined;
-        this.setState({ data, errors: error });
-      });
+      .then(({ data, errors }) => this.setState({ data, errors }));
   }
   render() {
     const { Component } = this.props;
@@ -32,7 +29,5 @@ class Wrapper extends React.Component {
 
 export default props => <Wrapper {...props} />;
 
-export const simple = ({ query, variables }) => (
-  // Will return { data, errors }
-  client.query({ query, variables })
-);
+// Query without a React component
+export const simple = ({ query, variables }) => client.query({ query, variables });

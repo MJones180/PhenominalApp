@@ -15,15 +15,16 @@ const cache = new InMemoryCache();
 // No caching and pass all errors
 const defaultOptions = {
   watchQuery: {
-    fetchPolicy: 'no-cache',
     errorPolicy: 'all',
+    fetchPolicy: 'no-cache',
   },
   query: {
-    fetchPolicy: 'no-cache',
     errorPolicy: 'all',
+    fetchPolicy: 'no-cache',
   },
   mutation: {
     errorPolicy: 'all',
+    fetchPolicy: 'no-cache',
   },
 };
 

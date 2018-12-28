@@ -11,7 +11,7 @@ export default (provider, token, newUser) => (
       provider,
       token,
     },
-    success: async ({ signin }) => {
+    success: ({ signin }) => {
       const { authToken, isNewUser, ...data } = signin;
       // Hide the legal notice if it is not already
       set.hideLegalNotice();

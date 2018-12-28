@@ -27,7 +27,6 @@
     "moment": "~2.18.0",
     "numeral": "^2.0.6",
     "react": "^16.6.3",
-    "react-apollo": "^2.3.3",
     "react-avatar-editor": "^11.0.4",
     "react-chartjs-2": "^2.6.2",
     "react-circle-slider": "^1.5.1",
@@ -45,7 +44,6 @@
     "react-toastify": "^3.3.4",
     "react-typist": "^2.0.4",
     "redux": "^3.7.2",
-    "redux-devtools-extension": "^2.13.5",
     "yup": "^0.25.1"
   },
   "devDependencies": {
@@ -83,6 +81,7 @@
     "postcss-mixins": "^6.2.0",
     "postcss-nested": "^3.0.0",
     "postcss-simple-vars": "^4.1.0",
+    "redux-devtools-extension": "^2.13.5",
     "rimraf": "^2.5.4",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.2",

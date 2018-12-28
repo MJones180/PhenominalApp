@@ -1,4 +1,4 @@
-import 'blueimp-canvas-to-blob';
+import 'blueimp-canvas-to-blob'; // toBlob polyfill
 import React from 'react';
 import Mutation from 'utils/graphql/mutation';
 import { image } from 'utils/endpoints';
