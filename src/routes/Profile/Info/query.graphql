@@ -8,5 +8,10 @@ query($username: String) {
     username
   }
   userDots(username: $username)
-  userLoops(username: $username)
+  userLoops(username: $username) {
+    rank
+    boost
+    goal
+    count
+  }
 }
