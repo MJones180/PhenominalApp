@@ -5,9 +5,9 @@ import styles from './index.css';
 
 export default Container(({ id, amount, balance, event }) => (
   <ul className={styles.item}>
-    <Bullet info="Verification Number" value={id} />
+    <Bullet info="Event" value={event} />
     <Bullet info="Amount Donated" value={amount} />
-    <Bullet info="New Balance" value={balance} />
-    <Bullet info="Event Name" value={event} />
+    <Bullet info="Resulting Balance" value={balance} />
+    <Bullet info="Verification Number" value={id} />
   </ul>
 ));

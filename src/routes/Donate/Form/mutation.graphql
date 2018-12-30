@@ -7,8 +7,10 @@ mutation(
     events: $events
   ) {
     amount
-    balances
-    events
-    ids
+    transactions {
+      balance
+      event
+      id
+    }
   }
 }

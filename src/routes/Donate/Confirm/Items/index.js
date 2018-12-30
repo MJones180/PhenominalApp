@@ -3,15 +3,15 @@ import _ from 'lodash';
 import Item from '../Item';
 
 export default ({ data }) => {
-  const { amount, balances, events, ids } = data;
-  // Map through each of the returned donations
-  return _.map(ids, (id, index) => (
+  const { amount, transactions } = data;
+  // Loop through each of the returned donation transactions
+  return _.map(transactions, ({ balance, event, id }) => (
     <Item
       key={id}
       id={id}
       amount={amount}
-      balance={balances[index]}
-      event={events[index]}
+      balance={balance}
+      event={event}
     />
   ));
 };

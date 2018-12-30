@@ -3,6 +3,11 @@
 }
 .header {
   padding-bottom: 15px;
+  @media $s_max {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   @media $m_min {
     display: flex;
   }

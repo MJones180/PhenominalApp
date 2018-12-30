@@ -37,9 +37,11 @@ export default Component => (
             results: donation,
           });
         },
-        error: () => {
+        error: (errors) => {
+          // Display an error message if one exists
+          const text = (errors[0] ? errors[0].message : 'An error has occurred.');
           createAlert({
-            text: 'An error has occurred.',
+            text,
             type: 'error',
           });
           // Hide the processing spinner
