@@ -1,17 +1,20 @@
 .specialFundraiser {
   @media $s_max {
+    width: 100%;
     margin-bottom: 20px;
     padding: 15px;
+    border-top: 5px solid $azure;
+    border-bottom: 5px solid $azure;
   }
   @media $m_only {
     margin-top: 20px;
     padding: 15px 30px;
+    border-top: 20px solid $azure;
     border-right: 1px solid $azure;
+    border-bottom: 20px solid $azure;
     border-left: 1px solid $azure;
   }
   @media $m_max {
-    border-top: 20px solid $azure;
-    border-bottom: 20px solid $azure;
     background-color: white;
   }
   @media $l_min {

@@ -1,0 +1,6 @@
+query {
+  transactions: aggregateDonations(forUser: true) {
+    count
+    total
+  }
+}

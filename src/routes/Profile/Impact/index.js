@@ -1,12 +1,13 @@
 import React from 'react';
-import Balance from 'components/Balance';
 import Container from './container';
-import Welcome from './Welcome';
+import Items from './Items';
 import styles from './index.css';
 
 export default Container(data => (
   <section className={styles.container}>
-    <Welcome {...data} />
-    <Balance />
+    <h3 className="general">
+      Impact
+    </h3>
+    <Items {...data} />
   </section>
 ));
