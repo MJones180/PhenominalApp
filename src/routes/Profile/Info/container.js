@@ -1,7 +1,6 @@
 import React from 'react';
 import { writtenDateFull } from 'utils/time';
 import { image } from 'utils/endpoints';
-import { comma } from 'utils/number';
 import Query from 'utils/graphql/query';
 import query from './query.graphql';
 
@@ -10,9 +9,6 @@ export default (Component) => {
     const { createdAt, ...remainingData } = data.user;
     // Put the date in a readable format
     const created = writtenDateFull(createdAt);
-    // Format the dots
-    // const dots = comma(data.userDots);
-    const dots = comma(31415926);
     // Grab the picture if the user has one
     const picture = data.user.picture ? image(data.user.picture) : image('assets/Random/DefaultUserPicture.png');
     return (
@@ -21,7 +17,7 @@ export default (Component) => {
         created={created}
         {...remainingData}
         loops={data.userLoops}
-        dots={dots}
+        dots={data.userDots}
         picture={picture}
       />
     );

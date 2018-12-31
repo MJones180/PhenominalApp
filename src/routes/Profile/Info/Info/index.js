@@ -1,14 +1,15 @@
 import React from 'react';
-import Loops from './Loops';
+import Dots from 'components/Dots';
+import Loops from 'components/Loops';
 import Name from './Name';
 import styles from './index.css';
 
-export default ({ first, last, username, loops, dots }) => (
+export default ({ first, last, username, loopCount, dots }) => (
   <div className={styles.container}>
     <Name fullName={`${first} ${last}`} username={username} />
     <div className={styles.stats}>
-      <Loops count={loops} />
-      <p className={`large ${styles.dots}`}> {dots} • </p>
+      <Loops count={loopCount} className={styles.loops} />
+      <Dots total={dots} />
     </div>
   </div>
 );

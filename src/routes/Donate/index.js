@@ -9,7 +9,7 @@ export default Container(({ processing, results, ...props }) => (
   <main>
     <HeadTags />
     { processing && <Loading inline text="Processing" /> }
-    { results && <Confirm data={results} /> }
+    { results && <Confirm {...results} /> }
     { !processing && !results && <Form {...props} /> }
   </main>
 ));

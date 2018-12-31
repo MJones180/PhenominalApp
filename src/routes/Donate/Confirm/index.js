@@ -1,11 +1,13 @@
 import React from 'react';
 import Balance from 'components/Balance';
 import Button from 'components/Button';
+import Loops from 'components/Loops';
+import Dots from 'components/Dots';
 import HeadTags from './headTags';
-import Items from './Items';
+import Transactions from './Transactions';
 import styles from './index.css';
 
-export default data => (
+export default ({ amount, dotTotal, dotsGained, loopCount, loopsGained, transactions }) => (
   <section className={styles.container}>
     <HeadTags />
     <div className={styles.header}>
@@ -14,9 +16,15 @@ export default data => (
       </h3>
       <Balance />
     </div>
-    <Items {...data} />
-    <Button to="/charities">
-      Back to charities
-    </Button>
+    <Transactions amount={amount} transactions={transactions} />
+    <div className={styles.footer}>
+      <div className={styles.stats}>
+        <Loops className={styles.loops} count={loopCount} gained={loopsGained} />
+        <Dots total={dotTotal} gained={dotsGained} />
+      </div>
+      <Button to="/charities">
+        Back to charities
+      </Button>
+    </div>
   </section>
 );

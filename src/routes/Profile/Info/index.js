@@ -9,7 +9,7 @@ export default Container(({ dots, loops, bio, created, nameFirst, nameLast, pict
   <section className={styles.container}>
     <div className={styles.firstTier}>
       <Pic {...loops} picture={picture} />
-      <Info first={nameFirst} last={nameLast} username={username} loops={loops.current} dots={dots} />
+      <Info first={nameFirst} last={nameLast} username={username} loopCount={loops.count} dots={dots} />
     </div>
     <Bio bio={bio} created={created} />
   </section>

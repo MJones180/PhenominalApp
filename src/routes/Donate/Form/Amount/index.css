@@ -2,6 +2,7 @@
   padding: 30px;
 }
 .header {
+  align-items: center;
   padding-bottom: 15px;
   @media $s_max {
     display: flex;

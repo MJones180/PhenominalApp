@@ -1,17 +1,16 @@
 import React from 'react';
 import _ from 'lodash';
-import Item from '../Item';
+import Transaction from './Transaction';
 
-export default ({ data }) => {
-  const { amount, transactions } = data;
+export default ({ amount, transactions }) => (
   // Loop through each of the returned donation transactions
-  return _.map(transactions, ({ balance, event, id }) => (
-    <Item
+  _.map(transactions, ({ balance, event, id }) => (
+    <Transaction
       key={id}
       id={id}
       amount={amount}
       balance={balance}
       event={event}
     />
-  ));
-};
+  ))
+);

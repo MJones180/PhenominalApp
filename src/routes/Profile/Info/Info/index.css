@@ -1,13 +1,21 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-left: 45px;
+  @media $s_max {
+    text-align: center;
+  }
+  @media $m_min {
+    margin-left: 45px;
+  }
 }
 .stats {
   display: flex;
   align-items: center;
   margin-top: 10px;
+  @media $s_max {
+    justify-content: center;
+  }
 }
-.dots {
-  color: $sand;
+.loops {
+  margin-right: 15px;
 }
