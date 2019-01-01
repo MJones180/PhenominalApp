@@ -8,6 +8,7 @@ export default Component => (
     // Grab the base input values
     mapPropsToValues: props => ({
       allowDonationEmails: props.allowDonationEmails,
+      publicProfile: props.publicProfile,
     }),
     handleSubmit: (values, { setSubmitting }) => {
       // Alert the user that their account is being updated

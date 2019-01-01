@@ -2,6 +2,7 @@ query {
   currentUser {
     preferences {
       allowDonationEmails
+      publicProfile
     }
   }
 }

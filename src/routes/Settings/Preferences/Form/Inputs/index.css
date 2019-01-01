@@ -1,5 +1,0 @@
-.container {
-  @media $s_max {
-    text-align: center;
-  }
-}

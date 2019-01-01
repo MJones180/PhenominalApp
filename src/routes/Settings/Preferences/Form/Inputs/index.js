@@ -1,12 +1,16 @@
 import React from 'react';
 import Checkbox from 'components/Checkbox';
-import styles from './index.css';
 
 export default () => (
-  <div className={styles.container}>
+  <div>
     <Checkbox
       label="Allow Donation Confirmation Emails"
       name="allowDonationEmails"
     />
+    <Checkbox
+      label="Allow Anyone To View Your Profile"
+      name="publicProfile"
+    />
+    <p>Donation amounts and transactions are still hidden.</p>
   </div>
 );

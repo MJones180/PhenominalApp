@@ -1,0 +1,7 @@
+query($username: String) {
+  user(where: {username: $username} ) {
+    preferences {
+      publicProfile
+    }
+  }
+}

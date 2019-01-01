@@ -1,5 +1,6 @@
-mutation($allowDonationEmails: Boolean!) {
+mutation($allowDonationEmails: Boolean!, $publicProfile: Boolean!) {
   updateUser(
     allowDonationEmails: $allowDonationEmails
+    publicProfile: $publicProfile
   )
 }
