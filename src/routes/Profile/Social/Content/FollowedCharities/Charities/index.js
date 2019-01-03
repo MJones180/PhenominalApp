@@ -30,6 +30,7 @@ export default ({ data }) => {
           linkData: 'ein',
         }}
         uid={_.uniqueId('~')}
+        emptyMessage="No followed charities."
       />
     </section>
   );

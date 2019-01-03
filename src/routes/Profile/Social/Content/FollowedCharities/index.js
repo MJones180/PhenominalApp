@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from './container';
-import Table from './Table';
+import Charities from './Charities';
 import styles from './index.css';
 
 export default Container(data => (
@@ -8,6 +8,6 @@ export default Container(data => (
     <h3 className="general">
       Followed Charities
     </h3>
-    <Table {...data} />
+    <Charities {...data} />
   </div>
 ));

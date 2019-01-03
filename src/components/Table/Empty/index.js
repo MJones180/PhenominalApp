@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default () => (
+export default ({ message }) => (
   <h5>
-    Table is empty
+    {message || 'Table is empty'}
   </h5>
 );

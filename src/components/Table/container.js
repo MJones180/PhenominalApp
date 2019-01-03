@@ -12,6 +12,7 @@ PROPS
   - rowClick: [function] what happens when clicking a row
   - uid: [string] when to trigger a rerender
   - fallbackSort: [string] what to sort by in the case of n equal items
+  - emptyMessage: [string] message to be displayed when the table is empty
 */
 
 import React from 'react';
@@ -71,7 +72,7 @@ export default Component => (
       this.update();
       // Render the Table if the user has at least one transaction
       return (
-        this.state.data[0] ? <Component {...this.state} headerClick={this.headerClick} /> : <TableEmpty />
+        this.state.data[0] ? <Component {...this.state} headerClick={this.headerClick} /> : <TableEmpty message={this.props.emptyMessage} />
       );
     }
   }

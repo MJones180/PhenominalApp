@@ -52,6 +52,7 @@ export default ({ data }) => {
       data={formatted}
       fallbackSort="raw_balance"
       uid={_.uniqueId('~')}
+      emptyMessage="You have no transactions."
     />
   );
 };
