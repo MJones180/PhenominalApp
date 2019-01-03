@@ -1,10 +1,10 @@
 import React from 'react';
-import Empty from '../Empty';
-import Rows from '../Rows';
 import styles from './index.css';
 
-export default (label, route, data, count) => (
-  <div label={`${label} (${count})`} className={styles.tab} activeClassName={styles.activeTab}>
-    {count ? <Rows route={route} data={data} /> : <Empty label={label} />}
+export default ({ active, name, onClick }) => (
+  <div className={`${styles.tab} ${active && styles.active}`} onClick={onClick}>
+    <h4 className={styles.text}>
+      {name}
+    </h4>
   </div>
 );

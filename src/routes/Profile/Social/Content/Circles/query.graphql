@@ -4,9 +4,5 @@ query($username: String) {
       id
       name
     }
-    followedCharities {
-      ein
-      name
-    }
   }
 }

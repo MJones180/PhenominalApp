@@ -1,17 +1,64 @@
 .tab {
-  font-size: 15px;
-  padding: 0 5px 5px;
-  cursor: pointer;
-  &:not(:first-child) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid $darkStone;
+  background-color: $stone;
+  @media $s_max {
+    width: 50%;
+    height: 50px;
+    &:last-of-type {
+      width: 100%;
+    }
+    &:hover {
+      background-color: $darkStone;
+    }
+  }
+  @media $m_min {
+    width: 200px;
     margin-left: 10px;
+    padding: 15px;
+    &:last-of-type {
+      margin-right: 10px;
+    }
+    &:hover {
+      border: 5px solid $darkStone;
+    }
+  }
+  @media $m_only {
+    height: 150px;
+    transform: skew(-10deg, 0deg);
+    &:first-of-type {
+      border-top-left-radius: $radiusLarge;
+      border-bottom-left-radius: $radiusLarge;
+    }
+    &:last-of-type {
+      border-top-right-radius: $radiusLarge;
+      border-bottom-right-radius: $radiusLarge;
+    }
+  }
+  @media $l_min {
+    height: 200px;
+    transform: skew(-15deg, 0deg);
   }
   &:hover {
-    color: $azure;
+    cursor: pointer;
   }
   &:active {
-    border-bottom: 1px solid $azure;
+    background-color: $azure;
   }
 }
-.activeTab {
-  border-bottom: 1px solid $azure;
+.active {
+  background-color: $azure;
+}
+.text {
+  line-height: unset;
+  @media $m_only {
+    transform: skew(10deg, 0deg);
+  }
+  @media $l_min {
+    transform: skew(15deg, 0deg);
+  }
 }

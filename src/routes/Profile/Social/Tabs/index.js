@@ -1,17 +1,15 @@
 import React from 'react';
-import Tabs from 'components/Tabs';
+import Donate from './Donate';
 import Tab from './Tab';
 import styles from './index.css';
 
-export default ({ circles, circlesCount, followedCharities, followedCharitiesCount }) => (
-  <div className={styles.wrapper}>
-    <Tabs
-      className={styles.container}
-      tabsClassName={styles.tabs}
-      contentClassname={styles.content}
-    >
-      {Tab('Circles', 'circles', circles, circlesCount)}
-      {Tab('Followed Charities', 'charities', followedCharities, followedCharitiesCount)}
-    </Tabs>
+export default ({ activeTab, tabClick }) => (
+  <div className={styles.container}>
+    <Donate />
+    <div className={styles.tabs}>
+      <Tab active={activeTab == 'halos'} name="Halos" onClick={() => tabClick('halos')} />
+      <Tab active={activeTab == 'circles'} name="Circles" onClick={() => tabClick('circles')} />
+      <Tab active={activeTab == 'followedCharities'} name="Followed Charities" onClick={() => tabClick('followedCharities')} />
+    </div>
   </div>
 );

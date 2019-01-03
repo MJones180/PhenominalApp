@@ -1,3 +1,19 @@
+/*
+NAME
+  Table [Component]
+USAGE
+  return <Table {...props} />
+PROPS
+  - columns: [object] table's column information
+    - field: [string] name of field for sorting
+    - name: [string] name of column and key in data
+    - width: [string] css style for width of column
+  - data: [object] data for the table
+  - rowClick: [function] what happens when clicking a row
+  - uid: [string] when to trigger a rerender
+  - fallbackSort: [string] what to sort by in the case of n equal items
+*/
+
 import React from 'react';
 import _ from 'lodash';
 import TableEmpty from './Empty';
@@ -28,7 +44,7 @@ export default Component => (
         if (filter == field) newOrder = (order == 'asc' ? 'desc' : 'asc');
         // Update the state
         return {
-          // Sort the data, fall back to the raw_balance in the case of two equal items
+          // Sort the data, fall back to the fallbackSort in the case of two equal items
           data: _.orderBy(data, [field, this.props.fallbackSort], [newOrder, newOrder]),
           filter: field,
           order: newOrder,

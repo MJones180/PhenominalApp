@@ -1,12 +1,11 @@
 import React from 'react';
-import Donate from './Donate';
-import Tabs from './Tabs';
 import Container from './container';
-import styles from './index.css';
+import Tabs from './Tabs';
+import Content from './Content';
 
-export default Container(props => (
-  <section className={styles.container}>
-    <Donate />
-    <Tabs {...props} />
+export default Container(({ activeTab, tabClick, ...contentOnlyProps }) => (
+  <section>
+    <Tabs activeTab={activeTab} tabClick={tabClick} />
+    <Content activeTab={activeTab} {...contentOnlyProps} />
   </section>
 ));

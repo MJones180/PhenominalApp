@@ -1,0 +1,8 @@
+query($username: String) {
+  user(where: {username: $username} ) {
+    followedCharities {
+      ein
+      name
+    }
+  }
+}

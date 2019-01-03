@@ -1,12 +1,36 @@
-.wrapper {
-  position: relative;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  background-color: $darkStone;
+  box-shadow: 0 0 0 5px $darkStone;
+  @mixin extendBackground $darkStone;
   @media $s_max {
+    padding: 15px 30px;
+  }
+  @media $m_only {
+    padding: 50px 0;
+  }
+  @media $m_max {
+    flex-direction: column;
+  }
+}
+.tabs {
+  position: relative;
+  display: flex;
+  @media $s_max {
+    flex-wrap: wrap;
     width: 100%;
-    margin-top: 30px;
-    padding: 15px;
+    max-width: 350px;
+    margin-top: 20px;
+    padding: 10px;
   }
   @media $m_only {
     margin-top: 50px;
+    padding: 10px 0;
   }
   @media $l_min {
     margin-left: 100px;
@@ -20,36 +44,12 @@
     height: 100%;
     content: " ";
     background: white;
-    box-shadow: inset -10px 0 10px -10px $darkStone, inset 10px 0 10px -10px $darkStone;
     @media $m_only {
       transform: skew(-10deg, 0deg);
+      border-radius: $radiusLarge;
     }
     @media $l_min {
-      transform: skew(-20deg, 0deg);
+      transform: skew(-15deg, 0deg);
     }
   }
-}
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  @media $m_only {
-    width: 500px;
-    margin: 25px 50px;
-  }
-  @media $l_min {
-    width: 550px;
-    margin: 25px 75px;
-  }
-}
-.tabs {
-  display: flex;
-}
-.content {
-  display: flex;
-  overflow: scroll;
-  flex-direction: column;
-  flex: 1;
-  border: 1px solid $azure;
 }

@@ -5,6 +5,7 @@ import Personal from './Personal';
 import Info from './Info';
 import Impact from './Impact';
 import Social from './Social';
+import Feed from './Feed';
 
 export default Container(({ ownProfile, username }) => (
   <main>
@@ -12,6 +13,7 @@ export default Container(({ ownProfile, username }) => (
     {ownProfile && <Personal />}
     <Info username={username} />
     {ownProfile && <Impact />}
-    <Social username={username} />
+    <Social ownProfile={ownProfile} username={username} />
+    <Feed />
   </main>
 ));
