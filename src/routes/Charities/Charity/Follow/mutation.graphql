@@ -1,0 +1,3 @@
+mutation($ein: String!, $unfollow: Boolean) {
+  flipFollowedCharity(ein: $ein, unfollow: $unfollow)
+}

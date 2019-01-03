@@ -5,7 +5,7 @@ import styles from './index.css';
 
 export default ({ dropdownClick, hideDropdown }) => (
   <div onClick={dropdownClick} className={styles.dropdown}>
-    <Link onClick={() => hideDropdown()} to={'/profile'}>
+    <Link onClick={() => hideDropdown()} to="/profile">
       Profile
     </Link>
     <Link onClick={() => hideDropdown()} to="/settings">

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  padding: 20px;
+  @media $s_max {
+    justify-content: center;
+  }
+  @media $m_min {
+    position: absolute;
+    right: 0;
+    border-bottom-left-radius: $radiusLarge;
+    background-color: color(black alpha(65%));
+  }
+}
