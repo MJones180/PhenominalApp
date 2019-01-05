@@ -1,12 +1,10 @@
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
   background-color: $darkStone;
-  box-shadow: 0 0 0 5px $darkStone;
   @mixin extendBackground $darkStone;
   @media $s_max {
     padding: 15px 30px;
@@ -16,6 +14,11 @@
   }
   @media $m_max {
     flex-direction: column;
+  }
+  @media $l_max {
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    box-shadow: 0 0 0 5px $darkStone;
   }
 }
 .tabs {

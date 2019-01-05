@@ -1,0 +1,30 @@
+.link {
+  border-radius: 100%;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
+  margin: 7.5px;
+  padding: 15px;
+  text-align: center;
+  border: 6px solid white;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: inset 0 0 0 2px $darkAzure, 0 0 0 2px $darkAzure, inset $shadow $stone, $shadowLarge $stone;
+  &:hover {
+    border: 6px solid $azure;
+  }
+  &:active {
+    color: $azure;
+    & .name {
+      text-decoration: underline;
+    }
+  }
+}
+.name {
+  line-height: unset;
+}

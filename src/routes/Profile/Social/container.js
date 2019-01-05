@@ -1,12 +1,13 @@
 import React from 'react';
 import _ from 'lodash';
+import Query from 'utils/graphql/query';
 
 export default Component => (
   class extends React.Component {
     constructor(props) {
       super(props);
       // Bind `this` to all class functions, makes them callable
-      this.setTabContent = this.setTabContent.bind(this);
+      this.dataWrapper = this.dataWrapper.bind(this);
       this.tabClick = this.tabClick.bind(this);
       // Initial State
       this.state = {
@@ -14,12 +15,19 @@ export default Component => (
         tabContent: {},
       };
     }
-    // Set a tab's content once the data is fetched
-    setTabContent(data) {
-      // Save the tab's data
-      this.setState({
-        tabContent: _.merge(this.state.tabContent, data),
-      });
+    // Wrapper to grab the data for tab contents
+    dataWrapper(query, tab, Component) {
+      const RenderComponent = ({ data: { user } }) => {
+        // Save the data so it only has to be grabbed once
+        this.setState({
+          tabContent: _.merge(this.state.tabContent, { [tab]: user[tab] }),
+        });
+        return <Component data={user[tab]} />;
+      };
+      // Check if the data has already been grabbed
+      if (this.state.tabContent[tab]) return <Component data={this.state.tabContent[tab]} />;
+      // Fetch the data
+      return <Query query={query} variables={{ username: this.props.username }} Component={RenderComponent} />;
     }
     // Triggered when a tab is clicked
     tabClick(tab) {
@@ -31,9 +39,9 @@ export default Component => (
     render() {
       return (
         <Component
-          {...this.props}
-          {...this.state}
-          setTabContent={this.setTabContent}
+          activeTab={this.state.activeTab}
+          dataWrapper={this.dataWrapper}
+          ownProfile={this.props.ownProfile}
           tabClick={this.tabClick}
         />
       );
