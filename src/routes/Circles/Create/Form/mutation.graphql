@@ -1,0 +1,11 @@
+mutation(
+  $description: String
+  $name: String!
+  $open: Boolean
+) {
+  createCircle(
+    description: $description
+    name: $name
+    open: $open
+  )
+}

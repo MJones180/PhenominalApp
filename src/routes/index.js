@@ -42,6 +42,17 @@ export default () => (
     />
     <Route
       exact
+      path="/circles/create"
+      requireAuth
+      mod={() => import(/* webpackChunkName: "CirclesCreate" */ './Circles/Create')}
+    />
+    <Route
+      exact
+      path="/circles/:circleID"
+      mod={() => import(/* webpackChunkName: "CirclesCircle" */ './Circles/Circle')}
+    />
+    <Route
+      exact
       path="/contact"
       mod={() => import(/* webpackChunkName: "Contact" */ './Contact')}
     />
