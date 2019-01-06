@@ -1,6 +1,0 @@
-.container {
-  position: relative;
-  padding: 50px;
-  background-color: $eggshell;
-  @mixin extendBackground $eggshell;
-}

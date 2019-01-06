@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.input {
+  margin-bottom: 0;
+}
+.button {
+  padding-left: 15px;
+}

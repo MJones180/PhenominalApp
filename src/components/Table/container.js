@@ -9,7 +9,9 @@ PROPS
     - name: [string] name of column and key in data
     - width: [string] css style for width of column
   - data: [object] data for the table
-  - rowClick: [function] what happens when clicking a row
+  - rowClick: [object] what happens when clicking a row
+    - link: [function] link to route to
+    - linkData: [string] key in data to pass to function
   - uid: [string] when to trigger a rerender
   - fallbackSort: [string] what to sort by in the case of n equal items
   - emptyMessage: [string] message to be displayed when the table is empty

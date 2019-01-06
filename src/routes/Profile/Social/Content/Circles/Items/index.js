@@ -1,17 +1,18 @@
 import React from 'react';
 import _ from 'lodash';
-import Item from '../Item';
+import Circle from './Circle';
+import Create from './Create';
 import styles from './index.css';
 
-export default ({ data }) => (
-  <div className={styles.circles}>
-    <div className={styles.testCreateCircle} onClick={() => {}}>
-      <h4 className={styles.testCreateCircleName}>
-        Create Circle
-      </h4>
+export default ({ circles, ownProfile }) => (
+  <div className={styles.container}>
+    <h3 className="general">
+      Circles
+    </h3>
+    <div className={styles.circles}>
+      {ownProfile && <Create />}
+      {!circles[0] && !ownProfile && (<h4> No Circles </h4>)}
+      {_.map(circles, ({ id, name }) => <Circle id={id} name={name} key={id} />)}
     </div>
-    {_.map(data, ({ id, name }) => (
-      <Item id={id} name={name} key={id} />
-    ))}
   </div>
 );

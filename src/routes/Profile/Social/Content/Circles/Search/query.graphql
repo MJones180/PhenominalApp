@@ -1,0 +1,6 @@
+query($search: String) {
+  circles(where: { name_contains: $search }, first: 5) {
+    id
+    name
+  }
+}

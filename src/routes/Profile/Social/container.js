@@ -16,16 +16,16 @@ export default Component => (
       };
     }
     // Wrapper to grab the data for tab contents
-    dataWrapper(query, tab, Component) {
+    dataWrapper(query, tab, Component, props) {
       const RenderComponent = ({ data: { user } }) => {
         // Save the data so it only has to be grabbed once
         this.setState({
           tabContent: _.merge(this.state.tabContent, { [tab]: user[tab] }),
         });
-        return <Component data={user[tab]} />;
+        return <Component data={user[tab]} {...props} />;
       };
       // Check if the data has already been grabbed
-      if (this.state.tabContent[tab]) return <Component data={this.state.tabContent[tab]} />;
+      if (this.state.tabContent[tab]) return <Component data={this.state.tabContent[tab]} {...props} />;
       // Fetch the data
       return <Query query={query} variables={{ username: this.props.username }} Component={RenderComponent} />;
     }

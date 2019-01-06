@@ -1,0 +1,27 @@
+.link {
+  border-radius: 100%;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
+  margin: 7.5px;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  border: 6px dashed $azure;
+  border-radius: 100%;
+  background-color: white;
+  &:hover {
+    border: 6px solid $azure;
+  }
+  &:active {
+    color: $azure;
+    & .text {
+      text-decoration: underline;
+    }
+  }
+}
