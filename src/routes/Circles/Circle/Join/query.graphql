@@ -1,0 +1,10 @@
+query($id: ID) {
+  currentUser {
+    circles(where: { id: $id }) {
+      id
+    }
+    circleJoinRequests(where: { circle: { id: $id } }) {
+      id
+    }
+  }
+}

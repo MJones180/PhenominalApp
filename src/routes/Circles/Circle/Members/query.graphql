@@ -1,0 +1,10 @@
+query($id: ID) {
+  circle(where: { id: $id }) {
+    members {
+      username
+      dots(first: 1, orderBy: createdAt_DESC) {
+        total
+      }
+    }
+  }
+}

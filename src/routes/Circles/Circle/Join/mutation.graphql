@@ -1,0 +1,3 @@
+mutation($id: ID!, $leave: Boolean) {
+  setCircleRelation(id: $id, leave: $leave)
+}
