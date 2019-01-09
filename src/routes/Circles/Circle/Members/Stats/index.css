@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  @media $s_max {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.stat {
+  text-align: center;
+  @media $s_max {
+    padding: 15px;
+  }
+  @media $m_min {
+    padding: 15px 30px;
+  }
+}

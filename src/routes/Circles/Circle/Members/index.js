@@ -1,13 +1,17 @@
 import React from 'react';
 import Container from './container';
 import List from './List';
+import Stats from './Stats';
 import styles from './index.css';
 
-export default Container(({ count, members }) => (
+export default Container(({ members }) => (
   <section className={styles.container}>
-    <h3 className="general">
-      Members ({count})
-    </h3>
+    <div className={styles.header}>
+      <h3 className={`general ${styles.title}`}>
+        Members
+      </h3>
+      <Stats members={members} />
+    </div>
     <List members={members} />
   </section>
 ));

@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  @media $s_max {
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+  }
+  @media $m_min {
+    padding: 50px;
+  }
+}
+.name {
+  @media $m_min {
+    margin-right: auto;
+  }
+}
+.description {
+  padding: 15px;
+  @media $s_max {
+    width: 100%;
+    max-width: 500px;
+  }
+  @media $m_only {
+    width: 350px;
+  }
+  @media $l_min {
+    width: 500px;
+  }
+}
