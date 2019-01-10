@@ -1,0 +1,16 @@
+.container {
+  @media $l_min {
+    width: 450px;
+  }
+}
+.warning {
+  margin: 15px auto 30px;
+  text-align: center;
+  @media $s_max {
+    width: 100%;
+    max-width: 300px;
+  }
+  @media $m_min {
+    width: 400px;
+  }
+}

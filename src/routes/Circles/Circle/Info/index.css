@@ -12,15 +12,21 @@
   }
 }
 .name {
+  line-height: unset;
+  padding-bottom: 15px;
   @media $m_min {
     margin-right: auto;
   }
 }
 .description {
-  padding: 15px;
+  padding: 15px 0;
   @media $s_max {
     width: 100%;
     max-width: 500px;
+    text-align: center;
+  }
+  @media $m_min {
+    text-align: right;
   }
   @media $m_only {
     width: 350px;

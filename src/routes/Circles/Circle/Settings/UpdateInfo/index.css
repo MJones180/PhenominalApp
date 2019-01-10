@@ -1,0 +1,16 @@
+.container {
+  @media $m_max {
+    margin-bottom: 50px;
+  }
+  @media $l_min {
+    width: 500px;
+    margin-right: 60px;
+  }
+}
+.form {
+  @media $m_max {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

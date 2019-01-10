@@ -7,7 +7,7 @@ export default () => (
       Circle Limit Reached
     </h2>
     <h3>
-      You cannot create more than 3 Circles, you must first delete one of your others.
+      You cannot create more than 3 Circles, you must first disband one of your others.
     </h3>
   </section>
 );

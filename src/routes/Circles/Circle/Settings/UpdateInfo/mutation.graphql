@@ -1,0 +1,11 @@
+mutation(
+  $id: ID!
+  $description: String
+  $open: Boolean
+) {
+  updateCircle(
+    id: $id
+    description: $description
+    open: $open
+  )
+}

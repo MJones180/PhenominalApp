@@ -1,0 +1,6 @@
+query($id: ID) {
+  circle(where: { id: $id }) {
+    description
+    open
+  }
+}

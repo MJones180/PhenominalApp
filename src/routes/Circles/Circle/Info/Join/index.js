@@ -4,9 +4,9 @@ import Container from './container';
 import styles from './index.css';
 
 export default Container(({ button, text }) => (
-  <section className={styles.container}>
-    <Button floatingBorder className={styles.button} {...button}>
+  <div className={styles.container}>
+    <Button floatingBorder {...button}>
       {text}
     </Button>
-  </section>
+  </div>
 ));
