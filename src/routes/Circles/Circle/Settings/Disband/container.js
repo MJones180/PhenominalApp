@@ -1,7 +1,7 @@
 import React from 'react';
 import Mutation from 'utils/graphql/mutation';
 import { push } from 'utils/history';
-import { createAlert } from 'components/Alert';
+import { updatableAlert } from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
@@ -12,6 +12,8 @@ export default Component => (
       this.click = this.click.bind(this);
     }
     click() {
+      // Alert that request is being processed
+      const updateAlert = updatableAlert('Circle is being deleted.');
       Mutation({
         mutation,
         variables: {
@@ -19,18 +21,17 @@ export default Component => (
         },
         success: () => {
           // Alert the user that the Circle was deleted
-          createAlert({
-            text: 'Circle Deleted.',
-            type: 'success',
+          updateAlert({
+            updatedText: 'Circle has been deleted.',
           });
           // Redirect the user to their profile
           push('/profile');
         },
         error: () => {
           // Alert the user that an error has occured
-          createAlert({
-            text: 'An error has occurred.',
+          updateAlert({
             type: 'error',
+            updatedText: 'An error has occured, please try again soon.',
           });
         },
       });
