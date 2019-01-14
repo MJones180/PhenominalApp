@@ -2,7 +2,7 @@ import 'blueimp-canvas-to-blob'; // toBlob polyfill
 import React from 'react';
 import Mutation from 'utils/graphql/mutation';
 import { image } from 'utils/endpoints';
-import { updatableAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
@@ -43,8 +43,7 @@ export default Component => (
     }
     // Upload the new picture
     submit() {
-      // Alert the user that their picture is being updated
-      const updateAlert = updatableAlert('Updating your picture.');
+      const alert = createAlert('Updating your picture.');
       // Set back to upload mode
       this.setState({
         newPic: false,
@@ -54,19 +53,8 @@ export default Component => (
         Mutation({
           mutation,
           variables: { picture },
-          success: () => {
-            // Alert success
-            updateAlert({
-              updatedText: 'Your picture has been updated.',
-            });
-          },
-          error: () => {
-            // Alert failure
-            updateAlert({
-              type: 'error',
-              updatedText: 'An error has occured, please try again soon.',
-            });
-          },
+          success: () => alert.success('Your picture has been updated.'),
+          error: () => alert.error(),
         })
       ));
     }

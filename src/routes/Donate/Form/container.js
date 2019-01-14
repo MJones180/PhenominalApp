@@ -1,7 +1,7 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import Mutation from 'utils/graphql/mutation';
-import { createAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 // Grab the current user's data
@@ -23,6 +23,7 @@ export default Component => (
       props.setParentState({
         processing: true,
       });
+      const alert = createAlert('Processing the donations.');
       // Process the donations
       Mutation({
         mutation,
@@ -36,14 +37,11 @@ export default Component => (
             processing: false,
             results: donation,
           });
+          alert.success('Donations successful.');
         },
         error: (errors) => {
           // Display an error message if one exists
-          const text = (errors[0] ? errors[0].message : 'An error has occurred.');
-          createAlert({
-            text,
-            type: 'error',
-          });
+          alert.error(errors[0] ? errors[0].message : false);
           // Hide the processing spinner
           props.setParentState({
             processing: false,

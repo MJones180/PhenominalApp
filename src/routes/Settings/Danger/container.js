@@ -1,7 +1,7 @@
 import React from 'react';
 import Mutation from 'utils/graphql/mutation';
 import signout from 'utils/auth/signout';
-import { createAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
@@ -17,20 +17,18 @@ export default Component => (
     }
     click() {
       this.setState({ disable: true });
+      const alert = createAlert('Processing.');
       Mutation({
         mutation,
         success: () => {
+          alert.success('Complete.');
           // Sign the user out
           signout();
         },
         error: () => {
           // Enable the button
           this.setState({ disable: false });
-          // Alert the user that an error has occured
-          createAlert({
-            text: 'An error has occurred.',
-            type: 'error',
-          });
+          alert.error();
         },
       });
     }

@@ -3,7 +3,7 @@ import _ from 'lodash';
 import * as yup from 'yup';
 import Mutation from 'utils/graphql/mutation';
 import { push } from 'utils/history';
-import { updatableAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 // Keep track of Circle names that have failed
@@ -30,8 +30,7 @@ export default Component => (
       })
     ),
     handleSubmit: ({ description, name, open }, { setSubmitting, validateForm }) => {
-      // Alert the user that their account is being updated
-      const updateAlert = updatableAlert('Creating the Circle.');
+      const alert = createAlert('Creating the Circle.');
       Mutation({
         mutation,
         variables: {
@@ -40,10 +39,7 @@ export default Component => (
           open,
         },
         success: ({ createCircle: circleID }) => {
-          // Alert the user that the Circle was created
-          updateAlert({
-            updatedText: 'Circle created.',
-          });
+          alert.success('Circle created.');
           // Redirect to the new Circle's page
           push(circleID);
         },
@@ -57,17 +53,8 @@ export default Component => (
             // Display error in form
             validateForm();
             // Alert user that Circle name already exists
-            updateAlert({
-              type: 'error',
-              updatedText: 'Circle name already exists.',
-            });
-          } else {
-            // Alert the user that an error has occured
-            updateAlert({
-              type: 'error',
-              updatedText: 'An error has occured, please try again soon.',
-            });
-          }
+            alert.error('Circle name already exists.');
+          } else alert.error();
         },
       });
     },

@@ -1,7 +1,7 @@
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import Mutation from 'utils/graphql/mutation';
-import { createAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
@@ -21,24 +21,16 @@ export default Component => (
       })
     ),
     handleSubmit: (values, { resetForm }) => {
+      const alert = createAlert('Sending message.');
       Mutation({
         mutation,
         variables: values,
         success: () => {
           // Reset the form
           resetForm();
-          // Alert the user that their message was sent
-          createAlert({
-            text: 'Message sent.',
-            type: 'success',
-          });
+          alert.success('Message sent.');
         },
-        error: () => {
-          createAlert({
-            text: 'An error has occurred.',
-            type: 'error',
-          });
-        },
+        error: () => alert.error(),
       });
     },
   })(Component)

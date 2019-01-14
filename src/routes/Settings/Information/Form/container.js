@@ -3,7 +3,7 @@ import { withFormik } from 'formik';
 import * as yup from 'yup';
 import Mutation from 'utils/graphql/mutation';
 import { updateUser } from 'utils/auth/user';
-import { updatableAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 const takenUsernames = [];
@@ -39,7 +39,7 @@ export default Component => (
     ),
     handleSubmit: (values, { setSubmitting, validateForm }) => {
       // Alert the user that their account is being updated
-      const updateAlert = updatableAlert('Updating your personal information.');
+      const alert = createAlert('Updating your personal information.');
       // Trimmed input values
       const trimmedValues = _.mapValues(values, value => _.trim(value));
       // Send the mutation
@@ -50,9 +50,7 @@ export default Component => (
           // Enable the button
           setSubmitting(false);
           // Alert the user that their account is updated
-          updateAlert({
-            updatedText: 'Your personal information has been updated.',
-          });
+          alert.success('Your personal information has been updated.');
           // Update the user's data in the state
           updateUser(trimmedValues);
         },
@@ -66,17 +64,8 @@ export default Component => (
             // Display error in form
             validateForm();
             // Alert user that username already exists
-            updateAlert({
-              type: 'error',
-              updatedText: 'Username already taken.',
-            });
-          } else {
-            // Alert the user that an error has occured
-            updateAlert({
-              type: 'error',
-              updatedText: 'An error has occured, please try again soon.',
-            });
-          }
+            alert.error('Username already taken.');
+          } else alert.error();
         },
       });
     },

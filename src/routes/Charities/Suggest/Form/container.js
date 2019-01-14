@@ -2,7 +2,7 @@ import { withFormik } from 'formik';
 import * as yup from 'yup';
 import { push } from 'utils/history';
 import Mutation from 'utils/graphql/mutation';
-import { createAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
@@ -23,18 +23,16 @@ export default Component => (
       })
     ),
     handleSubmit: (values) => {
+      const alert = createAlert('Sending suggestion.');
       Mutation({
         mutation,
         variables: values,
         success: () => {
           // Route the user back to the charities
           push('/charities');
-          // Alert the user that their suggestion was sent
-          createAlert({
-            text: 'Charity suggestion sent.',
-            type: 'success',
-          });
+          alert.success('Charity suggestion sent.');
         },
+        error: () => alert.error(),
       });
     },
   })(Component)

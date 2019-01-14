@@ -2,7 +2,7 @@ import React from 'react';
 import { isAuth } from 'utils/auth/user';
 import Mutation from 'utils/graphql/mutation';
 import Query from 'utils/graphql/query';
-import { updatableAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 import query from './query.graphql';
 
@@ -40,8 +40,7 @@ export default (Component) => {
           // Update the alert message
           alertMessage = 'Leaving the Circle.';
         }
-        // Alert the user that the request is processing
-        const updateAlert = updatableAlert(alertMessage);
+        const alert = createAlert(alertMessage);
         // Update the Circle relation
         Mutation({
           mutation,
@@ -54,8 +53,7 @@ export default (Component) => {
             let updatedText = 'Circle left.';
             if (JOIN) updatedText = 'Circle joined.';
             if (PENDING) updatedText = 'Circle join request sent.';
-            // Alert the user that the action has finished
-            updateAlert({ updatedText });
+            alert.success(updatedText);
             // Enable the button and update the current Circle relation
             this.setState({
               alreadyMember: JOIN,
@@ -63,6 +61,7 @@ export default (Component) => {
               onClick: this.click,
             });
           },
+          error: () => alert.error(),
         });
       }
       render() {

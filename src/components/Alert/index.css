@@ -4,9 +4,21 @@
   padding: 15px;
   box-shadow: $shadowLarge $darkStone;
 }
-.stone {
+.default {
   color: $stone;
+  background-color: $eggshell;
 }
-.white {
+.success {
   color: white;
+  background-color: $azure;
+}
+.error {
+  color: white;
+  background-color: $coral;
+}
+.progressLight {
+  background: color(white alpha(50%));
+}
+.progressDark {
+  background: color($darkStone alpha(50%));
 }

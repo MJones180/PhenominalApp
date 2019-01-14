@@ -2,7 +2,7 @@ import React from 'react';
 import { isAuth } from 'utils/auth/user';
 import Mutation from 'utils/graphql/mutation';
 import Query from 'utils/graphql/query';
-import { updatableAlert } from 'components/Alert';
+import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 import query from './query.graphql';
 
@@ -32,8 +32,7 @@ export default (Component) => {
           // Do nothing on click
           onClick: () => {},
         });
-        // Alert the user that their request is being processed
-        const updateAlert = updatableAlert(`${charityFollowed ? 'Unfollowing' : 'Following'} the charity.`);
+        const alert = createAlert(`${charityFollowed ? 'Unfollowing' : 'Following'} the charity.`);
         // Update the follow state
         Mutation({
           mutation,
@@ -43,15 +42,13 @@ export default (Component) => {
             unfollow: charityFollowed,
           },
           success: () => {
-            // Alert the user that the action is complete
-            updateAlert({
-              updatedText: `${charityFollowed ? 'Unfollowed' : 'Followed'} the charity.`,
-            });
+            alert.success(`${charityFollowed ? 'Unfollowed' : 'Followed'} the charity.`);
             // Enable the state to be flipped again on click
             this.setState({
               onClick: this.click,
             });
           },
+          error: () => alert.error(),
         });
       }
       render() {
