@@ -8,13 +8,17 @@
   color: $stone;
   background-color: $eggshell;
 }
-.success {
+.error, .special, .success {
   color: white;
-  background-color: $azure;
 }
 .error {
-  color: white;
   background-color: $coral;
+}
+.special {
+  background-color: $sand;
+}
+.success {
+  background-color: $azure;
 }
 .progressLight {
   background: color(white alpha(50%));

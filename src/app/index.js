@@ -12,6 +12,7 @@ import BrowserCompatibility from './BrowserCompatibility';
 import ErrorBoundary from './ErrorBoundary';
 import HeadTags from './RootHeadTags';
 import LegalNotice from './LegalNotice';
+import LoadActions from './LoadActions';
 import ScrollToTop from './ScrollToTop';
 import styles from './index.css';
 import Header from './Header';
@@ -27,6 +28,7 @@ export default () => (
               <Analytics />
               <HeadTags />
               <ToastContainer />
+              <LoadActions />
               <div className={styles.wrapper}>
                 <Header />
                 <ErrorBoundary>
