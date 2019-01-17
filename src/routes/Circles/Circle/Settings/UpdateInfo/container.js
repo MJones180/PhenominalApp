@@ -21,7 +21,7 @@ export default Component => (
       })
     ),
     handleSubmit: ({ id, description, open }, { setSubmitting }) => {
-      const alert = createAlert('Creating the Circle.');
+      const alert = createAlert('Updating the Circle.');
       Mutation({
         mutation,
         variables: {

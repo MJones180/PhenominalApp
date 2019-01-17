@@ -12,14 +12,14 @@ export default Component => (
       this.click = this.click.bind(this);
     }
     click() {
-      const alert = createAlert('Circle is being deleted.');
+      const alert = createAlert('Circle is being disbanded.');
       Mutation({
         mutation,
         variables: {
           id: this.props.id,
         },
         success: () => {
-          alert.success('Circle has been deleted.');
+          alert.success('Circle has been disbanded.');
           // Redirect the user to their profile
           push('/profile');
         },
