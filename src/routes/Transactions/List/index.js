@@ -8,20 +8,20 @@ import styles from './index.css';
 export default ({ data }) => {
   // The table's columns
   const columns = [{
+    cellStyle: styles.date,
     field: 'date',
-    width: styles.date,
   }, {
+    cellStyle: styles.type,
     field: 'type',
-    width: styles.type,
   }, {
+    cellStyle: styles.amount,
     field: 'amount',
-    width: styles.amount,
   }, {
+    cellStyle: styles.balance,
     field: 'balance',
-    width: styles.balance,
   }, {
+    cellStyle: styles.event,
     field: 'event',
-    width: styles.event,
   }];
   // Grab the event from the json
   const grabEvent = data => _.get(data, 'charity.name') || _.get(data, 'specialFundraiser.name') || '-';

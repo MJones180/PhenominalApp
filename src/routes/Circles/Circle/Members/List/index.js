@@ -2,30 +2,23 @@ import React from 'react';
 import _ from 'lodash';
 import Table from 'components/Table';
 import { comma } from 'utils/number';
+import Kick from './Kick';
 import styles from './index.css';
 
 export default ({ members, owner }) => {
-  const kick = (username) => {
-    const ownerUsername = owner.username;
-    return (
-      <div onClick={() => console.log(username)} className={styles.kick}>
-      ✕
-      </div>
-    );
-  };
   // The table's columns
   const columns = [{
+    cellStyle: styles.username,
     field: 'username',
-    width: styles.username,
   }, {
+    cellStyle: styles.dots,
     field: 'dots',
-    width: styles.dots,
   }, {
-    cellContent: kick,
+    cellContent: username => Kick(username, owner.username),
+    cellStyle: styles.kick,
     disableSorting: true,
     field: 'kick',
     key: 'username',
-    width: styles.kick,
   }];
   const data = _.map(members, ({ dots, username }) => ({
     // Prettify the Dots

@@ -6,11 +6,11 @@ USAGE
 PROPS
   - columns: [object] table's column information
     - cellContent: [function(cellValue)] render component
+    - cellStyle: [string] css style for each column's cells
     - disableSorting: [boolean] disable data sorting for column click
     - field: [string] name of the field
     - key: [string] name of key in data
     - title: [string] title of the column
-    - width: [string] css style for width of column
   - data: [object] data for the table, contains keys prefixed with 'SORT_' for sorting
   - defaultSort: [string] default field for sorting
   - emptyMessage: [string] message to be displayed when the table is empty

@@ -6,12 +6,12 @@ import styles from './index.css';
 export default ({ charities }) => {
   // The table's columns
   const columns = [{
+    cellStyle: styles.name,
     field: 'name',
-    width: styles.name,
   }, {
+    cellStyle: styles.ein,
     field: 'ein',
     title: 'EIN',
-    width: styles.ein,
   }];
   const data = _.map(charities, data => ({
     ...data,

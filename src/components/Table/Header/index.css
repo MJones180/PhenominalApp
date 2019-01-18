@@ -12,7 +12,7 @@
     color: $azure;
   }
 }
-.column {
+.cell {
   @media $s_max {
     padding: 5px;
   }
@@ -22,6 +22,22 @@
   @media $l_min {
     padding: 12px;
   }
+  &:hover:not(.disabled) {
+    margin-bottom: -2px;
+    border-bottom: 2px solid $darkAzure;
+    & p {
+      color: $darkAzure;
+    }
+    & .arrowDown {
+      border-top: 5px solid $darkAzure;
+    }
+    & .arrowUp {
+      border-bottom: 5px solid $darkAzure;
+    }
+  }
+}
+.disabled {
+  cursor: default;
 }
 .arrowDown, .arrowUp {
   width: 0;

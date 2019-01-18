@@ -5,15 +5,15 @@ import styles from './index.css';
 
 export default ({ columns, data, fieldLink }) => (
   <div className={styles.row}>
-    {_.map(columns, ({ cellContent, field, key, width }, index) => {
+    {_.map(columns, ({ cellContent, field, key, cellStyle }, index) => {
       // Props to be passed to the cell
       const props = {
         // Unique key
         key: index,
         // Check if a render component was passed, default to a paragraph
         value: cellContent ? cellContent(data[key || field]) : <p>{data[key || field]}</p>,
-        // Width of each cell
-        width,
+        // Style of each cell
+        cellStyle,
       };
       // Check if there is a link
       if (fieldLink) {

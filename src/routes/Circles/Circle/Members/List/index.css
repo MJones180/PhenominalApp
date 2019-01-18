@@ -23,8 +23,6 @@
   }
   .kick {
     width: 60px;
+    border-left: 1px dashed;
   }
-}
-.kick:hover {
-  color: $coral;
 }
