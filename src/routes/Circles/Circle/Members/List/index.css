@@ -1,24 +1,24 @@
 @media $s_max {
-  .name {
+  .username {
     width: 70%;
   }
-  .ein {
+  .dots {
     width: 30%;
   }
 }
 @media $m_only {
-  .name {
+  .username {
     width: 75%;
   }
-  .ein {
+  .dots {
     width: 25%;
   }
 }
 @media $l_min {
-  .name {
+  .username {
     width: 80%;
   }
-  .ein {
+  .dots {
     width: 20%;
   }
 }

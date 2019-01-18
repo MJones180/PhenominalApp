@@ -7,35 +7,27 @@ import styles from './index.css';
 export default ({ members }) => {
   // The table's columns
   const columns = [{
-    field: 'sortable_username',
-    name: 'username',
-    width: styles.name,
+    key: 'username',
+    width: styles.username,
   }, {
-    field: 'sortable_dots',
-    name: 'dots',
+    key: 'dots',
     width: styles.dots,
   }];
-  const formatted = _.map(members, ({ dots, username }) => {
-    // Grab the first item for the current Dot Total
-    const dotTotal = dots[0].total;
-    return {
-      // Prettify the Dots
-      dots: comma(dotTotal),
-      username,
-      // To sort, Dots must be comma-less
-      sortable_dots: dotTotal,
-      // To sort, all of the data must be of the same case
-      sortable_username: _.toLower(username),
-    };
-  });
+  const data = _.map(members, ({ dots, username }) => ({
+    // Prettify the Dots
+    dots: comma(dots[0].total),
+    username,
+    SORT_dots: dots[0].total,
+    SORT_username: _.toLower(username),
+  }));
   return (
     <Table
       columns={columns}
-      data={formatted}
-      fallbackSort="username"
-      rowClick={{
-        link: username => `/profile/${username}`,
-        linkData: 'username',
+      data={data}
+      defaultSort="SORT_username"
+      fieldLink={{
+        address: ({ username }) => `/profile/${username}`,
+        fields: ['dots', 'username'],
       }}
       uid={_.uniqueId('~')}
     />

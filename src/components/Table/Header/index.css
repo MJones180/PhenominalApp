@@ -12,6 +12,17 @@
     color: $azure;
   }
 }
+.column {
+  @media $s_max {
+    padding: 5px;
+  }
+  @media $m_only {
+    padding: 8px;
+  }
+  @media $l_min {
+    padding: 12px;
+  }
+}
 .arrowDown, .arrowUp {
   width: 0;
   height: 0;

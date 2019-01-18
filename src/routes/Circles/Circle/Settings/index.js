@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from './container';
 import Disband from './Disband';
+import Requests from './Requests';
 import UpdateInfo from './UpdateInfo';
 import styles from './index.css';
 

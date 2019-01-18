@@ -6,28 +6,26 @@ import styles from './index.css';
 export default ({ data }) => {
   // The table's columns
   const columns = [{
-    field: 'sortable_name',
-    name: 'name',
+    key: 'name',
     width: styles.name,
   }, {
-    field: 'ein',
-    name: 'ein',
+    key: 'ein',
+    title: 'EIN',
     width: styles.ein,
   }];
   const formatted = _.map(data, data => ({
     ...data,
-    // To sort, all of the data must be of the same case
-    sortable_name: _.toLower(data.name),
+    SORT_name: _.toLower(data.name),
   }));
   return (
     <section className={styles.container}>
       <Table
         columns={columns}
         data={formatted}
-        fallbackSort="name"
-        rowClick={{
-          link: ein => `/charities/${ein}`,
-          linkData: 'ein',
+        defaultSort="SORT_name"
+        fieldLink={{
+          address: ({ ein }) => `/charities/${ein}`,
+          fields: '*',
         }}
         uid={_.uniqueId('~')}
         emptyMessage="No followed charities."

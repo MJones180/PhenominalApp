@@ -8,24 +8,19 @@ import styles from './index.css';
 export default ({ data }) => {
   // The table's columns
   const columns = [{
-    field: 'raw_date',
-    name: 'date',
+    key: 'date',
     width: styles.date,
   }, {
-    field: 'type',
-    name: 'type',
+    key: 'type',
     width: styles.type,
   }, {
-    field: 'raw_amount',
-    name: 'amount',
+    key: 'amount',
     width: styles.amount,
   }, {
-    field: 'raw_balance',
-    name: 'balance',
+    key: 'balance',
     width: styles.balance,
   }, {
-    field: 'sortable_event',
-    name: 'event',
+    key: 'event',
     width: styles.event,
   }];
   // Grab the event from the json
@@ -40,17 +35,16 @@ export default ({ data }) => {
     event: grabEvent(event),
     type: _.capitalize(_.replace(type, '_', ' ')),
     // The raw values, necessary for sorting
-    raw_amount: amount,
-    raw_balance: balance,
-    raw_date: createdAt,
-    // To sort, all of the data must be of the same case
-    sortable_event: _.toLower(grabEvent(event)),
+    SORT_amount: amount,
+    SORT_balance: balance,
+    SORT_date: createdAt,
+    SORT_event: _.toLower(grabEvent(event)),
   }));
   return (
     <Table
       columns={columns}
       data={formatted}
-      fallbackSort="raw_balance"
+      defaultSort="SORT_date"
       uid={_.uniqueId('~')}
       emptyMessage="You have no transactions."
     />
