@@ -16,9 +16,15 @@
 }
 @media $l_min {
   .username {
-    width: 80%;
+    width: calc(80% - 60px);
   }
   .dots {
     width: 20%;
   }
+  .kick {
+    width: 60px;
+  }
+}
+.kick:hover {
+  color: $coral;
 }

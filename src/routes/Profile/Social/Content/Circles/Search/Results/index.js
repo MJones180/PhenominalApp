@@ -6,7 +6,7 @@ import styles from './index.css';
 export default ({ data }) => {
   // The table's columns
   const columns = [{
-    key: 'name',
+    field: 'name',
     width: styles.name,
   }];
   const formatted = _.map(data, props => ({

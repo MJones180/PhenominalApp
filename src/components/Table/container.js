@@ -6,6 +6,8 @@ USAGE
 PROPS
   - columns: [object] table's column information
     - cellContent: [function(cellValue)] render component
+    - disableSorting: [boolean] disable data sorting for column click
+    - field: [string] name of the field
     - key: [string] name of key in data
     - title: [string] title of the column
     - width: [string] css style for width of column
@@ -18,7 +20,8 @@ PROPS
   - uid: [string] when to trigger a rerender
 NOTES
   - cellContent will default to `val => <p> {val} </p>`
-  - If a column's title is not set, the capitalized key will be used
+  - If a column's title is not set, the capitalized field will be used
+  - If a column's key is not set, the field will be used
 */
 
 import React from 'react';

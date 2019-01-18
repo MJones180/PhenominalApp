@@ -1,7 +1,7 @@
 import React from 'react';
-import Transactions from 'components/Transactions';
 import HeadTags from './headTags';
 import Container from './container';
+import List from './List';
 import styles from './index.css';
 
 export default Container(({ data }) => (
@@ -10,6 +10,6 @@ export default Container(({ data }) => (
     <h3 className="general">
       Transactions
     </h3>
-    <Transactions data={data.currentUser.transactions} />
+    <List data={data.currentUser.transactions} />
   </main>
 ));

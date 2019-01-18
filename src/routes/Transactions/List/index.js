@@ -8,19 +8,19 @@ import styles from './index.css';
 export default ({ data }) => {
   // The table's columns
   const columns = [{
-    key: 'date',
+    field: 'date',
     width: styles.date,
   }, {
-    key: 'type',
+    field: 'type',
     width: styles.type,
   }, {
-    key: 'amount',
+    field: 'amount',
     width: styles.amount,
   }, {
-    key: 'balance',
+    field: 'balance',
     width: styles.balance,
   }, {
-    key: 'event',
+    field: 'event',
     width: styles.event,
   }];
   // Grab the event from the json

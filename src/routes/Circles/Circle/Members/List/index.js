@@ -4,14 +4,28 @@ import Table from 'components/Table';
 import { comma } from 'utils/number';
 import styles from './index.css';
 
-export default ({ members }) => {
+export default ({ members, owner }) => {
+  const kick = (username) => {
+    const ownerUsername = owner.username;
+    return (
+      <div onClick={() => console.log(username)} className={styles.kick}>
+      ✕
+      </div>
+    );
+  };
   // The table's columns
   const columns = [{
-    key: 'username',
+    field: 'username',
     width: styles.username,
   }, {
-    key: 'dots',
+    field: 'dots',
     width: styles.dots,
+  }, {
+    cellContent: kick,
+    disableSorting: true,
+    field: 'kick',
+    key: 'username',
+    width: styles.kick,
   }];
   const data = _.map(members, ({ dots, username }) => ({
     // Prettify the Dots
