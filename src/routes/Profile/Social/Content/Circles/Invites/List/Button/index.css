@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+  &.join:hover p {
+    color: $sand;
+  }
+  &.decline:hover p {
+    color: $coral;
+  }
+  &:active p {
+    font-weight: bold;
+  }
+}

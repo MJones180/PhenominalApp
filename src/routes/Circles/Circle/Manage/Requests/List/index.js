@@ -18,7 +18,7 @@ export default ({ id, joinRequests }) => {
     key: 'username',
   }, {
     // Column to deny the join request
-    cellContent: username => <Button accept={false} id={id} username={username} />,
+    cellContent: username => <Button id={id} username={username} />,
     cellStyle: styles.deny,
     disableSorting: true,
     field: 'deny',

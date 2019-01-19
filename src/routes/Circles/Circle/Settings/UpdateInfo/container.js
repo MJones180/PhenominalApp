@@ -2,6 +2,7 @@ import { withFormik } from 'formik';
 import _ from 'lodash';
 import * as yup from 'yup';
 import Mutation from 'utils/graphql/mutation';
+import { push } from 'utils/history';
 import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
@@ -33,6 +34,8 @@ export default Component => (
           // Enable the button
           setSubmitting(false);
           alert.success('Circle information updated.');
+          // Reload the page, simplest way to keep all of the data synced
+          push();
         },
         error: () => {
           // Enable the button

@@ -26,9 +26,9 @@ export default ({ id, isOwner, members, ownerUsername }) => {
   }
   const data = _.map(members, ({ dots, username }) => ({
     // Prettify the Dots
-    dots: comma(dots[0].total),
+    dots: comma(dots[0] && dots[0].total),
     username,
-    SORT_dots: dots[0].total,
+    SORT_dots: dots[0] && dots[0].total,
     SORT_username: _.toLower(username),
   }));
   return (

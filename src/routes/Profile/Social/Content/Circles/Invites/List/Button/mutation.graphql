@@ -1,0 +1,3 @@
+mutation($id: ID!, $join: Boolean!) {
+  handleCircleInvite(id: $id, join: $join)
+}

@@ -1,0 +1,10 @@
+query {
+  currentUser {
+    circleInvites {
+      circle {
+        id
+        name
+      }
+    }
+  }
+}

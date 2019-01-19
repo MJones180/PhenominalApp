@@ -1,0 +1,11 @@
+.name {
+  width: calc(100% - 135px);
+}
+.join {
+  width: 55px;
+  border-left: 1px dashed;
+}
+.decline {
+  width: 80px;
+  border-left: 1px dashed;
+}

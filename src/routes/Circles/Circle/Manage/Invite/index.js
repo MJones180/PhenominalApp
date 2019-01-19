@@ -5,7 +5,7 @@ import Results from './Results';
 import styles from './index.css';
 
 export default Container(({ id, results, ...searchProps }) => (
-  <div className={styles.container}>
+  <div>
     <div className={styles.search}>
       <h3 className={`general ${styles.title}`}>
         Invite

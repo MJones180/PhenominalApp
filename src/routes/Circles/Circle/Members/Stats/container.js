@@ -7,7 +7,7 @@ export default Component => (
     // Number of members
     const memberCount = members.length;
     // Aggregate number of Dots from all of the members
-    const dotTotal = _.sumBy(members, ({ dots }) => dots[0].total);
+    const dotTotal = _.sumBy(members, ({ dots }) => dots[0] && dots[0].total);
     const dotAverage = dotTotal / memberCount;
     return (
       <Component
