@@ -1,0 +1,20 @@
+.container {
+  width: 50%;
+}
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  @media $s_max {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.title {
+  @media $s_max {
+    padding-bottom: 15px;
+  }
+  @media $m_min {
+    margin-right: auto;
+  }
+}

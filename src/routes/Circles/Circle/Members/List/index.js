@@ -5,7 +5,7 @@ import { comma } from 'utils/number';
 import Kick from './Kick';
 import styles from './index.css';
 
-export default ({ id, isOwner, members, owner }) => {
+export default ({ id, isOwner, members, ownerUsername }) => {
   // The table's columns
   const columns = [{
     cellStyle: styles[isOwner ? 'usernameReduced' : 'username'],
@@ -17,7 +17,7 @@ export default ({ id, isOwner, members, owner }) => {
   // If the user is the owner, add a column to kick members
   if (isOwner) {
     columns.push({
-      cellContent: username => <Kick id={id} username={username} owner={owner.username} />,
+      cellContent: username => <Kick id={id} username={username} owner={ownerUsername} />,
       cellStyle: styles.kick,
       disableSorting: true,
       field: 'kick',

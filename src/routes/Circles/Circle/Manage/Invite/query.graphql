@@ -1,0 +1,9 @@
+query($search: String, $owner: String) {
+  users(where: {
+    username_contains: $search
+    username_not: $owner
+  }, first: 10) {
+    id
+    username
+  }
+}

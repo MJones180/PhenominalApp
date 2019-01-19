@@ -1,0 +1,7 @@
+.username {
+  width: calc(100% - 65px);
+}
+.invite {
+  width: 65px;
+  border-left: 1px dashed;
+}

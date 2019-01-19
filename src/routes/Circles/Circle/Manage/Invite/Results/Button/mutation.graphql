@@ -1,0 +1,3 @@
+mutation($id: ID!, $username: String!) {
+  inviteCircleMember(id: $id, username: $username)
+}

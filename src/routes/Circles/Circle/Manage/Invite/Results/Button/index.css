@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  &:hover p {
+    cursor: pointer;
+    color: $sand;
+  }
+  &:active p {
+    font-weight: bold;
+  }
+}

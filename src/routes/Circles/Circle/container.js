@@ -12,7 +12,7 @@ export default Component => (
       // Check if the owner of the Circle is the authUser
       const isOwner = circle.owner.id == isAuth();
       // Render the Circle
-      return <Component id={circle.id} isOwner={isOwner} name={circle.name} />;
+      return <Component id={circle.id} isOwner={isOwner} name={circle.name} open={circle.open} ownerUsername={circle.owner.username} />;
     };
     return Query({
       query,

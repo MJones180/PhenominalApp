@@ -4,7 +4,7 @@ import List from './List';
 import Stats from './Stats';
 import styles from './index.css';
 
-export default Container(({ id, isOwner, members, owner }) => (
+export default Container(({ id, isOwner, members, ownerUsername }) => (
   <section className={styles.container}>
     <div className={styles.header}>
       <h3 className={`general ${styles.title}`}>
@@ -12,6 +12,6 @@ export default Container(({ id, isOwner, members, owner }) => (
       </h3>
       <Stats members={members} />
     </div>
-    <List id={id} isOwner={isOwner} members={members} owner={owner} />
+    <List id={id} isOwner={isOwner} members={members} ownerUsername={ownerUsername} />
   </section>
 ));

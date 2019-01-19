@@ -6,8 +6,5 @@ query($id: ID) {
         total
       }
     }
-    owner {
-      username
-    }
   }
 }

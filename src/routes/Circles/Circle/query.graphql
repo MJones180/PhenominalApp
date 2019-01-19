@@ -2,8 +2,10 @@ query($id: ID) {
   circle(where: { id: $id }) {
     id
     name
+    open
     owner {
       id
+      username
     }
   }
 }
