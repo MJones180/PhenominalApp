@@ -5,21 +5,25 @@ import { comma } from 'utils/number';
 import Kick from './Kick';
 import styles from './index.css';
 
-export default ({ members, owner }) => {
+export default ({ id, isOwner, members, owner }) => {
   // The table's columns
   const columns = [{
-    cellStyle: styles.username,
+    cellStyle: styles[isOwner ? 'usernameReduced' : 'username'],
     field: 'username',
   }, {
     cellStyle: styles.dots,
     field: 'dots',
-  }, {
-    cellContent: username => Kick(username, owner.username),
-    cellStyle: styles.kick,
-    disableSorting: true,
-    field: 'kick',
-    key: 'username',
   }];
+  // If the user is the owner, add a column to kick members
+  if (isOwner) {
+    columns.push({
+      cellContent: username => Kick(id, username, owner.username),
+      cellStyle: styles.kick,
+      disableSorting: true,
+      field: 'kick',
+      key: 'username',
+    });
+  }
   const data = _.map(members, ({ dots, username }) => ({
     // Prettify the Dots
     dots: comma(dots[0].total),

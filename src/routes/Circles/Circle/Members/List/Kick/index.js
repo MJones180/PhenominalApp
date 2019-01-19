@@ -1,14 +1,14 @@
 import React from 'react';
+import Container from './container';
 import styles from './index.css';
 
-export default (username, owner) => {
-  let disabled = false;
-  if (username == owner) disabled = true;
+export default Container(({ kick, isOwner }) => {
+  if (isOwner) return <div> &nbsp; </div>;
   return (
     <div className={styles.container}>
-      <div onClick={() => !disabled && console.log(username)} className={styles.button}>
+      <div onClick={kick} className={styles.button}>
         <p> ✕ </p>
       </div>
     </div>
   );
-};
+});

@@ -10,6 +10,6 @@ export default Container(({ id, isOwner, name }) => (
     <HeadTags name={name} />
     {isOwner && <Settings id={id} />}
     <Info id={id} isOwner={isOwner} />
-    <Members id={id} />
+    <Members id={id} isOwner={isOwner} />
   </main>
 ));

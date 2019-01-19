@@ -2,6 +2,9 @@
   .username {
     width: 70%;
   }
+  .usernameReduced {
+    width: calc(70% - 60px);
+  }
   .dots {
     width: 30%;
   }
@@ -10,19 +13,25 @@
   .username {
     width: 75%;
   }
+  .usernameReduced {
+    width: calc(75% - 60px);
+  }
   .dots {
     width: 25%;
   }
 }
 @media $l_min {
   .username {
+    width: 80%;
+  }
+  .usernameReduced {
     width: calc(80% - 60px);
   }
   .dots {
     width: 20%;
   }
-  .kick {
-    width: 60px;
-    border-left: 1px dashed;
-  }
+}
+.kick {
+  width: 60px;
+  border-left: 1px dashed;
 }
