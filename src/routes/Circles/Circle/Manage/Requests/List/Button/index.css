@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+  &.accept:hover p {
+    color: $sand;
+  }
+  &.deny:hover p {
+    color: $coral;
+  }
+  &:active p {
+    font-weight: bold;
+  }
+}

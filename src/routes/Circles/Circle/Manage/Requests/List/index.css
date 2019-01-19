@@ -1,0 +1,11 @@
+.username {
+  width: calc(100% - 140px);
+}
+.accept {
+  width: 75px;
+  border-left: 1px dashed;
+}
+.deny {
+  width: 65px;
+  border-left: 1px dashed;
+}

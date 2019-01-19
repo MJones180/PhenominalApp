@@ -4,7 +4,7 @@ import Container from './container';
 import styles from './index.css';
 
 export default Container(({ click }) => (
-  <section className={styles.container}>
+  <div className={styles.container}>
     <h3 className="general">
       Danger Zone
     </h3>
@@ -15,5 +15,5 @@ export default Container(({ click }) => (
     <Button warning center onClick={click}>
       Disband
     </Button>
-  </section>
+  </div>
 ));

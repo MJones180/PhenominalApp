@@ -6,7 +6,7 @@ import Container from './container';
 import styles from './index.css';
 
 export default Container(() => (
-  <section className={styles.container}>
+  <div className={styles.container}>
     <h3 className="general">
       Update Information
     </h3>
@@ -16,5 +16,5 @@ export default Container(() => (
         Update
       </Submit>
     </Form>
-  </section>
+  </div>
 ));

@@ -5,7 +5,7 @@ import styles from './index.css';
 
 export default () => (
   <div className={styles.container}>
-    <Textarea eggshell name="description" label="Description" />
+    <Textarea name="description" label="Description" />
     <Checkbox
       label="Allow anyone to join this Circle"
       name="open"

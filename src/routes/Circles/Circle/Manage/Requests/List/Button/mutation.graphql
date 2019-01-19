@@ -1,0 +1,3 @@
+mutation($id: ID!, $username: String!, $accept: Boolean!) {
+  handleCircleRequest(id: $id, username: $username, accept: $accept)
+}

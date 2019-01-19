@@ -17,7 +17,7 @@ export default ({ id, isOwner, members, owner }) => {
   // If the user is the owner, add a column to kick members
   if (isOwner) {
     columns.push({
-      cellContent: username => Kick(id, username, owner.username),
+      cellContent: username => <Kick id={id} username={username} owner={owner.username} />,
       cellStyle: styles.kick,
       disableSorting: true,
       field: 'kick',

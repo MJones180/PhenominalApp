@@ -4,23 +4,25 @@ import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 
 export default Component => (
-  ({ id, username, owner }) => {
-    const kick = async () => {
-      const alert = createAlert('Kicking member.');
+  ({ id, username, accept }) => {
+    // Accept or deny the join request
+    const handleRequest = async () => {
+      const alert = createAlert(accept ? 'Accepting request.' : 'Denying request.');
       await Mutation({
         mutation,
         variables: {
           id,
           username,
+          accept,
         },
         success: () => {
-          alert.success('Member kicked.');
+          alert.success(accept ? 'Member joined.' : 'Request denied.');
         },
         error: () => {
           alert.error();
         },
       });
     };
-    return <Component kick={kick} isOwner={username == owner} />;
+    return <Component accept={accept} click={handleRequest} />;
   }
 );

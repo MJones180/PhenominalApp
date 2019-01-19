@@ -1,0 +1,9 @@
+query($id: ID) {
+  circle(where: { id: $id }) {
+    joinRequests {
+      user {
+        username
+      }
+    }
+  }
+}
