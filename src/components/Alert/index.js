@@ -60,8 +60,8 @@ export default (text) => {
   // Create or update alert with the requested text
   // Curried to accept the text, defaults to an error message
   const upsert = type => (text = 'An error has occured.') => {
-    // Time for the alert to close, 6 seconds by default or 20 for SPECIAL
-    const autoClose = (type == SPECIAL) ? 20000 : 6000;
+    // Time for the alert to close, 6 seconds by default or 15 for SPECIAL
+    const autoClose = (type == SPECIAL) ? 15000 : 6000;
     // Update the alert if one was already created
     if (alertID) toast.update(alertID, settings(type, autoClose, text));
     // Create a new alert

@@ -1,17 +1,19 @@
 import _ from 'lodash';
 import { simple } from 'utils/graphql/query';
+import mutation from 'utils/graphql/mutation';
 import { currentUser } from 'utils/auth/user';
 import createAlert from 'components/Alert';
 import circleInvitesQuery from './circleInvites.graphql';
 import circleRequestsQuery from './circleRequests.graphql';
+import accountAgeHalo from './accountAgeHalo.graphql';
 
-// Grab all of the Circles the user is invited to
+// Grab all of the Circles the user has been invited to
 const circleInvites = async () => (
   simple({ query: circleInvitesQuery })
     .then(({ data }) => {
       // Check if the user has at least one invite
       if (data.currentUser.circleInvites[0]) {
-        // If there is at least one invite, alert the user
+        // Alert the user
         createAlert().special('You have an invite to join a Circle!');
       }
     })
@@ -41,6 +43,8 @@ export default currentUser(({ user }) => {
     circleInvites();
     // Check for Circle join requests
     circleRequests();
+    // Check the account age Halo
+    mutation({ mutation: accountAgeHalo });
   }
   return false;
 });

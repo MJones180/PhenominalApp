@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 15px;
+}
+.halo {
+  width: 250px;
+  height: 250px;
+}
+.text {
+  text-align: center;
+}
+.desc {
+  color: $azure;
+}
+.level {
+  font-weight: 700;
+}

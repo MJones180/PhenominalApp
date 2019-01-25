@@ -11,3 +11,11 @@
     background-color: color(black alpha(65%));
   }
 }
+.icon {
+  position: relative;
+  top: 3px;
+  display: inline;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
