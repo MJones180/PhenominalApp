@@ -12,8 +12,8 @@ export default class extends React.Component {
     // Initial State
     this.state = {
       // Remove multiple invites from the same Circle
-      data: _.intersectionBy(
-        _.map(this.props.circleInvites, ({ circle: { id, name } }) => ({
+      data: _.uniqBy(
+        _.map(this.props.invites, ({ circle: { id, name } }) => ({
           id,
           name,
           SORT_name: _.toLower(name),

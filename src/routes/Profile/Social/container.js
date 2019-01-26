@@ -17,12 +17,12 @@ export default Component => (
     }
     // Wrapper to grab the data for tab contents
     dataWrapper(query, tab, Component, props) {
-      const RenderComponent = ({ data: { user } }) => {
+      const RenderComponent = ({ data }) => {
         // Save the data so it only has to be grabbed once
         this.setState({
-          tabContent: _.merge(this.state.tabContent, { [tab]: user[tab] }),
+          tabContent: _.merge(this.state.tabContent, { [tab]: data }),
         });
-        return <Component data={user[tab]} {...props} />;
+        return <Component data={data[tab]} {...props} />;
       };
       // Check if the data has already been grabbed
       if (this.state.tabContent[tab]) return <Component data={this.state.tabContent[tab]} {...props} />;
@@ -43,6 +43,7 @@ export default Component => (
           dataWrapper={this.dataWrapper}
           ownProfile={this.props.ownProfile}
           tabClick={this.tabClick}
+          username={this.props.username}
         />
       );
     }

@@ -4,16 +4,16 @@
   justify-content: center;
   margin: 0 15px;
 }
-.halo {
+.img {
   width: 250px;
   height: 250px;
 }
 .text {
   text-align: center;
 }
-.desc {
+.description {
   color: $azure;
 }
-.level {
+.tier {
   font-weight: 700;
 }

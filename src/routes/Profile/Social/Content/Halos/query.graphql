@@ -1,0 +1,8 @@
+query($username: String) {
+  userHalos(username: $username) {
+    description
+    dotReward
+    key
+    tier
+  }
+}

@@ -2,12 +2,12 @@ import React from 'react';
 import { image } from 'utils/endpoints';
 import styles from './index.css';
 
-export default ({ name, desc, level }) => (
+export default ({ description, dotReward, haloKey, tier }) => (
   <div className={styles.container}>
-    <img src={image(`halos/${name}.png`)} alt={name} className={styles.halo} />
+    <img src={image(`halos/${haloKey}.png`)} alt={haloKey} className={styles.img} />
     <div className={styles.text}>
-      <h4 className={styles.desc}> {desc} </h4>
-      <h5 className={styles.level}> {level} </h5>
+      <h4 className={styles.description}> {description} </h4>
+      <h5 className={styles.tier}> {tier} </h5>
     </div>
   </div>
 );

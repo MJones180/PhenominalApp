@@ -1,0 +1,16 @@
+query($username: String) {
+  user(where: {username: $username} ) {
+    circles {
+      id
+      name
+    }
+  }
+  currentUser {
+    circleInvites {
+      circle {
+        id
+        name
+      }
+    }
+  }
+}

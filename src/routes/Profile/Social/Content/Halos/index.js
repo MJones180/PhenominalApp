@@ -1,10 +1,11 @@
 import React from 'react';
+import _ from 'lodash';
 import Halo from './Halo';
+import Container from './container';
 import styles from './index.css';
 
-export default () => (
+export default Container(({ data }) => (
   <div className={styles.container}>
-    <Halo name="LoopHalo" desc="Gain 250 Loops" level="Hard" />
-    <Halo name="FollowHalo" desc="Follow 25 Charities" level="Easy" />
+    {_.map(_.get(data, 'userHalos', {}), halo => <Halo haloKey={halo.key} {...halo} />)}
   </div>
-);
+));
