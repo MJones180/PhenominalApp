@@ -6,6 +6,14 @@ import styles from './index.css';
 
 export default Container(({ data }) => (
   <div className={styles.container}>
-    {_.map(_.get(data, 'userHalos', {}), halo => <Halo haloKey={halo.key} {...halo} />)}
+    {_.map(_.get(data, 'userHalos', {}), halo => (
+      <Halo
+        description={halo.description}
+        dotReward={halo.dotReward}
+        haloKey={halo.key}
+        key={halo.key}
+        tier={_.capitalize(halo.tier)}
+      />
+    ))}
   </div>
 ));
