@@ -12,6 +12,6 @@ export default Container(({ id, isOwner, name, open, ownerUsername }) => (
     <Info id={id} isOwner={isOwner} />
     <Members id={id} isOwner={isOwner} ownerUsername={ownerUsername} />
     {isOwner && <Settings id={id} />}
-    {isOwner && <Manage open={open} id={id} ownerUsername={ownerUsername} />}
+    {isOwner && <Manage open={open} id={id} />}
   </main>
 ));

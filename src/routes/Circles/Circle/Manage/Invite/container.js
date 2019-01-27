@@ -27,7 +27,7 @@ export default Component => (
         variables: {
           search: _.trim(_.toLower(this.state.searchValue)),
           // Don't search for the Circle owner
-          owner: this.props.ownerUsername,
+          id: this.props.id,
         },
       })
         // Add the data to the state and re-enable the button

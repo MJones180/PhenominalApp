@@ -10,7 +10,6 @@ export default ({ id, data }) => {
     cellStyle: styles.username,
     field: 'username',
   }, {
-    // Column to accept the join request
     cellContent: username => <Button id={id} username={username} />,
     cellStyle: styles.invite,
     disableSorting: true,

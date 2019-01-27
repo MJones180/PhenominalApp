@@ -1,7 +1,9 @@
-query($search: String, $owner: String) {
+query($search: String, $id: ID) {
   users(where: {
     username_contains: $search
-    username_not: $owner
+    circles_none: {
+      id: $id
+    }
   }, first: 10) {
     id
     username
