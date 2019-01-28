@@ -1,0 +1,6 @@
+.title {
+  padding: 50px;
+  @media $m_max {
+    text-align: center;
+  }
+}

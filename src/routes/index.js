@@ -64,6 +64,11 @@ export default () => (
     />
     <Route
       exact
+      path="/halos"
+      mod={() => import(/* webpackChunkName: "Halos" */ './Halos')}
+    />
+    <Route
+      exact
       path="/help"
       mod={() => import(/* webpackChunkName: "Help" */ './Help')}
     />

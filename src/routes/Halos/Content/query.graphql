@@ -1,0 +1,10 @@
+query {
+  allHalos {
+    key
+    tiers {
+      description
+      dotReward
+      tier
+    }
+  }
+}

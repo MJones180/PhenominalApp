@@ -1,12 +1,11 @@
 import React from 'react';
+import Header from './Header';
 import Items from './Items';
 import Container from './container';
 
 export default Container(data => (
   <div>
-    <h3 className="general">
-      Halos
-    </h3>
+    <Header />
     <Items {...data} />
   </div>
 ));

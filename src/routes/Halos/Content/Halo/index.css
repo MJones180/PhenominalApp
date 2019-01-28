@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  &:nth-child(even) {
+    position: relative;
+    background-color: $eggshell;
+    @mixin extendBackground $eggshell;
+  }
+  @media $m_max {
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 0;
+  }
+  @media $l_min {
+    padding: 50px;
+  }
+}
+.halo {
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+}
+.tiers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1000px;
+  @media $m_max {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
