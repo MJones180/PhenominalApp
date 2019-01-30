@@ -1,8 +1,12 @@
 import React from 'react';
+import Items from './Items';
 import styles from './index.css';
 
-export default () => (
+export default ({ username }) => (
   <section className={styles.container}>
-    Feed
+    <h3 className="general">
+      Feed
+    </h3>
+    <Items username={username} />
   </section>
 );

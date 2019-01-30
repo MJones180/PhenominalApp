@@ -14,6 +14,6 @@ export default Container(({ ownProfile, username }) => (
     <Info username={username} />
     {ownProfile && <Impact />}
     <Social ownProfile={ownProfile} username={username} />
-    <Feed />
+    <Feed username={username} />
   </main>
 ));
