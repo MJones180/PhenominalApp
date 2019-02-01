@@ -1,5 +1,6 @@
 query($username: String) {
   userHalos(username: $username) {
+    date
     description
     key
     tier
