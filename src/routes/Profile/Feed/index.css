@@ -1,8 +1,0 @@
-.container {
-  @media $m_max {
-    padding: 25px;
-  }
-  @media $l_min {
-    padding: 50px;
-  }
-}
