@@ -20,10 +20,11 @@ const Gained = ({ dots }) => (
   </div>
 );
 
-export default Container(({ dots, link, message, title }) => (
+export default Container(({ date, dots, link, message, title }) => (
   <LinkWrapper link={link}>
     <h4 className="general"> {title} </h4>
     <p className="large"> {message} </p>
     { !!dots && <Gained dots={dots} /> }
+    <p className={styles.date}> {date} </p>
   </LinkWrapper>
 ));

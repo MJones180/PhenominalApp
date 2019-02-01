@@ -1,4 +1,5 @@
 import React from 'react';
+import { timeAgo } from 'utils/time';
 
 // Type information
 const types = {
@@ -20,10 +21,11 @@ const types = {
 };
 
 export default Component => (
-  ({ dots, link, message, type }) => (
+  ({ createdAt, dots, link, message, type }) => (
     <Component
+      date={timeAgo(createdAt)}
       dots={dots || 0}
-      link={link ? types[type].link(link) : false}
+      link={link ? types[type].link(link) : undefined}
       message={message}
       title={types[type].title}
     />
