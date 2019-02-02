@@ -1,0 +1,74 @@
+.container {
+  margin-top: 30px;
+  border: 1px solid $stone;
+}
+.credit {
+  position: absolute;
+  padding: 5px;
+  color: white;
+  border-bottom-right-radius: $radius;
+  background-color: $blacken50;
+  @media $s_max {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @media $m_only {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media $l_min {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.image {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+}
+.align {
+  position: absolute;
+  align-self: center;
+  width: auto;
+  text-align: center;
+  color: white;
+  @media $s_max {
+    width: $size_s_min;
+  }
+  @media $m_only {
+    max-width: 650px;
+  }
+  @media $l_min {
+    max-width: 1000px;
+  }
+}
+.name {
+  padding: 5px;
+  background-color: $blacken50;
+  box-decoration-break: clone;
+  box-shadow: 0 0 1px 5px $blacken50;
+  & abbr {
+    font-weight: 200;
+  }
+  @media $s_max {
+    box-shadow: 0 0;
+    & abbr {
+      font-size: 20px;
+    }
+  }
+  @media $m_only {
+    & abbr {
+      font-size: 25px;
+    }
+  }
+  @media $l_min {
+    & abbr {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.container {
+  @media $s_max {
+    padding: 15px 0;
+    text-align: center;
+  }
+  @media $m_min {
+    width: 150px;
+  }
+}

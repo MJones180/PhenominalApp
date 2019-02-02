@@ -1,0 +1,12 @@
+.container {
+  padding: 30px;
+}
+.donations {
+  display: flex;
+  @media $s_max {
+    flex-direction: column;
+  }
+  @media $m_min {
+    margin-top: 20px;
+  }
+}

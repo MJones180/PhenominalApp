@@ -1,0 +1,21 @@
+query($username: String) {
+  user(where: { username: $username } ) {
+    transactions(
+      orderBy: createdAt_DESC
+      where: { type: DONATION }
+    ) {
+      createdAt
+      event {
+        charity {
+          acronym
+          bannerCredit
+          ein
+          name
+        }
+        specialFundraiser {
+          name
+        }
+      }
+    }
+  }
+}

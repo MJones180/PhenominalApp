@@ -1,0 +1,16 @@
+.container {
+  display: inline-block;
+  cursor: pointer;
+  &:hover {
+    color: $azure;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+  @media $s_max {
+    padding: 5px 10px;
+  }
+}
+.active {
+  color: $azure;
+}
