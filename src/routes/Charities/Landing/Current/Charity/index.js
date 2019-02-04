@@ -1,7 +1,7 @@
 import React from 'react';
+import BannerCredit from 'components/BannerCredit';
 import Banner from './Banner';
 import Buttons from './Buttons';
-import Credit from './Credit';
 import Mission from './Mission';
 import Multiplier from './Multiplier';
 import Progress from './Progress';
@@ -11,7 +11,7 @@ import styles from './index.css';
 export default ({ data: { charity, ...data } }) => (
   <div className={`${styles.charity} ${data.multiplier && styles.multiplier}`} key={data.id}>
     <Banner ein={charity.ein} name={charity.name} />
-    <Credit credit={charity.bannerCredit} />
+    <BannerCredit credit={charity.bannerCredit} />
     <div className={styles.content}>
       <div className={styles.contentCenter}>
         <Title acronym={charity.acronym} name={charity.name} />

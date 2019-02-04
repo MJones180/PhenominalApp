@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { image } from 'utils/endpoints';
+import BannerCredit from 'components/BannerCredit';
 import styles from './index.css';
 
 export default ({ acronym, bannerCredit, ein, name }) => (
   <div className={styles.container}>
-    {bannerCredit && (
-      <div className={styles.credit}>
-        Photograph by {bannerCredit}
-      </div>
-    )}
+    <BannerCredit credit={bannerCredit} />
     <Link to={`/charities/${ein}`}>
       <div className={styles.banner}>
         <img

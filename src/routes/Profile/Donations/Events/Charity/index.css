@@ -2,26 +2,6 @@
   margin-top: 30px;
   border: 1px solid $stone;
 }
-.credit {
-  position: absolute;
-  z-index: 10;
-  padding: 5px;
-  color: white;
-  border-bottom-right-radius: $radius;
-  background-color: $blacken50;
-  @media $s_max {
-    font-size: 12px;
-    line-height: 15px;
-  }
-  @media $m_only {
-    font-size: 14px;
-    line-height: 18px;
-  }
-  @media $l_min {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
 .banner {
   position: relative;
   display: flex;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { image } from 'utils/endpoints';
+import BannerCredit from 'components/BannerCredit';
 import Container from './container';
-import Credit from './Credit';
 import styles from './index.css';
 
 export default Container(({ acronym, bannerCredit, ein, name }) => (
   <section className={styles.container}>
-    <Credit name={bannerCredit} />
+    <BannerCredit credit={bannerCredit} />
     <div className={styles.background}>
       <img
         src={image(`charities/banners/${ein}.jpg`)}
