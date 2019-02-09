@@ -6,10 +6,13 @@ import styles from './index.css';
 export default () => (
   <section className={styles.container}>
     <div className={styles.links}>
+      <Button to="/friend-invite">
+        Friend Invite
+      </Button>
       <Button to="/transactions">
         Transactions
       </Button>
-      <Button to="/settings" className={styles.settings}>
+      <Button to="/settings">
         Setings
       </Button>
     </div>

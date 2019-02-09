@@ -1,9 +1,12 @@
 .container {
   display: flex;
   align-items: center;
-  padding: 15px;
   @media $s_max {
     flex-direction: column;
+    padding: 15px 15px 20px;
+  }
+  @media $m_min {
+    padding: 25px 15px;
   }
   @media $m_max {
     justify-content: center;
@@ -14,10 +17,23 @@
 }
 .links {
   display: flex;
-}
-.settings {
-  margin: 0 15px;
+  flex-wrap: wrap;
+  justify-content: center;
   @media $s_max {
-    margin: 0 0 15px 15px;
+    margin-bottom: 10px;
+  }
+  @media $m_min {
+    margin-right: 10px;
+  }
+  & > * {
+    @media $s_max {
+      margin: 10px;
+    }
+    @media $m_min {
+      margin: 0 10px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
   }
 }

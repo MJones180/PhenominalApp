@@ -1,0 +1,9 @@
+mutation(
+  $email: String!
+  $message: String!
+) {
+  sendFriendInvite(
+    email: $email
+    message: $message
+  )
+}

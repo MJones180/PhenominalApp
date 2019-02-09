@@ -1,0 +1,16 @@
+.container {
+  padding: 175px 0;
+  @media $l_min {
+    padding: 250px 0;
+  }
+  @media min($size_l_max) {
+    margin-top: 30px;
+  }
+  @mixin parallaxBackdrop assets/Backgrounds/FriendInvite.jpg;
+}
+.title {
+  font-weight: 200;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 10px $darkStone;
+}

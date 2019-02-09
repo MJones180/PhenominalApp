@@ -64,6 +64,12 @@ export default () => (
     />
     <Route
       exact
+      path="/friend-invite"
+      requireAuth
+      mod={() => import(/* webpackChunkName: "FriendInvite" */ './FriendInvite')}
+    />
+    <Route
+      exact
       path="/halos"
       mod={() => import(/* webpackChunkName: "Halos" */ './Halos')}
     />
