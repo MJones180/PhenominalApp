@@ -1,0 +1,36 @@
+.container {
+  color: white;
+  background-color: $azure;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px $azure;
+  @media $s_max {
+    margin: 0 auto 30px;
+  }
+  @media $m_min {
+    position: absolute;
+  }
+  @media $m_only {
+    left: 25px;
+  }
+  @media $m_max {
+    width: 235px;
+    padding: 50px 25px 40px;
+  }
+  @media $l_min {
+    top: -20px;
+    left: 30px;
+    width: 275px;
+    padding: 50px 30px 40px;
+  }
+}
+.symbol {
+  font-size: 50px;
+}
+.text {
+  font-weight: 200;
+  margin-top: -30px;
+  white-space: pre-wrap;
+  text-transform: uppercase;
+}
+.name {
+  text-align: right;
+}

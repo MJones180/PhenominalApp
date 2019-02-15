@@ -1,18 +1,16 @@
 import React from 'react';
-import Stats from './Stats';
-import Explanation from './Explanation';
-import About from './About';
-import Process from './Process';
+import Charities from './Charities';
 import Donate from './Donate';
-import Quote from './Quote';
+import Process from './Process';
+import Explanation from './Explanation';
+import Stats from './Stats';
 
 export default () => (
   <main>
     <Stats />
     <Explanation />
-    <About />
     <Process />
     <Donate />
-    <Quote />
+    <Charities />
   </main>
 );

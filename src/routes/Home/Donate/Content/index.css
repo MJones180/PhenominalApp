@@ -1,0 +1,23 @@
+.content {
+  @media $s_max {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    text-align: center;
+  }
+  @media $m_min {
+    margin-left: auto;
+    text-align: right;
+  }
+  @media $m_only {
+    width: 500px;
+    padding: 30px 25px 40px 75px;
+  }
+  @media $l_min {
+    width: 775px;
+    padding: 30px 50px 40px;
+  }
+}
+.button {
+  margin-top: 15px;
+}
