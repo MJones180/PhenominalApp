@@ -5,7 +5,7 @@ import styles from './index.css';
 export default () => (
   <section className={styles.container}>
     <h4 className="general">
-      Yes, it is spelled wrong.
+      Yes, it&apos;s spelled wrong
     </h4>
     <img src={image('logos/nameExplanation.png')} alt="Explanation" />
   </section>
