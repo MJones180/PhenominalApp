@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  padding: 100px 50px;
+  @media $l_min {
+    width: 1200px;
+  }
+}
+.title {
+  text-align: center;
+}
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media $s_max {
+    flex-direction: column;
+  }
+  @media $m_only {
+    flex-wrap: wrap;
+  }
+}

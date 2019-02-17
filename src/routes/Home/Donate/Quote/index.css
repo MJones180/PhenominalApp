@@ -22,8 +22,21 @@
     padding: 50px 30px 40px;
   }
 }
-.symbol {
+.startQuote, .endQuote {
   font-size: 50px;
+}
+.endQuote {
+  line-height: 0;
+  margin-top: -10px;
+  @media $s_max {
+    margin-left: 170px;
+  }
+  @media $m_only {
+    margin-left: 110px;
+  }
+  @media $l_min {
+    margin-left: 120px;
+  }
 }
 .text {
   font-weight: 200;
@@ -32,5 +45,6 @@
   text-transform: uppercase;
 }
 .name {
+  margin-top: 10px;
   text-align: right;
 }

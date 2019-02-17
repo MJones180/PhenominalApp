@@ -1,0 +1,24 @@
+.coin {
+  width: 200px;
+  animation: wiggle 5s infinite;
+}
+@keyframes wiggle {
+  80% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  90% {
+    transform: rotate(5deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
