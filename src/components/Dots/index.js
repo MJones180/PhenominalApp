@@ -1,3 +1,13 @@
+/*
+NAME
+  Dots [Component]
+USAGE
+  return <Dots {...props} />
+PROPS
+  - total: [int] total dots
+  - gained: [int] number of dots gained
+*/
+
 import React from 'react';
 import { comma } from 'utils/number';
 import styles from './index.css';

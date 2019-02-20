@@ -1,3 +1,13 @@
+/*
+NAME
+  Loops [Component]
+USAGE
+  return <Loops {...props} />
+PROPS
+  - count: [int] loop score
+  - gained: [int] number of loops gained
+*/
+
 import React from 'react';
 import { image } from 'utils/endpoints';
 import styles from './index.css';

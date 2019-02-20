@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'components/Link';
 import Box from '../Box';
 import styles from './index.css';
 
@@ -7,8 +8,8 @@ export default ({ mission, website }) => (
     <p className={styles.mission}>
       {mission}
     </p>
-    <a className={`general ${styles.url}`} href={website} target="_blank" rel="noopener noreferrer">
+    <Link general className={styles.url} external={website}>
       View Site
-    </a>
+    </Link>
   </Box>
 );

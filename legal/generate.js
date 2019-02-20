@@ -33,11 +33,11 @@ const transformations = {
 
 // Inline variables that should be replaced with React
 const replacements = {
-  email: '<a className="general" href="mailto:support@phenominal.fund">support@phenominal.fund</a>',
-  google_analytics: '<a target="_blank" rel="noopener noreferrer" className="general" href="https://www.google.com/analytics/terms/us.html">Google Analytics</a>',
-  privacy: '<Link className="general" to="/legal/privacy">Privacy Policy</Link>',
-  stripe_terms: '<a target="_blank" rel="noopener noreferrer" className="general" href="https://stripe.com/us/legal">terms of service</a>',
-  terms: '<Link className="general" to="/legal/terms">Terms of Service</Link>',
+  email: '<Link mail="support@phenominal.fund" general>support@phenominal.fund</Link>',
+  google_analytics: '<Link external="https://www.google.com/analytics/terms/us.html" general>Google Analytics</Link>',
+  privacy: '<Link to="/legal/privacy" general>Privacy Policy</Link>',
+  stripe_terms: '<Link external="https://stripe.com/us/legal" general>terms of service</Link>',
+  terms: '<Link to="/legal/terms" general>Terms of Service</Link>',
 };
 
 // The base template for the new file
@@ -47,7 +47,7 @@ const template = ({ content, date }) => (`
 // Version ${version}
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'components/Link';
 import styles from './index.css';
 
 export default () => (

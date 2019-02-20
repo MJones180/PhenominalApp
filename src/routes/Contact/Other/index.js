@@ -1,23 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'components/Link';
 import styles from './index.css';
 
 const Help = () => (
-  <Link className={`general ${styles.link}`} to="/help">
+  <Link general className={styles.link} to="/help">
     Help Center
   </Link>
 );
 
 const Suggest = () => (
-  <Link className={`general ${styles.link}`} to="/charities/suggest">
+  <Link general className={styles.link} to="/charities/suggest">
     make a suggestion
   </Link>
 );
 
 const Email = () => (
-  <a className={`general ${styles.link}`} href="mailto:support@phenominal.fund">
+  <Link general className={styles.link} mail="support@phenominal.fund">
     support@phenominal.fund
-  </a>
+  </Link>
 );
 
 export default () => (

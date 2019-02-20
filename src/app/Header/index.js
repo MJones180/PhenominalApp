@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { image } from 'utils/endpoints';
+import Link from 'components/Link';
 import User from './User';
 import styles from './index.css';
 

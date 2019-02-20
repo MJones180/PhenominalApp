@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { image } from 'utils/endpoints';
+import Link from 'components/Link';
 import BannerCredit from 'components/BannerCredit';
 import styles from './index.css';
 

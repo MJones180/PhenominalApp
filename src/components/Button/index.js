@@ -20,8 +20,8 @@ NOTES
 
 import React from 'react';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
 import { connect } from 'formik';
+import Link from 'components/Link';
 import styles from './index.css';
 
 const Button = ({ center, children, className, disable, floatingBorder, onClick, special, to, warning, ...props }) => {

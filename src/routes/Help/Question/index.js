@@ -2,7 +2,7 @@ import React from 'react';
 import Collapsible from 'react-collapsible';
 import styles from './index.css';
 
-export default ({ title, content }) => (
+export default ({ children, title }) => (
   <Collapsible
     trigger={<h4 className={styles.title}> {title} </h4>}
     easing="ease"
@@ -10,6 +10,8 @@ export default ({ title, content }) => (
     openedClassName={styles.item}
     triggerOpenedClassName={styles.activeTitle}
   >
-    <p className={`${styles.content} large`}>{content}</p>
+    <p className={`${styles.content} large`}>
+      {children}
+    </p>
   </Collapsible>
 );

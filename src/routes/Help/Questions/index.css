@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  @media $s_max {
+    flex-direction: column;
+  }
+  @media $m_only {
+    padding-top: 15px;
+  }
+}
+.column {
+  flex-direction: column;
+  @media $s_max {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  @media $m_only {
+    width: 50%;
+    max-width: 500px;
+    &:first-of-type {
+      padding-right: 15px;
+    }
+    &:last-of-type {
+      padding-left: 15px;
+    }
+  }
+  @media $l_min {
+    width: 500px;
+    margin: 0 15px;
+  }
+}
+.inline {
+  display: inline-block;
+  margin: 5px;
+}

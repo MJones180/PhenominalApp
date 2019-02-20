@@ -1,5 +1,6 @@
 import React from 'react';
 import { image } from 'utils/endpoints';
+import Link from 'components/Link';
 import Item from './Item';
 import styles from './index.css';
 
@@ -19,9 +20,9 @@ export default ({ ein, location, mission, name, phoneNumber, website, updatedAt 
     <Item title="Location"> {location} </Item>
     <Item title="Phone Number"> {phoneNumber} </Item>
     <Item title="Website">
-      <a className="general" href={website} target="_blank" rel="noopener noreferrer" key="website">
+      <Link general external={website} key="website">
         View Site
-      </a>
+      </Link>
     </Item>
     <p className={styles.lastUpdated} key="lastUpdated">
       Charity data last updated on <span>{updatedAt}</span>.

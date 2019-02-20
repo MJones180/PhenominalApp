@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'components/Link';
 import styles from './index.css';
 
 export default ({ multiplier, name, website }) => (
@@ -8,9 +9,9 @@ export default ({ multiplier, name, website }) => (
         {multiplier}x
       </span>
       {' Multiplier - '}
-      <a className={styles.sponsor} href={website} target="_blank" rel="noopener noreferrer">
+      <Link className={styles.sponsor} external={website}>
         {name}
-      </a>
+      </Link>
     </div>
   )
 );

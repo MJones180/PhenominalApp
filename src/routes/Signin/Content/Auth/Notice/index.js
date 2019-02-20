@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'components/Link';
 import styles from './index.css';
 
 const Terms = () => (
-  <Link to="/legal/terms" className="general">
+  <Link to="/legal/terms" general>
     Terms of Service
   </Link>
 );
 
 const Privacy = () => (
-  <Link to="/legal/privacy" className="general">
+  <Link to="/legal/privacy" general>
     Privacy Policy
   </Link>
 );
