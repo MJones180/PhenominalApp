@@ -4,20 +4,19 @@
   @media $s_max {
     flex-direction: column;
   }
-  @media $m_only {
-    padding-top: 15px;
+  @media $m_min {
+    padding: 15px 0;
   }
 }
 .column {
   flex-direction: column;
+  width: 100%;
+  max-width: 500px;
   @media $s_max {
-    max-width: 500px;
     margin: 0 auto;
-    text-align: left;
   }
   @media $m_only {
     width: 50%;
-    max-width: 500px;
     &:first-of-type {
       padding-right: 15px;
     }
@@ -26,11 +25,23 @@
     }
   }
   @media $l_min {
-    width: 500px;
     margin: 0 15px;
   }
 }
-.inline {
-  display: inline-block;
-  margin: 5px;
+.dangerText, .specialText {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.dangerText {
+  color: $coral;
+}
+.specialText {
+  color: $azure;
+}
+.flex {
+  display: flex;
+}
+.inlineButton {
+  display: inline;
+  margin-left: 5px;
 }

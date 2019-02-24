@@ -11,6 +11,6 @@ export default () => (
       label="Allow Anyone To View Your Profile"
       name="publicProfile"
     />
-    <p>Donation amounts and transactions are still hidden.</p>
+    <p>Donation amounts and account balances are still hidden.</p>
   </div>
 );

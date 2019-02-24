@@ -3,13 +3,11 @@
   padding: 30px;
   @media $s_max {
     padding: 30px 15px;
-    text-align: center;
   }
 }
-.title {
+.title, .text {
   text-align: center;
 }
 .text {
   margin-top: 15px;
-  text-align: center;
 }

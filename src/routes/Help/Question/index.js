@@ -4,14 +4,14 @@ import styles from './index.css';
 
 export default ({ children, title }) => (
   <Collapsible
-    trigger={<h4 className={styles.title}> {title} </h4>}
-    easing="ease"
     className={styles.item}
+    easing="ease"
     openedClassName={styles.item}
+    trigger={<h4 className={styles.title}> {title} </h4>}
     triggerOpenedClassName={styles.activeTitle}
   >
-    <p className={`${styles.content} large`}>
-      {children}
-    </p>
+    <div className={styles.content}>
+      { children }
+    </div>
   </Collapsible>
 );
