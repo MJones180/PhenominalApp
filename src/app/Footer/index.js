@@ -40,7 +40,7 @@ export default () => (
       <Social name="Youtube" link="https://www.youtube.com/channel/UCPf040JYs-pU5sb-kv_HqEg" />
     </div>
     <p className={styles.copyright}>
-      © 2018 Phenominal LLC. All rights reserved.
+      © 2019 Phenominal LLC. All rights reserved.
     </p>
   </footer>
 );
