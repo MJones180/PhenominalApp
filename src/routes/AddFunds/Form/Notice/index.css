@@ -1,5 +1,11 @@
 .container {
-  padding: 15px;
-  border: 1px solid $azure;
-  background-color: $eggshell;
+  padding: 10px 0 15px;
+  border-top: 1px solid $stone;
+  border-bottom: 1px solid $stone;
+}
+.title {
+  color: $coral;
+}
+.bold {
+  font-weight: 700;
 }

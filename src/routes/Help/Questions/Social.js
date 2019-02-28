@@ -22,7 +22,7 @@ export default () => (
     <Question title="What are Halos?">
       Halos are achieved when completing certain actions. They grant Dot rewards upon completion and display a badge on your profile.
       <Spacer />
-      You can view all of the Halos <Link general to="/halos">Here</Link>.
+      You can view all of the Halos <Link general to="/halos">here</Link>.
     </Question>
     <Question title="What are Dots?">
       <div className={styles.flex}>
@@ -35,7 +35,7 @@ export default () => (
       A Circle is a social group that provides a medium to view your friends in one place.
     </Question>
     <Question title="Can I invite my friends?">
-      Yes! You can invite your friends by email <Link general to="/friend-invite">Here</Link>.
+      Yes! You can invite your friends by email <Link general to="/friend-invite">here</Link>.
     </Question>
     <Question title="How do I follow a charity?">
       To follow a charity simply click the <span className={styles.specialText}>Follow</span> button on their page.

@@ -13,14 +13,14 @@ export default () => (
   <div className={styles.container}>
     <div className={styles.column}>
       <General />
-      <Funds />
-      <Donations />
-      <Account />
-    </div>
-    <div className={styles.column}>
       <Social />
       <Charities />
       <SpecialFundraiser />
+    </div>
+    <div className={styles.column}>
+      <Funds />
+      <Donations />
+      <Account />
       <Privacy />
     </div>
   </div>
