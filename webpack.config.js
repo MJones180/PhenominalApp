@@ -1,6 +1,5 @@
 const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -8,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssClean = require('postcss-clean');
 const postcssColorFunction = require('postcss-color-function');
 const postcssFunctions = require('postcss-functions');
+const postcssGlobalImport = require('postcss-global-import');
 const postcssMixins = require('postcss-mixins');
 const postcssNested = require('postcss-nested');
 const postcssSimpleVars = require('postcss-simple-vars');
@@ -56,6 +56,7 @@ module.exports = (env = {}, { mode }) => {
         {
           loader: 'css-loader',
           options: {
+            import: false,
             importLoaders: 1,
             localIdentName: '[local]--[hash:base64:5]',
             modules: true,
@@ -65,6 +66,7 @@ module.exports = (env = {}, { mode }) => {
           options: {
             ident: 'postcss',
             plugins: [
+              postcssGlobalImport(),
               postcssMixins({
                 mixins: require(`${paths.src('styles/mixins')}`),
               }),
@@ -139,11 +141,7 @@ module.exports = (env = {}, { mode }) => {
         prefix: 'icons-[hash]/',
         statsFilename: 'iconstats-[hash].json',
         title: 'Phenominal',
-      }),
-      new CopyWebpackPlugin([{
-        from: './static',
-        to: './',
-      }])
+      })
     );
   }
 
@@ -161,7 +159,7 @@ module.exports = (env = {}, { mode }) => {
   // =======================
 
   const config = {
-    devtool: __DEV__ ? 'cheap-module-source-map' : 'source-map',
+    devtool: __DEV__ ? 'eval-source-map' : false,
     entry: {
       main: [
         paths.src('main'),

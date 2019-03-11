@@ -24,9 +24,10 @@ NOTES
   - If no text is passed, it will default to an error message
 */
 
-// Import the 'react-toastify' styles globally
-import '!style-loader!css-loader!react-toastify/dist/ReactToastify.css'; // eslint-disable-line
 import { toast, Slide } from 'react-toastify';
+// Import the 'react-toastify' styles globally
+// This way bundles the library with the other styles
+import './library.css';
 import styles from './index.css';
 
 // Type constants
@@ -40,7 +41,7 @@ const settings = (type, autoClose, render) => ({
   // Should the toast be automatically closed (time in ms [int] or false)
   autoClose,
   // Styles for the toast
-  className: `${styles.container} ${styles[type]} ${styles.test}`,
+  className: `${styles.container} ${styles[type]}`,
   // Do not display the 'x' close button
   closeButton: false,
   // Styles for the progress bar, all types except DEFAULT use a light bar
