@@ -13,7 +13,7 @@ export default () => (
         Transactions
       </Button>
       <Button to="/settings">
-        Setings
+        Settings
       </Button>
     </div>
     <Balance />
