@@ -92,7 +92,7 @@
   },
   "scripts": {
     "analyzeBundle": "webpack-dev-server --mode=production --env.analyzeBundle",
-    "deploy": "rimraf dist && webpack --mode=production && aws s3 rm --recursive s3://phenominal.fund && aws s3 sync --exclude '*' --include '*.js' --content-type 'application/javascript; charset=utf-8' dist/ s3://phenominal.fund && aws s3 sync --include '*' --exclude '*.js' dist/ s3://phenominal.fund",
+    "deploy": "rimraf dist && webpack --mode=production && aws s3 rm --recursive s3://phenominal.fund && aws s3 sync --exclude '*' --include '*.js' --content-type 'application/javascript; charset=utf-8' dist/ s3://phenominal.fund && aws s3 sync --exclude '*' --include 'index.html' --cache-control max-age=0 dist/ s3://phenominal.fund && aws s3 sync --include '*' --exclude '*.js' --exclude 'index.html' dist/ s3://phenominal.fund",
     "genLegal": "node ./legal/generate.js",
     "start": "webpack-dev-server --mode=development",
     "syncImages": "cd ./images && node sync.js"
