@@ -1,6 +1,10 @@
 const fs = require('fs');
 const jsonfile = require('jsonfile');
 const _ = require('lodash');
+const imagemin = require('imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminSvgo = require('imagemin-svgo');
 const { s3 } = require('./aws');
 
 // The current file layout
@@ -62,8 +66,19 @@ const updateMap = data => jsonfile.writeFileSync(mapFile, data, { spaces: 2 });
 
 // Upload a file
 const addFile = (file) => {
+  // Optimize image
+  const optimize = async image => (
+    imagemin.buffer(image, {
+      // Different image type optimizations
+      plugins: [
+        imageminMozjpeg(),
+        imageminPngquant(),
+        imageminSvgo(),
+      ],
+    })
+  );
   // Read the file in from the filesystem
-  fs.readFile(file, (err, fileContents) => {
+  fs.readFile(file, async (err, fileContents) => {
     // Upload the file
     s3.upload({
       // Make viewable to all
@@ -72,8 +87,8 @@ const addFile = (file) => {
       Key: toKey(file),
       // Enable picture to be seen without download
       ContentType: mimetype(file),
-      // Picture file
-      Body: fileContents,
+      // Picture file (optimized)
+      Body: await optimize(fileContents),
     }, (error) => {
       if (error) console.log('Error: ', error);
       else {
