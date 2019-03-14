@@ -1,6 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
+    <meta charSet="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.url %>">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.desc %>">
+    <meta name="image" content="<%= htmlWebpackPlugin.options.logo %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.name %>">
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.desc %>">
+    <meta name="twitter:site" content="<%= htmlWebpackPlugin.options.name %>">
+    <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.logo %>">
+    <meta itemprop="name" content="<%= htmlWebpackPlugin.options.name %>">
+    <meta itemprop="description" content="<%= htmlWebpackPlugin.options.desc %>">
+    <meta itemprop="image" content="<%= htmlWebpackPlugin.options.logo %>">
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.name %>">
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.desc %>">
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.logo %>">
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>">
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.name %>">
+    <meta property="og:type" content="website">
+    <meta property="fb:app_id" content="<%= htmlWebpackPlugin.options.fbAppID %>">
   </head>
   <body>
     <div id="root"></div>

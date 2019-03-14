@@ -99,11 +99,13 @@ module.exports = (env = {}, { mode }) => {
 
   const plugins = [
     new HtmlWebpackPlugin({
+      desc: 'A platform to easily make donations of any amount to charity.',
+      fbAppID: 702523006760063,
       inject: true,
-      minify: {
-        collapseWhitespace: true,
-      },
+      logo: 'https://picture-assets.s3.amazonaws.com/logos/meta.png',
+      name: 'Phenominal',
       template: paths.src('index.html'),
+      url: 'https://phenominal.fund',
     }),
     new webpack.DefinePlugin({
       __DEV__,

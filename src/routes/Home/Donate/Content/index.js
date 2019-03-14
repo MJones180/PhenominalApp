@@ -9,7 +9,7 @@ export default () => (
     </h4>
     <p className="large">
       Donate however much you would like, for there is no minimum amount.
-      All donations count, let us create change together.
+      All donations count. Let&apos;s create change together.
     </p>
     <Button to="/charities" className={styles.button}>
       View Today&apos;s Charities

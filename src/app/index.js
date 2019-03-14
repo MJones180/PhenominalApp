@@ -10,7 +10,7 @@ import Analytics from './Analytics';
 import AuthWrapper from './AuthWrapper';
 import BrowserCompatibility from './BrowserCompatibility';
 import ErrorBoundary from './ErrorBoundary';
-import HeadTags from './RootHeadTags';
+import HeadTags from './HeadTags';
 import LegalNotice from './LegalNotice';
 import LoadActions from './LoadActions';
 import ScrollToTop from './ScrollToTop';
