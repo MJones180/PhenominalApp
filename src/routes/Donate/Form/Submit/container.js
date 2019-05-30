@@ -7,7 +7,7 @@ export default Component => (
     return (
       <Component
         amount={currency(amount)}
-        total={currency(amount * checkedEvents.length)}
+        total={currency(amount)}
       />
     );
   }

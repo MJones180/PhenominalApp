@@ -1,20 +1,18 @@
 mutation(
   $amount: Int!
-  $events: [ID!]
+  $eventID: ID!
 ) {
   donation(
     amount: $amount
-    events: $events
+    eventID: $eventID
   ) {
     amount
+    balance
+    charityName
     dotTotal
     dotsGained
     loopCount
-    loopsGained
-    transactions {
-      balance
-      event
-      id
-    }
+    loopGained
+    transactionID
   }
 }

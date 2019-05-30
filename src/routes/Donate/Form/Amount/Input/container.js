@@ -4,7 +4,7 @@ import { currency } from 'utils/number';
 export default Component => (
   ({ balance, errors, setFieldError, values }) => {
     // Number of checked events
-    const count = values.checkedEvents.length;
+    const count = 1;
     // Amount to donate
     const { amount } = values;
     // If there is no other error, ensure the user has enough funds for the donations

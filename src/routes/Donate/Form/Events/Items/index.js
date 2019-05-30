@@ -6,14 +6,11 @@ import styles from './index.css';
 
 export default ({ events }) => (
   <div className={styles.container}>
-    {_.map(events, ({ id, name }, index) => (
-      <Checkbox
-        item={id}
-        key={index}
-        label={name}
-        name="checkedEvents"
-      />
-    ))}
+    <Checkbox
+      item={events[0].id}
+      label={events[0].name}
+      name="checkedEvents"
+    />
     <FormError className={styles.error} name="checkedEvents" />
   </div>
 );

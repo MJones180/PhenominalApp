@@ -14,9 +14,5 @@ query {
       name
       website
     }
-    specialFundraiser {
-      description
-      name
-    }
   }
 }

@@ -6,9 +6,6 @@ query {
     charity {
       name
     }
-    specialFundraiser {
-      name
-    }
   }
   currentUserBalance
 }
