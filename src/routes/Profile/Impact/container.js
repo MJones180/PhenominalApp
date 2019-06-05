@@ -6,9 +6,9 @@ import query from './query.graphql';
 export default (Component) => {
   const RenderComponent = ({ data }) => (
     <Component
-      donationCount={comma(data.transactions.count)}
-      totalRaised={currency(data.transactions.total)}
-      averageDonation={currency(data.transactions.total / (data.transactions.count || 1))}
+      donationCount={comma(data.donations.count)}
+      totalRaised={currency(data.donations.total)}
+      averageDonation={currency(data.donations.total / (data.donations.count || 1))}
     />
   );
   return () => <Query query={query} Component={RenderComponent} />;

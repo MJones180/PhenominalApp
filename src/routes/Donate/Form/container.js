@@ -10,7 +10,7 @@ export default Component => (
     // Grab the base input values
     mapPropsToValues: ({ data: { checkedEvent } }) => ({
       amount: 0,
-      checkedEvents: 'cjwauwvmi70mo0b427shy0yb5',
+      checkedEvents: 'cjwcrdb4nhb7z0b42yrfrsgy4',
     }),
     // Validate the data
     validationSchema: () => (

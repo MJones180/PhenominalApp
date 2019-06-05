@@ -1,0 +1,36 @@
+.container {
+  text-align: center;
+  @media $m_min {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+.added {
+  display: flex;
+  @media $s_max {
+    flex-direction: column;
+  }
+}
+.box {
+  padding: 15px 0;
+  @media $m_min {
+    width: 50%;
+    &:first-of-type {
+      border-right: 1px solid $stone;
+    }
+  }
+}
+.balance {
+  @media $m_min {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid $stone;
+  }
+}
+.value {
+  line-height: unset;
+  color: $sand;
+}
+.label {
+  font-weight: 300;
+}

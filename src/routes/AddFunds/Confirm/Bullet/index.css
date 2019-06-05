@@ -1,6 +1,0 @@
-.bullet {
-  list-style: none;
-  & span {
-    font-weight: 200;
-  }
-}
