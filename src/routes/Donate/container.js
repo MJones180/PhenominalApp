@@ -27,9 +27,9 @@ export default Component => (
         // Grab the passed data
         const { eventsCurrent, currentUserBalance } = this.props.data;
         // Format all of the events
-        const events = _.map(eventsCurrent, ({ id, charity, specialFundraiser }) => ({
+        const events = _.map(eventsCurrent, ({ id, charity }) => ({
           id,
-          name: charity ? charity.name : specialFundraiser.name,
+          ...charity,
         }));
         // Filter the passed event, first element's id
         const checkedEvent = _.filter(eventsCurrent, ({ id }) => id == match.params.eventID)[0];

@@ -1,0 +1,11 @@
+.container {
+  @media $s_max {
+    padding: 15px;
+  }
+  @media $m_only {
+    padding: 30px;
+  }
+  @media $l_min {
+    padding: 50px;
+  }
+}

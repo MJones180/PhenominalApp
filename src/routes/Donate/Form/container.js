@@ -10,26 +10,26 @@ export default Component => (
     // Grab the base input values
     mapPropsToValues: ({ data: { checkedEvent } }) => ({
       amount: 0,
-      checkedEvents: 'cjwcrdb4nhb7z0b42yrfrsgy4',
+      checkedEvent,
     }),
     // Validate the data
     validationSchema: () => (
       yup.object().shape({
         amount: yup.number().moreThan(0, 'Please input an amount.'),
+        checkedEvent: yup.string().required('Please select a charity.'),
       })
     ),
     handleSubmit: (values, { props }) => {
       props.setParentState({
         processing: true,
       });
-      const alert = createAlert('Processing the donations.');
-      // Process the donations
-      console.log(values.checkedEvents);
+      const alert = createAlert('Processing the donation.');
+      // Process the donations=
       Mutation({
         mutation,
         variables: {
           amount: values.amount,
-          eventID: values.checkedEvents,
+          eventID: values.checkedEvent,
         },
         success: ({ donation }) => {
           // Donation successful
@@ -37,7 +37,7 @@ export default Component => (
             processing: false,
             results: donation,
           });
-          alert.success('Donations successful.');
+          alert.success('Donation successful.');
         },
         error: (errors) => {
           // Display an error message if one exists

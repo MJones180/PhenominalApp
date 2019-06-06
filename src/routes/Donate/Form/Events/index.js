@@ -1,12 +1,12 @@
 import React from 'react';
-import Items from './Items';
+import Charities from './Charities';
 import styles from './index.css';
 
 export default props => (
   <section className={styles.container}>
     <h3 className={`general ${styles.title}`}>
-      Select your events:
+      Select the charity:
     </h3>
-    <Items {...props} />
+    <Charities {...props} />
   </section>
 );

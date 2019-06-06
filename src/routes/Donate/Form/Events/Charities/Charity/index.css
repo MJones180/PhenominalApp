@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  margin-bottom: 30px;
+  cursor: pointer;
+  border-bottom: 1px solid $stone;
+  @media $m_max {
+    flex-direction: column;
+  }
+  @media $l_min {
+    padding-bottom: 30px;
+  }
+  &.checked, &:hover {
+    .image {
+      filter: none;
+    }
+    .title {
+      color: $azure;
+    }
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}
+.checked .image {
+  box-shadow: 0 0 0 3px $eggshell, 0 0 0 5px $azure;
+}
+.image {
+  filter: grayscale(1);
+  @media $m_max {
+    width: 100%;
+  }
+  @media $l_min {
+    width: 40%;
+    height: 100%;
+  }
+}
+.title {
+  align-self: center;
+  & abbr {
+    font-weight: 200;
+  }
+  @media $s_max {
+    & abbr {
+      font-size: 20px;
+    }
+  }
+  @media $m_only {
+    & abbr {
+      font-size: 25px;
+    }
+  }
+  @media $m_max {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+  @media $l_min {
+    width: 60%;
+    padding-left: 30px;
+    & abbr {
+      font-size: 30px;
+    }
+  }
+}

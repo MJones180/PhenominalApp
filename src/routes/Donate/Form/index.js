@@ -15,7 +15,16 @@ export default Container(({ errors, data, setFieldError, setFieldTouched, setFie
       setFieldValue={setFieldValue}
       values={values}
     />
-    <Events events={data.events} />
-    <Submit values={values} />
+    <Events
+      events={data.events}
+      setFieldTouched={setFieldTouched}
+      setFieldValue={setFieldValue}
+      values={values}
+    />
+    <Submit
+      balance={data.balance}
+      events={data.events}
+      values={values}
+    />
   </Form>
 ));

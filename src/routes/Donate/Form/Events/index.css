@@ -1,8 +1,13 @@
 .container {
   position: relative;
-  padding: 30px;
   background-color: $eggshell;
   @mixin extendBackground $eggshell;
+  @media $s_max {
+    padding-top: 15px;
+  }
+  @media $m_min {
+    padding: 30px;
+  }
 }
 .title {
   padding-bottom: 5px;
