@@ -8,9 +8,9 @@ export default Container(({ message, invalid }) => (
     <h3 className="general">
       Donate:
     </h3>
-    <h5 className={styles.message}>
+    <h4 className={styles.message}>
       {message}
-    </h5>
+    </h4>
     <Submit className={styles.button} center special disable={invalid}>
       Donate Now
     </Submit>

@@ -5,7 +5,7 @@ USAGE
   return <Loops {...props} />
 PROPS
   - count: [int] loop score
-  - gained: [int] number of loops gained
+  - gained: [boolean] loop gained
 */
 
 import React from 'react';
@@ -18,7 +18,7 @@ export default ({ className, count, gained }) => (!count ? '' : (
     <img className={styles.icon} src={image('assets/Random/Loop.png')} alt="Icon" />
     <div className={styles.text}>
       <h4 className={styles.count}> { count } </h4>
-      { (gained != undefined) && (<h5 className={styles.gained}> (+{ gained }) </h5>) }
+      { gained && (<h5 className={styles.gained}> (+1) </h5>) }
     </div>
   </div>
 ));

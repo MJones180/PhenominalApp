@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media $s_max {
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  @media $m_min {
+    margin: 30px 0 15px;
+  }
+}
+.text {
+  padding-right: 15px;
+}

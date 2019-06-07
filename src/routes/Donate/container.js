@@ -31,7 +31,7 @@ export default Component => (
           id,
           ...charity,
         }));
-        // Filter the passed event, first element's id
+        // Precheck the event if the eventID is passed as a url param
         const checkedEvent = _.filter(eventsCurrent, ({ id }) => id == match.params.eventID)[0];
         // Return the formatted data
         return ({

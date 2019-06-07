@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  @media $s_max {
+    flex-direction: column;
+  }
+}
+.text {
+  padding-right: 15px;
+}

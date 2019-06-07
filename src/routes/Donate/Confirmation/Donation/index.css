@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+  @media $m_min {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+.charity {
+  @media $m_min {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $stone;
+  }
+}
+.donation {
+  display: flex;
+  @media $s_max {
+    flex-direction: column;
+  }
+}
+.box {
+  padding: 15px 0;
+  @media $m_min {
+    width: 50%;
+    &:first-of-type {
+      border-right: 1px solid $stone;
+    }
+  }
+}
+.label {
+  font-weight: 300;
+}
+.name {
+  line-height: unset;
+  color: $azure;
+}
+.currency {
+  line-height: unset;
+  color: $sand;
+}

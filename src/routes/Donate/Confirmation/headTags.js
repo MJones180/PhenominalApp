@@ -3,6 +3,6 @@ import { Helmet } from 'react-helmet';
 
 export default () => (
   <Helmet>
-    <title>Donation Confirmation</title>
+    <title>Funds Addition Confirmation</title>
   </Helmet>
 );

@@ -6,7 +6,7 @@ import styles from './index.css';
 export default props => (
   <div className={styles.presets}>
     <h5 className={styles.title}>
-      Presets
+      Presets:
     </h5>
     <div className={styles.values}>
       {_.map([5, 10, 25, 50, 100], (value, index) => (
