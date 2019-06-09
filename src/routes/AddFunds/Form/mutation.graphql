@@ -9,6 +9,8 @@ mutation(
     amountCharged
     amountReceived
     balance
+    date
+    expiration
     transactionID
   }
 }

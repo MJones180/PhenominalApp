@@ -23,23 +23,29 @@ export default ({ data }) => {
     cellStyle: styles.event,
     field: 'event',
   }];
-  // Grab the event from the json
-  const grabEvent = data => _.get(data, 'charity.name') || _.get(data, 'specialFundraiser.name') || '-';
   // Format the data for the table
   const formatted = _.map(data, ({
-    createdAt, amount, balance, type, event,
-  }) => ({
-    amount: currency(amount),
-    balance: currency(balance),
-    date: compactDate(createdAt),
-    event: grabEvent(event),
-    type: _.capitalize(_.replace(type, '_', ' ')),
-    // The raw values, necessary for sorting
-    SORT_amount: amount,
-    SORT_balance: balance,
-    SORT_date: createdAt,
-    SORT_event: _.toLower(grabEvent(event)),
-  }));
+    balance, createdAt, donations, funds,
+  }) => {
+    // The type of transaction
+    const type = funds ? 'Funds Addition' : 'Donation';
+    // Grab the charity's name if it is a donation
+    const eventName = funds ? '-' : donations[0].event.charity.name;
+    // If it is a donation, the amounts have to be summed up
+    const amount = funds ? funds.amountAdded : _.reduce(donations, (sum, { amount }) => sum + amount, 0);
+    return {
+      amount: currency(amount),
+      balance: currency(balance),
+      date: compactDate(createdAt),
+      event: eventName,
+      type,
+      // The raw values, necessary for sorting
+      SORT_amount: amount,
+      SORT_balance: balance,
+      SORT_date: createdAt,
+      SORT_event: _.toLower(eventName),
+    };
+  });
   return (
     <Table
       columns={columns}

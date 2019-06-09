@@ -1,10 +1,11 @@
 import React from 'react';
-import Container from './container';
+import Box from '../Box';
 import Stat from './Stat';
+import Container from './container';
 import styles from './index.css';
 
-export default Container(({ color, goal, percentage, timeRemaining, totalRaised }) => (
-  <div className={color}>
+export default Container(({ goal, percentage, timeRemaining, totalRaised }) => (
+  <Box title="Progress">
     <div className={styles.stats}>
       <Stat title="Donated" val={totalRaised} />
       <Stat title="Goal" val={goal} />
@@ -13,5 +14,5 @@ export default Container(({ color, goal, percentage, timeRemaining, totalRaised 
     <div className={styles.percentage}>
       <span style={{ width: percentage }} width={percentage} />
     </div>
-  </div>
+  </Box>
 ));

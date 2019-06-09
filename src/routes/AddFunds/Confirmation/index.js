@@ -7,12 +7,12 @@ import Header from './Header';
 import Container from './container';
 import styles from './index.css';
 
-export default Container(({ amountCharged, amountReceived, balance, date, expirationDate, transactionID }) => (
+export default Container(({ amountCharged, amountReceived, balance, date, expiration, transactionID }) => (
   <section className={styles.container}>
     <HeadTags />
     <Header date={date} />
     <Funds amountCharged={amountCharged} amountReceived={amountReceived} balance={balance} />
-    <Expiration expirationDate={expirationDate} />
+    <Expiration expiration={expiration} />
     <Footer transactionID={transactionID} />
   </section>
 ));

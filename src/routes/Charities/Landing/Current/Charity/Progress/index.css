@@ -1,5 +1,0 @@
-.progress * {
-  @media $l_min {
-    color: white;
-  }
-}

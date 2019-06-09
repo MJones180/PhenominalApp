@@ -1,0 +1,6 @@
+.banner {
+  width: 100%;
+  @media $l_min {
+    height: 100%;
+  }
+}
