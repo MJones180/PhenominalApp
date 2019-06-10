@@ -5,34 +5,17 @@ import Query from 'utils/graphql/query';
 import query from './query.graphql';
 
 export default (Component) => {
-  const RenderComponent = ({ data: { eventsUpcoming } }) => (
-    <Component
-      data={
-        _.map(
-          // Grab a unique list of the start dates
-          _.uniq(_.map(
-            // Display only charities, not special fundraisers
-            _.filter(eventsUpcoming, ({ charity }) => charity),
-            ({ startDate }) => startDate)
-          ),
-          // Loop through every edge
-          date => ({
-            startDate: writtenDate(date),
-            // Remove all falsey values
-            charities: _.compact(
-              // Add event for corresponding date
-              _.map(eventsUpcoming, ({ startDate, charity }) => (
-                (startDate == date) &&
-                  {
-                    ein: charity.ein,
-                    name: charity.name,
-                  }
-              ))
-            ),
-          })
-        )
-      }
-    />
-  );
+  const RenderComponent = ({ data: { eventsUpcoming } }) => {
+    // The events grouped by their startDate
+    const grouped = _.groupBy(eventsUpcoming, ({ startDate }) => startDate);
+    // Go through each startDate and format the charities
+    const formatted = _.map(grouped, (charities, date) => ({
+      // Prettify the date
+      startDate: writtenDate(date),
+      // Loop through each charity's EIN and name
+      charities: _.map(charities, ({ charity: { ein, name } }) => ({ ein, name })),
+    }));
+    return <Component data={formatted} />;
+  };
   return () => <Query query={query} Component={RenderComponent} />;
 };

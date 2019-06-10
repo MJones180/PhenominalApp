@@ -1,8 +1,5 @@
 query {
-  eventsUpcoming(
-    orderBy: startDate_ASC
-    first: 21
-  ) {
+  eventsUpcoming(orderBy: startDate_ASC) {
     id
     startDate
     charity {
