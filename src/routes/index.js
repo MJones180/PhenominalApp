@@ -27,6 +27,26 @@ export default () => (
     />
     <Route
       exact
+      path="/charities/admin"
+      mod={() => import(/* webpackChunkName: "CharitiesAdmin" */ './Charities/Admin/Dashboard')}
+    />
+    <Route
+      exact
+      path="/charities/admin/auth/cb/:token/"
+      mod={() => import(/* webpackChunkName: "CharitiesAdminAuthCB" */ './Charities/Admin/AuthCB')}
+    />
+    <Route
+      exact
+      path="/charities/admin/signin"
+      mod={() => import(/* webpackChunkName: "CharitiesAdminSignin" */ './Charities/Admin/Signin')}
+    />
+    <Route
+      exact
+      path="/charities/admin/signup"
+      mod={() => import(/* webpackChunkName: "CharitiesAdminSignup" */ './Charities/Admin/Signup')}
+    />
+    <Route
+      exact
       path="/charities/all"
       mod={() => import(/* webpackChunkName: "CharitiesAll" */ './Charities/All')}
     />

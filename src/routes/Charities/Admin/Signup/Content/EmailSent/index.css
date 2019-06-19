@@ -1,0 +1,7 @@
+.text {
+  padding: 45px 30px;
+  & span {
+    word-break: break-all;
+    color: $azure;
+  }
+}
