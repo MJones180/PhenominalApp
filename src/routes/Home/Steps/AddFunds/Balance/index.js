@@ -22,7 +22,7 @@ export default class extends React.Component {
       setTimeout(() => {
         this.setState({
           // Number between 1.00 and 9.99
-          balance: Math.floor((Math.random() * (10 * 89)) + 100) / 100,
+          balance: Math.floor((Math.random() * 890) + 100) / 100,
         });
         // Update again
         updateBalance();
