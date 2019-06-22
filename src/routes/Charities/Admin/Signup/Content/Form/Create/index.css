@@ -1,0 +1,33 @@
+.column {
+  padding: 0 15px;
+  @media $m_max {
+    width: 100%;
+  }
+  @media $l_min {
+    width: 24%;
+  }
+}
+.button {
+  @media $m_max {
+    margin-top: 15px;
+  }
+  @media $l_min {
+    margin-top: 75px;
+  }
+}
+.notice {
+  @media $s_max {
+    width: 175px;
+    margin: 15px auto;
+  }
+  @media $m_only {
+    width: 250px;
+    margin: 20px auto;
+  }
+  @media $m_max {
+    text-align: center;
+  }
+  @media $l_min {
+    margin: 30px 0;
+  }
+}

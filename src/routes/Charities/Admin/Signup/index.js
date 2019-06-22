@@ -8,12 +8,10 @@ export default () => (
     <HeadTags />
     <div className={styles.content}>
       <div className={styles.signup}>
-        <div className={styles.box}>
-          <h3 className={styles.header}>
-            Charity Sign Up
-          </h3>
-          <Content />
-        </div>
+        <h3 className={styles.header}>
+          Charity Sign Up
+        </h3>
+        <Content />
       </div>
     </div>
   </main>

@@ -20,16 +20,14 @@
   }
 }
 .signup {
-  width: 800px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
   background-color: white;
   box-shadow: $shadow $darkStone;
   @media $l_min {
     margin-left: 15px;
   }
-}
-.box {
-  display: flex;
-  flex-direction: column;
 }
 .header {
   padding: 15px;

@@ -1,5 +1,0 @@
-query($email: String!) {
-  charities(where: { email: $email }) {
-    id
-  }
-}

@@ -1,9 +1,12 @@
 .container {
-  padding: 30px 15px;
+  padding: 30px 15px 20px;
 }
 .forgot {
   margin-top: -15px;
 }
 .button {
   margin: 30px 0;
+}
+.new {
+  text-align: center;
 }

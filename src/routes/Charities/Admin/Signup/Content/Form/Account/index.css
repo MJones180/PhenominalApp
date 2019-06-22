@@ -1,0 +1,23 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  @media $s_max {
+    width: 100%;
+  }
+  @media $m_only {
+    width: 50%;
+  }
+  @media $l_min {
+    width: 38%;
+  }
+}
+.title {
+  padding-bottom: 15px;
+}
+.bottom {
+  margin-top: auto;
+}
+.info {
+  margin-bottom: 15px;
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import EmailSent from './EmailSent';
 import Container from './container';
-import Auth from './Auth';
+import Form from './Form';
 
 export default Container(({ email, setEmail }) => (
-  email ? <EmailSent email={email} /> : <Auth setEmail={setEmail} />
+  email ? <EmailSent email={email} /> : <Form setEmail={setEmail} />
 ));

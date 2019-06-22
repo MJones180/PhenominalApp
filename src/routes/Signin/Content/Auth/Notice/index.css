@@ -1,7 +1,10 @@
 .container {
-  padding: 0 10px 10px;
+  padding: 0 15px 10px;
   & p {
     font-weight: 200;
     line-height: 18px;
+    &:last-of-type {
+      padding-top: 10px;
+    }
   }
 }
