@@ -15,9 +15,6 @@
   align-items: center;
   padding: 25px 0;
   background-color: $blacken50;
-  @media $m_max {
-    justify-content: center;
-  }
 }
 .slogan {
   font-weight: 200;

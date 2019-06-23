@@ -10,14 +10,7 @@ export default () => (
       <h2 className={styles.slogan}>
         Where change happens.
       </h2>
-      <div className={styles.signin}>
-        <div className={styles.box}>
-          <h3 className={styles.header}>
-            Charity Sign In
-          </h3>
-          <Content />
-        </div>
-      </div>
+      <Content />
     </div>
   </main>
 );

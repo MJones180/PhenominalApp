@@ -1,0 +1,16 @@
+.box {
+  background-color: white;
+  box-shadow: $shadow $darkStone;
+}
+.largeSize {
+  max-width: 1000px;
+}
+.normalSize {
+  width: 350px;
+}
+.header {
+  padding: 15px;
+  text-align: center;
+  color: $azure;
+  background-color: $eggshell;
+}

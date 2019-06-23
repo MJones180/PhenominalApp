@@ -15,9 +15,6 @@
   align-items: center;
   padding: 25px 0;
   background-color: $blacken50;
-  @media $m_max {
-    justify-content: center;
-  }
 }
 .slogan {
   font-weight: 200;
@@ -32,22 +29,4 @@
     padding: 0 15px;
     text-align: right;
   }
-}
-.signin {
-  width: 350px;
-  background-color: white;
-  box-shadow: $shadow $darkStone;
-  @media $l_min {
-    margin-left: 15px;
-  }
-}
-.box {
-  display: flex;
-  flex-direction: column;
-}
-.header {
-  padding: 15px;
-  text-align: center;
-  color: $azure;
-  background-color: $eggshell;
 }

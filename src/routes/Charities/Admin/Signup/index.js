@@ -7,12 +7,7 @@ export default () => (
   <main className={styles.container}>
     <HeadTags />
     <div className={styles.content}>
-      <div className={styles.signup}>
-        <h3 className={styles.header}>
-          Charity Sign Up
-        </h3>
-        <Content />
-      </div>
+      <Content />
     </div>
   </main>
 );
