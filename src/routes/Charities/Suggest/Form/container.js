@@ -13,7 +13,6 @@ export default Component => (
       name: '',
       ein: '',
       url: '',
-      representative: false,
     }),
     // Validate the data
     validationSchema: () => (

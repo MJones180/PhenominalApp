@@ -2,14 +2,12 @@ mutation(
   $ein: String
   $email: String!
   $name: String!
-  $representative: Boolean
   $url: String
 ) {
   charitySuggestion(
     ein: $ein
     email: $email
     name: $name
-    representative: $representative
     url: $url
   )
 }

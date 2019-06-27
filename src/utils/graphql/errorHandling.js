@@ -16,8 +16,16 @@ const unauthUser = () => {
   push('/signin');
 };
 
+const unauthCharity = () => {
+  // Delete the auth cookie
+  remove.charityAuth();
+  // Redirect the user to the charity signin
+  push('/charities/admin/signin');
+};
+
 export default {
   CorruptAuthToken: unauthUser,
+  CorruptCharityAuthToken: unauthCharity,
   InvalidUser: unauthUser,
   NotAuthenticated: unauthUser,
 };
