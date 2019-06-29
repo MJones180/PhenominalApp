@@ -5,12 +5,7 @@ import styles from './index.css';
 
 export default Container(data => (
   <main className={styles.container}>
-    {console.log('data: ', data)}
     <HeadTags />
-    <div className={styles.content}>
-      <h2 className={styles.slogan}>
-        Bazinga
-      </h2>
-    </div>
+    <h1>{data.ein}</h1>
   </main>
 ));
