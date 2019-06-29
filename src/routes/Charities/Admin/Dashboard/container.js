@@ -6,18 +6,22 @@ import query from './query.graphql';
 
 export default Component => (
   () => {
-    const ein = get.charityAuth();
-    if (!ein) {
-      push('/charities/admin/signin');
-      return false;
+    // The authCharity token from the browser cookies
+    const token = get.charityAuth();
+    // Ensure token exists in storage
+    if (token) {
+      const RenderComponent = ({ data: { currentAuthCharity } }) => <Component ein={currentAuthCharity} />;
+      // Grab the authCharity EIN
+      return Query({
+        query,
+        variables: {
+          token,
+        },
+        Component: RenderComponent,
+      });
     }
-    const RenderComponent = ({ data: { currentAuthCharity } }) => <Component ein={currentAuthCharity} />;
-    return Query({
-      query,
-      variables: {
-        token: ein,
-      },
-      Component: RenderComponent,
-    });
+    // Redirect to signin
+    push('/charities/admin/signin');
+    return false;
   }
 );

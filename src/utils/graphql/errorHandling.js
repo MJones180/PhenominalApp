@@ -25,7 +25,7 @@ const unauthCharity = () => {
 
 export default {
   CorruptAuthToken: unauthUser,
-  CorruptCharityAuthClientToken: unauthCharity,
+  CorruptCharityAuthToken: unauthCharity,
   InvalidUser: unauthUser,
   NotAuthenticated: unauthUser,
 };
