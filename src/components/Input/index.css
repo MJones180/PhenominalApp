@@ -33,12 +33,18 @@
   &.optional {
     border-style: dashed;
   }
+  &::placeholder {
+    color: transparent;
+  }
   &:hover, &:focus {
     border: 2px solid $azure;
   }
   &:focus {
     color: $azure;
     outline: 0;
+    &::placeholder {
+      color: $stone;
+    }
   }
   &:focus ~ label, &.notEmpty ~ label {
     font-size: 14px;

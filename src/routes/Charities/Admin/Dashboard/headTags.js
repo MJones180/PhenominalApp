@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default () => (
+export default ({ ein }) => (
   <Helmet>
-    <title>Charity Admin</title>
+    <title>Charity Admin { ein }</title>
   </Helmet>
 );
