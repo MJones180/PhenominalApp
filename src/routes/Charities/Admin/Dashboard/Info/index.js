@@ -3,7 +3,7 @@ import { Form } from 'formik';
 import Dropzone from 'react-dropzone';
 import { image } from 'utils/endpoints';
 import Button from 'components/Button';
-import Input, { Textarea } from 'components/Input';
+import Input, { Textarea, PhoneNumberInput } from 'components/Input';
 import Container from './container';
 import styles from './index.css';
 
@@ -30,7 +30,7 @@ export default Container(() => (
         </div>
         <Textarea name="mission" label="Mission" />
         <Input name="location" label="Location" />
-        <Input name="phoneNumber" label="Phone Number" placeholder="(000) 000-0000" />
+        <PhoneNumberInput name="phoneNumber" label="Phone Number" placeholder="(000) 000-0000" />
         <Input name="website" label="Website URL" />
         <div className={styles.expenses}>
           <h5 className={styles.expensesTitle}>Expense breakdown of where donations end up going.</h5>

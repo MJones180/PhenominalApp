@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from 'components/Input';
+import Input, { EINInput } from 'components/Input';
 import styles from './index.css';
 
 export default () => (
@@ -8,7 +8,7 @@ export default () => (
       Charity Information
     </h3>
     <Input name="name" label="Charity Name" />
-    <Input name="ein" label="EIN" />
+    <EINInput name="ein" label="EIN" />
     <Input name="url" label="Website URL" />
   </div>
 );
