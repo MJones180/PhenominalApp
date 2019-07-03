@@ -19,7 +19,7 @@ export default Component => (
     // Validate the data
     validationSchema: () => (
       yup.object().shape({
-        ein: yup.string().required('Required field.').trim().matches(/^[1-9]\d?-\d{7}$/, 'Must be in the format 12-3456789.'),
+        ein: yup.string().required('Required field.').trim(),
         email: yup.string().required('Required field.').trim().email('Email is invalid.'),
         name: yup.string().required('Required field.').trim(),
         representative: yup.string().required('Required field.').trim(),

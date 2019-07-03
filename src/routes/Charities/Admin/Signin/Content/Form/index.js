@@ -10,7 +10,7 @@ import styles from './index.css';
 export default Container(() => (
   <Box title="Charity Sign In">
     <Form className={styles.container}>
-      <Input name="email" label="Email" />
+      <Input name="email" label="Email" placeholder="email@example.com" />
       <h5 className={styles.forgot}>
         If you have forgotten the email used, please <Link to="/contact" general>Contact Us</Link>.
       </h5>

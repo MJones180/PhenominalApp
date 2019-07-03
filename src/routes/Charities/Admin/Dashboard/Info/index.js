@@ -3,7 +3,7 @@ import { Form } from 'formik';
 import Dropzone from 'react-dropzone';
 import { image } from 'utils/endpoints';
 import Button from 'components/Button';
-import Input, { Textarea, PhoneNumberInput } from 'components/Input';
+import Input, { Textarea, MonthYearInput, PercentageInput, PhoneNumberInput } from 'components/Input';
 import Container from './container';
 import styles from './index.css';
 
@@ -33,13 +33,13 @@ export default Container(() => (
         <PhoneNumberInput name="phoneNumber" label="Phone Number" placeholder="(000) 000-0000" />
         <Input name="website" label="Website URL" />
         <div className={styles.expenses}>
-          <h5 className={styles.expensesTitle}>Expense breakdown of where donations end up going.</h5>
+          <h5 className={styles.expensesTitle}>Expense percentage breakdown of where donations end up going.</h5>
           <div className={styles.flex}>
-            <Input name="expensesAdministrative" label="Administrative" placeholder="0.00" className={styles.administrative} />
-            <Input name="expensesFundraising" label="Fundraising" placeholder="0.00" className={styles.fundraising} />
-            <Input name="expensesProgram" label="Program" placeholder="0.00" className={styles.program} />
-            <Input name="expensesOther" label="Other" placeholder="0.00" className={styles.other} />
-            <Input name="expensesUpdated" label="Date Last Updated" placeholder="MM/YYYY" className={styles.lastUpdated} />
+            <PercentageInput name="expensesAdministrative" label="Administrative" placeholder="0.00%" className={styles.administrative} />
+            <PercentageInput name="expensesFundraising" label="Fundraising" placeholder="0.00%" className={styles.fundraising} />
+            <PercentageInput name="expensesProgram" label="Program" placeholder="0.00%" className={styles.program} />
+            <PercentageInput name="expensesOther" label="Other" placeholder="0.00%" className={styles.other} />
+            <MonthYearInput name="expensesUpdated" label="Date Last Updated" placeholder="MM/YYYY" className={styles.lastUpdated} />
           </div>
         </div>
 

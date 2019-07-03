@@ -1,6 +1,7 @@
 import React from 'react';
+import _ from 'lodash';
 import { connect } from 'formik';
-import { currency as formatCurrency } from 'utils/number';
+import { currency as formatCurrency, percent as formatPercent } from 'utils/number';
 import FormError from 'components/FormError';
 import styles from './index.css';
 
@@ -65,7 +66,40 @@ const sub = (val, a, b) => val.substring(a, b);
 // Truncate to n characters
 const truncate = (val, n) => sub(val, 0, n);
 
-// Currency: $0,000.00
+// Combine blocks of text depending on length of raw input
+const formatText = (inputLength, blocks) => {
+  // The base string
+  let value = '';
+  // Loop through the blocks
+  // The blocks are passed in as a nested array [..., [minimum length of raw input, text for the block], ...]
+  _.each(blocks, ([length, text]) => {
+    // Append the text
+    if (inputLength > length) value += text;
+  });
+  // The new field value
+  return value;
+};
+
+// Correctly position caret after formatting input
+const handleCaret = (event, inputLength, corrections) => {
+  // Needed or else React error
+  event.persist();
+  // Current caret position
+  let caretPosition = event.target.selectionStart;
+  // https://stackoverflow.com/questions/35535688/stop-cursor-jumping-when-formatting-number-in-react
+  window.requestAnimationFrame(() => {
+    event.target.selectionStart = caretPosition;
+    event.target.selectionEnd = caretPosition;
+  });
+  // Due to symbols, the caret position may sometimes need to be manually overridden
+  // The corrections are passed in as a nested array [..., [length of raw input, position of caret, new caret position], ...]
+  _.each(corrections, ([length, position, newPosition]) => {
+    // Set the new caret position if needed
+    if (inputLength == length && caretPosition == position) caretPosition = newPosition;
+  });
+};
+
+// $0,000.00
 export const CurrencyInput = Format(({ setValue, value }) => ({
   onChange: (event) => {
     // Update the state with the raw number
@@ -75,63 +109,88 @@ export const CurrencyInput = Format(({ setValue, value }) => ({
   value: formatCurrency(value),
 }));
 
-// EIN: 00-0000000
+// 00-0000000
 export const EINInput = Format(({ setValue }) => ({
   onChange: (event) => {
-    event.persist();
-    let caret = event.target.selectionStart;
-    window.requestAnimationFrame(() => {
-      event.target.selectionStart = caret;
-      event.target.selectionEnd = caret;
-    });
-
     // Raw input value
     const input = truncate(rawNumb(event), 9);
+    // Length of input
     const { length } = input;
-    let val = '';
-    // Add symbols depending on length of input
-    if (length > 0) val += sub(input, 0, 2);
-    if (length > 2) val += `-${sub(input, 2, 9)}`;
-    // Adjust carrot position
-    if (length == 3 && caret == 3) caret = 4;
     // Update the state
-    setValue(val);
+    setValue(
+      // Format the value
+      formatText(length, [
+        [0, sub(input, 0, 2)],
+        [2, `-${sub(input, 2, 9)}`],
+      ])
+    );
+    // Properly place the caret
+    handleCaret(event, length, [[3, 3, 4]]);
   },
+  // Total length including symbols
+  // Prevents characters at the end from being deleted by typing in the middle
+  maxLength: 10,
 }));
 
-const getCaret = (event) => {
-  event.persist();
-  const caret = event.target.selectionStart;
-  return {
-    caret,
-    setCaret: (position = caret) => {
-      window.requestAnimationFrame(() => {
-        event.target.selectionStart = position;
-        event.target.selectionEnd = position;
-      });
-    },
-  };
-};
+// MM/YYYY
+export const MonthYearInput = Format(({ setValue }) => ({
+  onChange: (event) => {
+    // Raw input value
+    const input = truncate(rawNumb(event), 6);
+    // Length of input
+    const { length } = input;
+    // Update the state
+    setValue(
+      // Format the value
+      formatText(length, [
+        [0, sub(input, 0, 2)],
+        [2, `/${sub(input, 2, 6)}`],
+      ])
+    );
+    // Properly place the caret
+    handleCaret(event, length, [[3, 3, 4]]);
+  },
+  // Total length including symbols
+  // Prevents characters at the end from being deleted by typing in the middle
+  maxLength: 7,
+}));
 
-// Phone Number: (000) 000-0000
+// 00.00%
+export const PercentageInput = Format(({ setValue, value }) => ({
+  onChange: (event) => {
+    // Update the state with the raw number
+    // Divide by 100 to convert to decimal
+    setValue(rawNumb(event) / 100);
+    // Properly place the caret
+    handleCaret(event, length, [[0, 1, 6]]);
+  },
+  // Format the number as currency for display
+  value: value ? formatPercent(value / 100) : undefined,
+  // Total length including symbols
+  // Prevents characters at the end from being deleted by typing in the middle
+  maxLength: 6,
+}));
+
+// (000) 000-0000
 export const PhoneNumberInput = Format(({ setValue }) => ({
   onChange: (event) => {
-    const { caret, setCaret } = getCaret(event);
-
     // Raw input value
     const input = truncate(rawNumb(event), 10);
+    // Length of input
     const { length } = input;
-    let val = '';
-    // Add symbols depending on length of input
-    if (length > 0) val += `(${sub(input, 0, 3)}`;
-    if (length > 3) val += `) ${sub(input, 3, 6)}`;
-    if (length > 6) val += `-${sub(input, 6, 10)}`;
-    // Adjust carrot position
-    if (length == 1 && caret == 1) setCaret(2);
-    else if (length == 4 && caret == 5) setCaret(7);
-    else if (length == 7 && caret == 10) setCaret(11);
-    else setCaret();
     // Update the state
-    setValue(val);
+    setValue(
+      // Format the value
+      formatText(length, [
+        [0, `(${sub(input, 0, 3)}`],
+        [3, `) ${sub(input, 3, 6)}`],
+        [6, `-${sub(input, 6, 10)}`],
+      ])
+    );
+    // Properly place the caret
+    handleCaret(event, length, [[1, 1, 2], [4, 5, 7], [7, 10, 11]]);
   },
+  // Total length including symbols
+  // Prevents characters at the end from being deleted by typing in the middle
+  maxLength: 14,
 }));
