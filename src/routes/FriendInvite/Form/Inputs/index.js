@@ -4,7 +4,7 @@ import styles from './index.css';
 
 export default () => (
   <div className={styles.container}>
-    <Input name="email" label="Recipient's Email" />
+    <Input name="email" label="Recipient's Email" placeholder="email@example.com" />
     <Textarea name="message" label="Message" />
   </div>
 );

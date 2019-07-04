@@ -12,7 +12,7 @@ export default () => (
       <h5 className={styles.info}>
         Email of the representative who will be accessing the charity&apos;s account.
       </h5>
-      <Input name="email" label="Email" />
+      <Input name="email" label="Email" placeholder="email@example.com" />
     </div>
   </div>
 );

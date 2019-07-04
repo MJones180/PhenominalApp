@@ -5,7 +5,7 @@ import styles from './index.css';
 export default () => (
   <div className={styles.container}>
     <Input eggshell name="name" label="Name" />
-    <Input eggshell name="email" label="Email" />
+    <Input eggshell name="email" label="Email" placeholder="email@example.com" />
     <Textarea eggshell name="message" label="Message" />
   </div>
 );

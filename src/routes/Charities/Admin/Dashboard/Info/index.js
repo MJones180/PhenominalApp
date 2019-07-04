@@ -29,9 +29,9 @@ export default Container(() => (
           <Input name="acronym" label="Acronym" className={styles.acronym} />
         </div>
         <Textarea name="mission" label="Mission" />
-        <Input name="location" label="Location" />
+        <Input name="location" label="Location" placeholder="City, State Zip" />
         <PhoneNumberInput name="phoneNumber" label="Phone Number" placeholder="(000) 000-0000" />
-        <Input name="website" label="Website URL" />
+        <Input name="website" label="Website URL" placeholder="https://example.com" />
         <div className={styles.expenses}>
           <h5 className={styles.expensesTitle}>Expense percentage breakdown of where donations end up going.</h5>
           <div className={styles.flex}>
@@ -44,7 +44,7 @@ export default Container(() => (
         </div>
 
         <h4 className={styles.bottomTitle}>Account Information</h4>
-        <Input name="email" label="Email" />
+        <Input name="email" label="Email" placeholder="email@example.com" />
         <Input name="representative" label="Representative" />
 
       </div>

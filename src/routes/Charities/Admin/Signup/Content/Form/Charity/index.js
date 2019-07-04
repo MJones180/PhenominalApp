@@ -9,6 +9,6 @@ export default () => (
     </h3>
     <Input name="name" label="Charity Name" />
     <EINInput name="ein" label="EIN" placeholder="00-0000000" />
-    <Input name="url" label="Website URL" />
+    <Input name="url" label="Website URL" placeholder="https://example.com" />
   </div>
 );

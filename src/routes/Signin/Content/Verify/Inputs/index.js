@@ -6,6 +6,6 @@ export default () => (
     <Input name="username" label="Username" />
     <Input name="nameFirst" label="First Name" />
     <Input name="nameLast" label="Last Name" />
-    <Input name="email" label="Email" />
+    <Input name="email" label="Email" placeholder="email@example.com" />
   </div>
 );

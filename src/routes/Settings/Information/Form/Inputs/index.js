@@ -10,7 +10,7 @@ export default Container(props => (
       <Input {...props('nameFirst', 'First Name')} />
       <Input {...props('nameLast', 'Last Name')} />
     </div>
-    <Input {...props('email', 'Email')} />
+    <Input {...props('email', 'Email')} placeholder="email@example.com" />
     <Textarea {...props('bio', 'Bio')} />
   </div>
 ));
