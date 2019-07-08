@@ -1,0 +1,8 @@
+query($ein: String) {
+  charity(where: { ein: $ein }) {
+    createdAt
+    updatedAt
+    ein
+    verified
+  }
+}

@@ -1,0 +1,39 @@
+mutation(
+  $token: String!
+  $acronym: String
+  $banner: Upload
+  $bannerCredit: String
+  $email: String
+  $expensesAdministrative: Float
+  $expensesFundraising: Float
+  $expensesOther: Float
+  $expensesProgram: Float
+  $expensesUpdated: String
+  $location: String
+  $logo: Upload
+  $mission: String
+  $name: String
+  $phoneNumber: String
+  $representative: String
+  $website: String
+) {
+  charityUpdate(
+    token: $token
+    acronym: $acronym
+    banner: $banner
+    bannerCredit: $bannerCredit
+    email: $email
+    expensesAdministrative: $expensesAdministrative
+    expensesFundraising: $expensesFundraising
+    expensesOther: $expensesOther
+    expensesProgram: $expensesProgram
+    expensesUpdated: $expensesUpdated
+    location: $location
+    logo: $logo
+    mission: $mission
+    name: $name
+    phoneNumber: $phoneNumber
+    representative: $representative
+    website: $website
+  )
+}

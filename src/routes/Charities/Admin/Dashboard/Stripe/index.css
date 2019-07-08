@@ -1,0 +1,30 @@
+.stripeBox {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  margin-top: -45px;
+  padding: 35px 50px 50px;
+  border: 1px solid $azure;
+  background-color: white;
+}
+.stripeTitle {
+  font-weight: 300;
+  color: $azure;
+}
+.stripeNotConnected {
+  display: block;
+}
+.stripeConnected {
+  display: none;
+  margin-bottom: -15px;
+  color: $sand;
+}
+.stripebox2 {
+  display: none;
+  padding: 0 15px 30px;
+  border-left: 1px solid $stone;
+}
+.stripe {
+  margin-top: 15px;
+}

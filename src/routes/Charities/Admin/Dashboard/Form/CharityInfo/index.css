@@ -1,0 +1,38 @@
+.bottomTitle {
+  padding: 15px 0;
+}
+.name {
+  width: 70%;
+}
+.acronym {
+  width: 30%;
+  padding-left: 15px;
+}
+.expenses {
+  padding-left: 15px;
+  border-left: 1px solid $stone;
+}
+.expensesTitle {
+  padding: 15px 0;
+}
+.administrative {
+  width: 50%;
+}
+.fundraising {
+  width: 50%;
+  padding-left: 15px;
+}
+.program {
+  width: 50%;
+}
+.other {
+  width: 50%;
+  padding-left: 15px;
+}
+.lastUpdated {
+  width: 100%;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}

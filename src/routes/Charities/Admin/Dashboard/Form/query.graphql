@@ -1,0 +1,21 @@
+query($ein: String) {
+  charity(where: { ein: $ein }) {
+    acronym
+    banner
+    bannerCredit
+    ein
+    email
+    expensesAdministrative
+    expensesFundraising
+    expensesOther
+    expensesProgram
+    expensesUpdated
+    location
+    logo
+    mission
+    name
+    phoneNumber
+    representative
+    website
+  }
+}
