@@ -10,7 +10,7 @@ import styles from './index.css';
 
 export default ({ data: { charity, ...data } }) => (
   <div className={`${styles.charity} ${data.multiplier && styles.multiplier}`} key={data.id}>
-    <Banner ein={charity.ein} name={charity.name} />
+    <Banner ein={charity.banner} name={charity.name} />
     <BannerCredit credit={charity.bannerCredit} />
     <div className={styles.content}>
       <div className={styles.contentCenter}>

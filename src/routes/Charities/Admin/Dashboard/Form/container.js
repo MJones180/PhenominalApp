@@ -12,24 +12,7 @@ import query from './query.graphql';
 export default (Component) => {
   const RenderComponent = (
     withFormik({
-      mapPropsToValues: ({ data: { charity } }) => ({
-        acronym: charity.acronym,
-        banner: charity.banner,
-        bannerCredit: charity.bannerCredit,
-        email: charity.email,
-        expensesAdministrative: charity.expensesAdministrative,
-        expensesFundraising: charity.expensesFundraising,
-        expensesOther: charity.expensesOther,
-        expensesProgram: charity.expensesProgram,
-        expensesUpdated: charity.expensesUpdated,
-        location: charity.location,
-        logo: charity.logo,
-        mission: charity.mission,
-        name: charity.name,
-        phoneNumber: charity.phoneNumber,
-        representative: charity.representative,
-        website: charity.website,
-      }),
+      mapPropsToValues: ({ data: { charity } }) => charity,
       validationSchema: () => (
         yup.object().shape({
           email: yup.string().required('Required field.').trim().email('Email is invalid.'),
@@ -40,11 +23,12 @@ export default (Component) => {
       ),
       handleSubmit: async (values, { props, setSubmitting }) => {
         const originalValues = props.data.charity;
+        console.log('originalValues: ', originalValues);
         console.log('values: ', values);
         const diff = _.omitBy(values, (v, k) => originalValues[k] === v);
         const token = get.charityAuth();
         console.log('diff: ', diff);
-        setSubmitting(false);
+        const alert = createAlert('Updating charity information.');
         Mutation({
           mutation,
           variables: {
@@ -52,10 +36,12 @@ export default (Component) => {
             ...diff,
           },
           success: () => {
-            createAlert().success();
+            alert.success('Charity information updated.');
+            setSubmitting(false);
           },
           error: () => {
-            createAlert().error();
+            // Alert the user that their account is updated
+            alert.error();
             // Enable the submit button again
             setSubmitting(false);
           },

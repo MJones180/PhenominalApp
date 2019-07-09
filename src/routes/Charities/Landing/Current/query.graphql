@@ -8,6 +8,7 @@ query {
     sponsorWebsite
     charity {
       acronym
+      banner
       bannerCredit
       ein
       mission

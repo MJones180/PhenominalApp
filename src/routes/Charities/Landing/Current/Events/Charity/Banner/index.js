@@ -2,9 +2,9 @@ import React from 'react';
 import { image } from 'utils/endpoints';
 import styles from './index.css';
 
-export default ({ ein, name }) => (
+export default ({ banner, name }) => (
   <img
-    src={image(`charities/banners/${ein}.jpg`)}
+    src={image(banner)}
     alt={name}
     className={styles.banner}
   />

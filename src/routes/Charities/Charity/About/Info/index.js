@@ -4,10 +4,10 @@ import Link from 'components/Link';
 import Item from './Item';
 import styles from './index.css';
 
-export default ({ ein, location, mission, name, phoneNumber, website, updatedAt }) => (
+export default ({ location, logo, mission, name, phoneNumber, website, updatedAt }) => (
   <div>
     <img
-      src={image(`charities/logos/${ein}.png`)}
+      src={image(logo)}
       alt={`${name} Logo`}
       className={styles.logo}
       key="logo"

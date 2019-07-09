@@ -8,7 +8,7 @@ import Logo from './Logo';
 import Submit from './Submit';
 import styles from './index.css';
 
-export default Container(({ data: { charity } }) => (
+export default Container(({ values, setFieldValue }) => (
   <section className={styles.container}>
     <Form>
       <div className={styles.columns}>
@@ -17,8 +17,8 @@ export default Container(({ data: { charity } }) => (
           <AccountInfo />
         </div>
         <div className={styles.rightColumn}>
-          <Banner banner={charity.banner} ein={charity.ein} />
-          <Logo ein={charity.ein} logo={charity.logo} />
+          <Banner banner={values.banner} setFieldValue={setFieldValue} />
+          <Logo logo={values.logo} setFieldValue={setFieldValue} />
         </div>
       </div>
       <Submit />
