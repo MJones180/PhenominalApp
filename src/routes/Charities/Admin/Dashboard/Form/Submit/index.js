@@ -4,9 +4,9 @@ import styles from './index.css';
 
 export default () => (
   <div>
-    <h3 className={styles.submitTitle}> Submit Changes </h3>
-    <Submit className={styles.submit} center>
-        Update
+    <h3 className={styles.title}> Submit Changes </h3>
+    <Submit className={styles.button} center>
+      Update
     </Submit>
   </div>
 );

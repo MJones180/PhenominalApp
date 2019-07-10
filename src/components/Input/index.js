@@ -158,14 +158,17 @@ export const MonthYearInput = Format(({ setValue }) => ({
 // 00.00%
 export const PercentageInput = Format(({ setValue, value }) => ({
   onChange: (event) => {
-    // Update the state with the raw number
+    // Raw input value
+    const input = rawNumb(event);
+    // Length of input
+    const { length } = input;
     // Divide by 100 to convert to decimal
-    setValue(rawNumb(event) / 100);
+    setValue(input / 100);
     // Properly place the caret
-    handleCaret(event, length, [[0, 1, 6]]);
+    handleCaret(event, length, [[1, 1, 5], [3, 4, 4], [2, 3, 4]]);
   },
   // Format the number as currency for display
-  value: value ? formatPercent(value / 100) : undefined,
+  value: value ? formatPercent(value / 100) : '',
   // Total length including symbols
   // Prevents characters at the end from being deleted by typing in the middle
   maxLength: 6,

@@ -1,10 +1,10 @@
 import React from 'react';
 import Input from 'components/Input';
-import styles from './index.css';
+import Title from '../Title';
 
 export default () => (
   <div>
-    <h4 className={styles.bottomTitle}>Account Information</h4>
+    <Title>Account Information</Title>
     <Input name="email" label="Email" placeholder="email@example.com" />
     <Input name="representative" label="Representative" />
   </div>

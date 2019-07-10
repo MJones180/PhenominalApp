@@ -9,9 +9,13 @@ import createAlert from 'components/Alert';
 import mutation from './mutation.graphql';
 import query from './query.graphql';
 
+// Currently saved data
+let savedData = null;
+
 export default (Component) => {
   const RenderComponent = (
     withFormik({
+      // Prefill input values
       mapPropsToValues: ({ data: { charity } }) => charity,
       validationSchema: () => (
         yup.object().shape({
@@ -22,30 +26,36 @@ export default (Component) => {
         })
       ),
       handleSubmit: async (values, { props, setSubmitting }) => {
-        const originalValues = props.data.charity;
-        console.log('originalValues: ', originalValues);
-        console.log('values: ', values);
-        const diff = _.omitBy(values, (v, k) => originalValues[k] === v);
-        const token = get.charityAuth();
-        console.log('diff: ', diff);
-        const alert = createAlert('Updating charity information.');
-        Mutation({
-          mutation,
-          variables: {
-            token,
-            ...diff,
-          },
-          success: () => {
-            alert.success('Charity information updated.');
-            setSubmitting(false);
-          },
-          error: () => {
-            // Alert the user that their account is updated
-            alert.error();
-            // Enable the submit button again
-            setSubmitting(false);
-          },
-        });
+        // Check if the saved data has been set yet
+        if (!savedData) savedData = props.data.charity;
+        // Only update the fields that have changed
+        const updatedFields = _.omitBy(values, (value, key) => savedData[key] === value);
+        // Only update if there is unsaved data
+        if (!_.isEmpty(updatedFields)) {
+          const alert = createAlert('Updating charity information.');
+          Mutation({
+            mutation,
+            variables: {
+              // Charity auth token in cookie
+              token: get.charityAuth(),
+              ...updatedFields,
+            },
+            success: () => {
+              alert.success('Charity information updated.');
+              // Enable the submit button again
+              setSubmitting(false);
+              // Update the saved data
+              savedData = _.assign(savedData, updatedFields);
+            },
+            error: () => {
+              alert.error();
+              setSubmitting(false);
+            },
+          });
+        } else {
+          createAlert().success('Already up to date.');
+          setSubmitting(false);
+        }
       },
     })(Component)
   );

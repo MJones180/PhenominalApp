@@ -1,9 +1,3 @@
-.bottomTitle {
-  padding: 15px 0;
-}
-.logo {
-  width: 100%;
-}
 .dropzone {
   position: relative;
   display: flex;
@@ -15,15 +9,18 @@
   &:hover {
     cursor: pointer;
     border: 2px dashed $azure;
-    & .uploadHover {
+    & .hover {
       display: block;
     }
   }
 }
-.activeDropzone {
+.active {
   border: 2px dashed $azure;
 }
-.uploadHover {
+.image {
+  width: 100%;
+}
+.hover {
   line-height: 160px;
   position: absolute;
   display: none;

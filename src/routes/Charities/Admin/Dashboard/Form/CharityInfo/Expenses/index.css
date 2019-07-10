@@ -1,0 +1,17 @@
+.container {
+  padding-left: 15px;
+  border-left: 1px solid $stone;
+}
+.title {
+  padding: 15px 0;
+}
+.expenses {
+  display: flex;
+  flex-wrap: wrap;
+}
+.expense {
+  width: 50%;
+  &:nth-child(even) {
+    padding-left: 15px;
+  }
+}

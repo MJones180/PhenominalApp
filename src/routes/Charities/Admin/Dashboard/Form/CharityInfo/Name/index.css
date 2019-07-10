@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.name {
+  @media $m_only {
+    width: 65%;
+  }
+  @media $l_min {
+    width: 70%;
+  }
+}
+.acronym {
+  @media $m_only {
+    width: 35%;
+    padding-left: 15px;
+  }
+  @media $l_min {
+    width: 30%;
+    padding-left: 15px;
+  }
+}

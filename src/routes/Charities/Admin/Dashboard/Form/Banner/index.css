@@ -1,36 +1,3 @@
-.bottomTitle {
-  padding: 15px 0;
-}
-.banner {
-  width: 100%;
-}
-.dropzone {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  margin-bottom: 15px;
-  border: 1px dashed $stone;
-  &:hover {
-    cursor: pointer;
-    border: 2px dashed $azure;
-    & .uploadHover {
-      display: block;
-    }
-  }
-}
-.activeDropzone {
-  border: 2px dashed $azure;
-}
-.uploadHover {
-  line-height: 160px;
-  position: absolute;
-  display: none;
-  width: 160px;
-  height: 160px;
-  text-align: center;
-  color: white;
-  border-radius: 100%;
-  background-color: color($darkStone alpha(50%));
+.recommended {
+  padding-bottom: 15px;
 }
