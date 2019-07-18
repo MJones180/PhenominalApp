@@ -16,7 +16,11 @@ export default (Component) => {
   const RenderComponent = (
     withFormik({
       // Prefill input values
-      mapPropsToValues: ({ data: { charity } }) => charity,
+      mapPropsToValues: ({ data: { charity } }) => ({
+        ...charity,
+        banner: charity.banner || 'assets/Random/DefaultUploadBanner.jpg',
+        logo: charity.logo || 'assets/Random/DefaultUploadBannerHalved.jpg',
+      }),
       validationSchema: () => (
         yup.object().shape({
           email: yup.string().required('Required field.').trim().email('Email is invalid.'),

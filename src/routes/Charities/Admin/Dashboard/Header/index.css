@@ -1,24 +1,26 @@
 .container {
-  display: flex;
-  align-items: center;
-  padding: 30px;
   background-color: $eggshell;
+  @media $s_max {
+    padding: 30px 0;
+    text-align: center;
+  }
+  @media $m_min {
+    display: flex;
+    padding: 60px 30px;
+  }
 }
-.topText {
-  font-weight: 300;
+.right {
+  @media $m_min {
+    margin-left: auto;
+    text-align: right;
+  }
 }
 .ein {
   color: $azure;
 }
 .verified {
-  padding-left: 15px;
   color: $sand;
 }
 .notVerified {
-  padding-left: 15px;
   color: $coral;
-}
-.topRight {
-  margin-left: auto;
-  text-align: right;
 }

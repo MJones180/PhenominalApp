@@ -1,5 +1,5 @@
 query {
-  charities(orderBy: name_ASC) {
+  charities(where: { verified: true }, orderBy: name_ASC) {
     ein
     name
   }

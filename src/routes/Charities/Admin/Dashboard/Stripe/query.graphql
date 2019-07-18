@@ -1,7 +1,8 @@
 query($ein: String) {
   charity(where: { ein: $ein }) {
-    ein
+    connectedAccountID
+    createdAt
+    email
     name
-    verified
   }
 }

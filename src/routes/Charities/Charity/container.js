@@ -7,7 +7,7 @@ export default Component => (
   ({ match }) => {
     const RenderComponent = ({ data: { charity } }) => (
       // Verify the charity exists
-      charity ? <Component ein={charity.ein} name={charity.name} /> : <Redirect to="/charities" />
+      (charity && charity.verified) ? <Component ein={charity.ein} name={charity.name} /> : <Redirect to="/charities" />
     );
     return Query({
       query,

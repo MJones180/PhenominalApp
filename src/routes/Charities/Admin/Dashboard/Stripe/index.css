@@ -1,30 +1,29 @@
-.stripeBox {
+.container {
   display: flex;
   flex-direction: column;
   width: 350px;
-  margin: 30px auto;
-  margin-top: -45px;
   padding: 35px 50px 50px;
-  border: 1px solid $azure;
-  background-color: white;
+  border-radius: $radiusLarge;
+  @media $s_max {
+    margin: 30px auto 0;
+    border-top: 1px solid $azure;
+    border-bottom: 1px solid $azure;
+  }
+  @media $m_min {
+    border: 1px solid $azure;
+    background-color: white;
+  }
+  @media $m_only {
+    margin: -30px auto 15px;
+  }
+  @media $l_min {
+    margin: -45px auto 15px;
+  }
 }
-.stripeTitle {
+.title {
   font-weight: 300;
   color: $azure;
 }
-.stripeNotConnected {
-  display: block;
-}
-.stripeConnected {
-  display: none;
-  margin-bottom: -15px;
-  color: $sand;
-}
-.stripebox2 {
-  display: none;
-  padding: 0 15px 30px;
-  border-left: 1px solid $stone;
-}
-.stripe {
+.button {
   margin-top: 15px;
 }

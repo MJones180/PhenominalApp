@@ -1,23 +1,23 @@
 import React from 'react';
 import Container from './container';
+import Item from './Item';
 import styles from './index.css';
 
-export default Container(data => (
+export default Container(({ createdAt, ein, updatedAt, verified }) => (
   <section className={styles.container}>
     <div>
-      <h4> <span className={styles.topText}>EIN:</span> <span className={styles.ein}>{data.ein}</span></h4>
-      <h4>
-        <span className={styles.topText}>
-          Account:
+      <Item label="EIN">
+        <span className={styles.ein}>{ein}</span>
+      </Item>
+      <Item label="Account">
+        <span className={styles[verified ? 'verified' : 'notVerified']}>
+          {verified ? 'Verified' : 'Not Verified'}
         </span>
-        <span className={styles[data.verified ? 'verified' : 'notVerified']}>
-          {data.verified ? 'Verified' : 'Not Verified'}
-        </span>
-      </h4>
+      </Item>
     </div>
-    <div className={styles.topRight}>
-      <h4><span className={styles.topText}>Created:</span> {data.createdAt}</h4>
-      <h4><span className={styles.topText}>Updated:</span> {data.updatedAt}</h4>
+    <div className={styles.right}>
+      <Item label="Created">{createdAt}</Item>
+      <Item label="Updated">{updatedAt}</Item>
     </div>
   </section>
 ));

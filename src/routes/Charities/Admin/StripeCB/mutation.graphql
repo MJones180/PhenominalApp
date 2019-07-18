@@ -1,0 +1,3 @@
+mutation($code: String!, $state: String!, $token: String!) {
+  charityStripeConnect(code: $code, state: $state, token: $token)
+}

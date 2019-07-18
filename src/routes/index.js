@@ -32,7 +32,7 @@ export default () => (
     />
     <Route
       exact
-      path="/charities/admin/auth/cb/:token/"
+      path="/charities/admin/auth/cb/:token"
       mod={() => import(/* webpackChunkName: "CharitiesAdminAuthCB" */ './Charities/Admin/AuthCB')}
     />
     <Route
@@ -44,6 +44,11 @@ export default () => (
       exact
       path="/charities/admin/signup"
       mod={() => import(/* webpackChunkName: "CharitiesAdminSignup" */ './Charities/Admin/Signup')}
+    />
+    <Route
+      exact
+      path="/charities/admin/stripe/cb"
+      mod={() => import(/* webpackChunkName: "CharitiesAdminStripeCB" */ './Charities/Admin/StripeCB')}
     />
     <Route
       exact
