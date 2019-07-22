@@ -24,7 +24,7 @@ export default Component => (
         processing: true,
       });
       const alert = createAlert('Processing the donation.');
-      // Process the donations=
+      // Process the donation
       Mutation({
         mutation,
         variables: {

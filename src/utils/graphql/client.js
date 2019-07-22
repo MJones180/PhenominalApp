@@ -4,6 +4,7 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
+import _ from 'lodash';
 import { graphqlEndpoint } from 'utils/endpoints';
 import { get } from 'utils/storage';
 import errorHandling from './errorHandling';
@@ -47,18 +48,21 @@ const authLink = setContext((req, { headers }) => {
 });
 
 // Handle errors
-const error = onError(({ graphQLErrors }) => {
-  // Errors exist
+const error = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     // Loop through each of the errors
-    graphQLErrors.map(({ message, name }) => {
+    _.each(graphQLErrors, ({ extensions, message, name }) => {
       // Handle the error if necessary (non application specific)
       const topLevelError = errorHandling[name];
       if (topLevelError) topLevelError();
       // Log the error
-      return console.log(`[GraphQL error]: (${name}) ${message}`);
+      console.log(`[GraphQL Error]: (${name || ''}) ${message}`);
+      // Log the stacktrace in dev if it exists
+      const stacktrace = _.get(extensions, 'exception.stacktrace');
+      if (stacktrace && __DEV__) console.log(stacktrace);
     });
   }
+  if (networkError) console.log(`[Network Error]: ${networkError}`);
 });
 
 // Build the complete link chain

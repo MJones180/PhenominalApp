@@ -103,7 +103,7 @@ const handleCaret = (event, inputLength, corrections) => {
 export const CurrencyInput = Format(({ setValue, value }) => ({
   onChange: (event) => {
     // Update the state with the raw number
-    setValue(rawNumb(event));
+    setValue(_.toInteger(rawNumb(event)));
   },
   // Format the number as currency for display
   value: formatCurrency(value),

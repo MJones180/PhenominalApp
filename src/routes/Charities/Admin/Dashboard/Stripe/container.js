@@ -27,6 +27,7 @@ export default Component => (
         };
       }
       onClick() {
+        // Not yet connected
         if (!this.state.connectedAccountID) {
           // Params to pass to Stripe
           const params = {
@@ -42,7 +43,6 @@ export default Component => (
           };
             // Connect Stripe Express account
           window.location.href = `https://connect.stripe.com/express/oauth/authorize?${queryString.stringify(params)}`;
-          // Disable continuous button clicks
         } else {
           Mutation({
             mutation,
@@ -57,6 +57,7 @@ export default Component => (
             },
           });
         }
+        // Disable continuous button clicks
         this.setState({
           disabled: true,
         });
