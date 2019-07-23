@@ -3,11 +3,11 @@ import { image } from 'utils/endpoints';
 import BannerCredit from 'components/BannerCredit';
 import styles from './index.css';
 
-export default ({ acronym, bannerCredit, checked, ein, name, onClick }) => (
+export default ({ acronym, banner, bannerCredit, checked, name, onClick }) => (
   <div className={`${styles.container} ${checked && styles.checked}`} onClick={onClick}>
     <BannerCredit credit={bannerCredit} />
     <img
-      src={image(`charities/banners/${ein}.jpg`)}
+      src={image(banner)}
       alt={name}
       className={styles.image}
     />

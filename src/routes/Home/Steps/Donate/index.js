@@ -6,7 +6,7 @@ import styles from './index.css';
 export default () => (
   <Box link="/donate" title="Donate">
     <div className={styles.circle}>
-      <img src={image('assets/Random/Coin.png')} className={styles.coin} alt="Coin" />
+      <img src={image('assets/Home/Coin.png')} className={styles.coin} alt="Coin" />
     </div>
   </Box>
 );

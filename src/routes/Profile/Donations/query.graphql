@@ -13,6 +13,7 @@ query($username: String) {
         event {
           charity {
             acronym
+            banner
             bannerCredit
             ein
             name

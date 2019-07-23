@@ -18,8 +18,8 @@ export default (Component) => {
       // Prefill input values
       mapPropsToValues: ({ data: { charity } }) => ({
         ...charity,
-        banner: charity.banner || 'assets/Random/DefaultUploadBanner.jpg',
-        logo: charity.logo || 'assets/Random/DefaultUploadBannerHalved.jpg',
+        banner: charity.banner || 'assets/DefaultUploadBanner.jpg',
+        logo: charity.logo || 'assets/DefaultUploadBannerHalved.jpg',
       }),
       validationSchema: () => (
         yup.object().shape({

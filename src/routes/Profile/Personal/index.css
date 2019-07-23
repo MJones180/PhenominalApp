@@ -6,13 +6,14 @@
     padding: 15px 15px 20px;
   }
   @media $m_min {
-    padding: 25px 15px;
+    padding: 25px 0;
   }
   @media $m_max {
     justify-content: center;
   }
   @media $l_min {
     justify-content: flex-end;
+    padding-right: 15px;
   }
 }
 .links {
@@ -30,10 +31,13 @@
       margin: 10px;
     }
     @media $m_min {
-      margin: 0 10px;
+      margin: 0 7.5px;
       &:first-of-type {
         margin-left: 0;
       }
+    }
+    @media $l_min {
+      margin: 0 10px;
     }
   }
 }

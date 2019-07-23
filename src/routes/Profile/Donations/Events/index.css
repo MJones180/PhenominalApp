@@ -1,8 +1,12 @@
 .container {
   @media $m_min {
     width: 100%;
-    & div:first-of-type {
-      margin-top: 0;
-    }
+    height: 100%;
+  }
+  @media $l_min {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }

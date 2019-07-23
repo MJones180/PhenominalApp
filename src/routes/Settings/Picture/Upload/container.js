@@ -17,7 +17,7 @@ export default Component => (
       // Initial State
       this.state = {
         newPic: false,
-        picture: this.props.picture ? image(this.props.picture) : image('assets/Random/DefaultUserPicture.png'),
+        picture: this.props.picture ? image(this.props.picture) : image('assets/DefaultUserPicture.png'),
         scale: 1,
       };
     }

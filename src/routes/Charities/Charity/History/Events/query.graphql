@@ -1,5 +1,5 @@
-query($eventID: String!) {
-  aggregateDonations(forEvent: $eventID) {
+query($eventID: ID!) {
+  aggregateDonations(eventID: $eventID) {
     count
     total
   }

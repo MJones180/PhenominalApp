@@ -5,8 +5,8 @@ query {
     id
     charity {
       acronym
+      banner
       bannerCredit
-      ein
       name
     }
   }

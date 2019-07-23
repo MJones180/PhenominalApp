@@ -4,22 +4,22 @@ import Link from 'components/Link';
 import BannerCredit from 'components/BannerCredit';
 import styles from './index.css';
 
-export default ({ acronym, bannerCredit, ein, name }) => (
+export default ({ acronym, banner, bannerCredit, ein, name }) => (
   <div className={styles.container}>
     <BannerCredit credit={bannerCredit} />
     <Link to={`/charities/${ein}`}>
       <div className={styles.banner}>
         <img
-          src={image(`charities/banners/${ein}.jpg`)}
+          src={image(banner)}
           alt={name}
           className={styles.image}
         />
-        <h2 className={styles.align}>
+        <h3 className={styles.align}>
           <span className={styles.name}>
             {name} {' '}
             {acronym && (<abbr> {acronym} </abbr>)}
           </span>
-        </h2>
+        </h3>
       </div>
     </Link>
   </div>

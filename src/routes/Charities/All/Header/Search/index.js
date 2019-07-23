@@ -5,7 +5,7 @@ import styles from './index.css';
 
 export default ({ change, input }) => (
   <div className={styles.container}>
-    <img src={image('assets/Random/Search.png')} className={styles.icon} alt="Search" />
+    <img src={image('assets/Search.png')} className={styles.icon} alt="Search" />
     <BasicInput
       className={styles.input}
       label="Charity's Name or EIN"

@@ -7,7 +7,7 @@ import styles from './index.css';
 export default Container(({ charityFollowed, click }) => (
   <section className={styles.container}>
     <Button floatingBorder {...click}>
-      <img src={image('assets/Random/Follow.png')} alt="Icon" className={styles.icon} />
+      <img src={image('assets/Follow.png')} alt="Icon" className={styles.icon} />
       {charityFollowed ? 'Unfollow' : 'Follow'}
     </Button>
   </section>
