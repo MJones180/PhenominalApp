@@ -1,8 +1,16 @@
 .container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+  @media $m_min {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
 }
 .button {
-  margin-left: auto;
+  @media $s_max {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  @media $m_min {
+    margin-left: auto;
+  }
 }

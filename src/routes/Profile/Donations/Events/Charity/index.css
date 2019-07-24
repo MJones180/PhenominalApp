@@ -1,12 +1,13 @@
 .container {
+  position: relative;
+  z-index: 2;
   box-shadow: $shadow $darkStone;
-  @media $m_only {
-    width: 75%;
+  @media $m_max {
     margin-top: 30px;
   }
   @media $l_min {
-    flex: 1 0 45%;
-    margin: 15px;
+    max-width: calc(50% - 30px);
+    margin: 15px auto;
   }
 }
 .banner {

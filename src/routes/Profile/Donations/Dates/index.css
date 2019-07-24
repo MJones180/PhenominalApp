@@ -1,9 +1,32 @@
 .container {
+  /* https://stackoverflow.com/a/44795011/4793915 */
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+  background: #FFFFFF no-repeat;
+  background-image: radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0));
+  background-position: 0 0, 0 100%;
+  background-size: 100% 14px;
   @media $s_max {
-    padding: 15px 0;
+    max-height: 250px;
     text-align: center;
   }
   @media $m_min {
     width: 150px;
+    height: 100%;
+    max-height: 450px;
+  }
+  &:before, &:after {
+    position: relative;
+    z-index: -1;
+    display: block;
+    height: 30px;
+    margin: 0 0 -30px;
+    content: "";
+    background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, rgba(255, 255, 255, 0));
+  }
+  &:after {
+    margin: -30px 0 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFFFFF 70%, #FFFFFF);
   }
 }
