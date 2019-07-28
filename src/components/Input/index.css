@@ -18,16 +18,17 @@
   order: 3;
 }
 .errorActive ~ .input {
-  border: 2px solid $coral;
+  border: 1px solid $coral;
 }
 .input {
   font-size: 18px;
+  font-weight: 300;
   line-height: 18px;
   display: block;
   width: 100%;
   padding: 15px;
   color: $stone;
-  border: 2px solid $stone;
+  border: 1px solid $stone;
   border-radius: $radius;
   background-color: inherit;
   &.optional {
@@ -37,7 +38,7 @@
     color: transparent;
   }
   &:hover, &:focus {
-    border: 2px solid $azure;
+    border: 1px solid $azure;
   }
   &:focus {
     color: $azure;
@@ -54,6 +55,7 @@
 }
 .label {
   font-size: 20px;
+  font-weight: 300;
   position: absolute;
   margin-top: 15px;
   margin-left: 10px;

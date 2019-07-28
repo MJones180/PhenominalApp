@@ -1,7 +1,5 @@
 query {
-  eventsCurrent(
-    orderBy: endDate_ASC
-  ) {
+  eventsCurrent(orderBy: endDate_ASC) {
     id
     charity {
       acronym

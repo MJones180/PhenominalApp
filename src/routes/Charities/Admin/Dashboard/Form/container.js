@@ -16,11 +16,16 @@ export default (Component) => {
   const RenderComponent = (
     withFormik({
       // Prefill input values
-      mapPropsToValues: ({ data: { charity } }) => ({
-        ...charity,
-        banner: charity.banner || 'assets/DefaultUploadBanner.jpg',
-        logo: charity.logo || 'assets/DefaultUploadBannerHalved.jpg',
-      }),
+      mapPropsToValues: ({ data: { charity } }) => {
+        // Set default upload images
+        if (!charity.banner) charity.banner = 'assets/DefaultUploadBanner.jpg';
+        if (!charity.logo) charity.logo = 'assets/DefaultUploadBannerHalved.jpg';
+        // Convert all null values to an empty string
+        _.each(charity, (val, key) => {
+          if (_.isNull(val)) charity[key] = '';
+        });
+        return charity;
+      },
       validationSchema: () => (
         yup.object().shape({
           email: yup.string().required('Required field.').trim().email('Email is invalid.'),
