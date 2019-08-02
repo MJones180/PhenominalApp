@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   background-color: $eggshell;
   @media $s_max {
     padding: 30px 0;
@@ -8,6 +9,7 @@
     display: flex;
     padding: 60px 30px;
   }
+  @mixin extendBackground $eggshell;
 }
 .right {
   @media $m_min {
