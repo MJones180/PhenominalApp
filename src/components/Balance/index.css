@@ -17,4 +17,7 @@
     display: block;
     color: $sand;
   }
+  &:hover {
+    opacity: .8;
+  }
 }

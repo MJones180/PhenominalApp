@@ -13,6 +13,7 @@ import React from 'react';
 import { currency } from 'utils/number';
 import Query from 'utils/graphql/query';
 import { isAuth } from 'utils/auth/user';
+import Link from 'components/Link';
 import Button from 'components/Button';
 import query from './query.graphql';
 import styles from './index.css';
@@ -28,10 +29,12 @@ export default ({ justFunds }) => {
   );
   // Current Balance component
   const Balance = ({ balance }) => (
-    <p className={styles.balance}>
-      Balance
-      <span>{balance}</span>
-    </p>
+    <Link to="/balance">
+      <p className={styles.balance}>
+        Balance
+        <span>{balance}</span>
+      </p>
+    </Link>
   );
   // Balance container
   const Component = ({ data: { currentUserBalance } }) => (

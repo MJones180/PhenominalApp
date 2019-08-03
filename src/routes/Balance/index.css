@@ -1,0 +1,51 @@
+.container {
+  @media $s_max {
+    padding: 30px 15px;
+  }
+  @media $m_min {
+    padding: 50px;
+  }
+}
+.buttons {
+  display: flex;
+  margin-bottom: 30px;
+  @media $s_max {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.button {
+  margin-left: 15px;
+}
+.addFunds {
+  display: flex;
+  align-items: center;
+}
+.transactions {
+  display: flex;
+  align-items: center;
+  @media $s_max {
+    margin-top: 30px;
+  }
+  @media $m_min {
+    margin-left: auto;
+  }
+}
+.balance {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  & h1 {
+    color: $sand;
+  }
+}
+.expiration {
+  margin: 50px 0;
+  text-align: center;
+}
+.sand {
+  color: $sand;
+}
+.azure {
+  color: $azure;
+}

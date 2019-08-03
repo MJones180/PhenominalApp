@@ -1,0 +1,17 @@
+query {
+  currentUserBalance
+  currentUser {
+    funds(
+      orderBy: createdAt_ASC
+      where: { donations_every: { chargeBalance_gt: 0 } }
+    ) {
+      id
+      amountNet
+      chargeID
+      createdAt
+      donations(first: 1, orderBy: createdAt_DESC) {
+        chargeBalance
+      }
+    }
+  }
+}

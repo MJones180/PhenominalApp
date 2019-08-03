@@ -22,6 +22,12 @@ export default () => (
     />
     <Route
       exact
+      path="/balance"
+      requireAuth
+      mod={() => import(/* webpackChunkName: "Balance" */ './Balance')}
+    />
+    <Route
+      exact
       path="/charities"
       mod={() => import(/* webpackChunkName: "CharitiesLanding" */ './Charities/Landing')}
     />
