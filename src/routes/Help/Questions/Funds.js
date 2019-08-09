@@ -20,5 +20,16 @@ export default () => (
       <Spacer />
       Find out more about Stripe <Link general external="https://stripe.com">here</Link>.
     </Question>
+    <Question title="Do funds expire?">
+      Yes, all funds must be donated within 80 days.
+    </Question>
+    <Question title="What happens when funds expire?">
+      All funds over 80 days old will be automatically donated to one of the active events.
+    </Question>
+    <Question title="How do I view when my funds are going to expire?">
+      <Button to="/balance">View Expirations</Button>
+      <Spacer />
+      The expirations can be found by clicking on your balance.
+    </Question>
   </Category>
 );

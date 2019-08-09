@@ -6,7 +6,6 @@ import Funds from './Funds';
 import General from './General';
 import Privacy from './Privacy';
 import Social from './Social';
-import SpecialFundraiser from './SpecialFundraiser';
 import styles from './index.css';
 
 export default () => (
@@ -15,13 +14,12 @@ export default () => (
       <General />
       <Social />
       <Charities />
-      <SpecialFundraiser />
+      <Privacy />
     </div>
     <div className={styles.column}>
       <Funds />
       <Donations />
       <Account />
-      <Privacy />
     </div>
   </div>
 );

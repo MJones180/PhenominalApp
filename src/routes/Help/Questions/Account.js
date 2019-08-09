@@ -8,7 +8,7 @@ import styles from './index.css';
 export default () => (
   <Category title="Account">
     <Question title="How do I create an account?">
-      You can sign in with either Facebook or Google. If you do not already have an account, it will create one for you.
+      You can sign in with either Facebook or Google. If you do not already have an account, one will be created for you.
     </Question>
     <Question title="Worried someone may have access to your account?">
       Go to <Button to="/settings" className={styles.inlineButton}>Settings</Button>

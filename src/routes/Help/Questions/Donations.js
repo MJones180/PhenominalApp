@@ -8,7 +8,7 @@ export default () => (
       First, add funds to your account. Then, donate to any active event.
     </Question>
     <Question title="Does Phenominal keep any portion of my donation?">
-      No, Phenominal donates 100% of all donations received.
+      No, Phenominal donates 100% of all contributions received.
     </Question>
     <Question title="How will my donation be used?">
       Donations will be appropriated by each charity to use at their own discretion.
