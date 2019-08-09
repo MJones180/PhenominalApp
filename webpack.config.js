@@ -119,8 +119,8 @@ module.exports = (env = {}, { mode }) => {
     // Strip out "locale" from the moment.js library while keeping "en"
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
     new MiniCssExtractPlugin({
-      filename: __DEV__ ? '[name].css' : 'assets/css/[name].[hash].css',
-      chunkFilename: __DEV__ ? '[id].css' : 'assets/css/[id].[hash].css',
+      filename: __DEV__ ? '[name].css' : 'assets/css/[name].[contenthash].css',
+      chunkFilename: __DEV__ ? '[id].css' : 'assets/css/[id].[contenthash].css',
     }),
   ];
 
@@ -170,9 +170,12 @@ module.exports = (env = {}, { mode }) => {
     module: {
       rules,
     },
+    optimization: {
+      moduleIds: 'hashed',
+    },
     output: {
-      chunkFilename: __DEV__ ? '[id].js' : 'assets/js/[id].[chunkhash].js',
-      filename: __DEV__ ? '[name].js' : 'assets/js/[name].[chunkhash].js',
+      chunkFilename: __DEV__ ? '[id].js' : 'assets/js/[id].[contenthash].js',
+      filename: __DEV__ ? '[name].js' : 'assets/js/[name].[contenthash].js',
       path: paths.root('dist'),
       publicPath: '/',
     },
