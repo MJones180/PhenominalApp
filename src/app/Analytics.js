@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { analyticsKey } from 'utils/keys';
 
 // Startup Google Analytics
-GoogleAnalytics.initialize(analyticsKey);
+if (__PROD__) GoogleAnalytics.initialize(analyticsKey);
 
 // Listen for route changes
 export default withRouter(({ location: { pathname } }) => {
