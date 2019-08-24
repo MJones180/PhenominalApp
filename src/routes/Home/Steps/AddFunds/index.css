@@ -1,4 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  @media $s_max {
+    flex-direction: column;
+  }
+}
+.mockup {
+  @media $m_max {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media $l_min {
+    width: 500px;
+  }
+}
+.content {
+  @media $s_max {
+    text-align: center;
+  }
+  @media $l_min {
+    padding-left: 100px;
+  }
+}
+.title {
+  display: flex;
+  align-items: baseline;
+  & h2 {
+    padding-right: 15px;
+    color: $azure;
+  }
+  @media $s_max {
+    justify-content: center;
+  }
+}
 .balance {
   font-weight: 200;
   color: $sand;
+}
+.text {
+  max-width: 320px;
+  padding-top: 15px;
 }

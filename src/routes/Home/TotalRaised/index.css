@@ -1,0 +1,20 @@
+.align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  position: absolute;
+  z-index: 5;
+  text-align: center;
+  background-color: white;
+  box-shadow: $shadowLarge $stone;
+}
+.amount {
+  padding: 50px 75px;
+}
+.label {
+  padding: 15px 0;
+  background-color: $eggshell;
+}

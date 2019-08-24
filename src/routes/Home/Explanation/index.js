@@ -4,9 +4,9 @@ import styles from './index.css';
 
 export default () => (
   <section className={styles.container}>
-    <h4 className="general">
-      Yes, it&apos;s spelled wrong
-    </h4>
-    <img src={image('logos/nameExplanation.png')} alt="Explanation" />
+    <h3 className="general">
+      Yep, it&apos;s spelled wrong
+    </h3>
+    <img src={image('assets/Home/NameExplanation.png')} alt="Explanation" />
   </section>
 );

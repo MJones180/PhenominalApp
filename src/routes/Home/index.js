@@ -1,16 +1,14 @@
 import React from 'react';
-import Charities from './Charities';
-import Donate from './Donate';
+import Banner from './Banner';
 import Explanation from './Explanation';
-import Stats from './Stats';
 import Steps from './Steps';
+import TotalRaised from './TotalRaised';
 
 export default () => (
   <main>
-    <Stats />
+    <Banner />
+    <TotalRaised />
     <Explanation />
     <Steps />
-    <Donate />
-    <Charities />
   </main>
 );

@@ -8,7 +8,7 @@ export default () => (
       Important Notice
     </h4>
     <p className="large">
-      <span className={styles.bold}>2.9% + 30¢</span> is deducted for Stripe processing fees. Learn more <Link general to="/help">here</Link>.
+      <span className={styles.bold}>2.2% + 30¢</span> is deducted for Stripe processing fees. Learn more <Link general to="/help">here</Link>.
       Sorry for any inconvenience.
     </p>
   </div>

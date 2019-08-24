@@ -1,24 +1,54 @@
-.coin {
-  width: 200px;
-  animation: wiggle 5s infinite;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  @media $s_max {
+    flex-direction: column;
+    padding-top: 30px;
+    border-top: 1px solid $stone;
+  }
 }
-@keyframes wiggle {
-  80% {
-    transform: rotate(0deg);
+.content {
+  @media $s_max {
+    order: 2;
+    text-align: center;
   }
-  80% {
-    transform: rotate(5deg);
+  @media $m_min {
+    text-align: right;
   }
-  85% {
-    transform: rotate(-5deg);
+  @media $l_min {
+    padding-right: 100px;
   }
-  90% {
-    transform: rotate(5deg);
+}
+.title {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 15px;
+  & h2 {
+    padding-right: 15px;
+    color: $azure;
   }
-  95% {
-    transform: rotate(-5deg);
+  @media $s_max {
+    justify-content: center;
   }
-  100% {
-    transform: rotate(0deg);
+  @media $m_min {
+    justify-content: flex-end;
+  }
+}
+.text {
+  max-width: 360px;
+  padding-top: 45px;
+}
+.mockup {
+  @media $s_max {
+    order: 1;
+  }
+  @media $m_max {
+    width: 100%;
+    max-width: 400px;
+  }
+  @media $l_min {
+    width: 500px;
   }
 }

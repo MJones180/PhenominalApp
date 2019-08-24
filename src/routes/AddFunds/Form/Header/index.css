@@ -11,6 +11,9 @@
   }
 }
 .title {
+  @media $s_max {
+    margin-bottom: 15px;
+  }
   @media $m_min {
     margin-right: auto;
   }

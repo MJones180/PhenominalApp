@@ -6,13 +6,11 @@ import styles from './index.css';
 
 export default () => (
   <section className={styles.container}>
-    <h4 className={`general ${styles.title}`}>
+    <h3 className={`general ${styles.title}`}>
       3 easy steps
-    </h4>
-    <div className={styles.boxes}>
-      <AddFunds />
-      <Donate />
-      <CreateChange />
-    </div>
+    </h3>
+    <AddFunds />
+    <Donate />
+    <CreateChange />
   </section>
 );

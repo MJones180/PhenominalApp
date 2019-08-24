@@ -1,62 +1,40 @@
-.outlineX, .outlineY, .circle, .logo {
-  position: absolute;
-  animation: 5s infinite ease-in-out;
-}
-.outlineX, .outlineY, .circle {
-  border-radius: 100%;
-  box-shadow: $shadow $darkStone;
-}
-.outlineX, .outlineY {
-  width: 220px;
-  height: 220px;
-  border: 3px solid $darkAzure;
-}
-.outlineX {
-  animation-name: outlineXFlip;
-}
-.outlineY {
-  animation-name: outlineYFlip;
-}
-.circle {
-  width: 200px;
-  height: 200px;
-  animation-name: circleFlip;
-  background-color: $darkAzure;
-}
-.logo {
-  z-index: 10;
-  width: 170px;
-  animation-name: logoFlip;
-}
-@keyframes outlineXFlip {
-  80% {
-    transform: none;
-  }
-  100% {
-    transform: rotate3d(0, 1, 0, 180deg);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  @media $s_max {
+    flex-direction: column;
+    padding-top: 50px;
+    border-top: 1px solid $stone;
   }
 }
-@keyframes outlineYFlip {
-  80% {
-    transform: none;
+.content {
+  @media $s_max {
+    text-align: center;
   }
-  100% {
-    transform: rotate3d(1, 0, 0, 180deg);
+  @media $m_only {
+    padding-left: 50px;
   }
-}
-@keyframes circleFlip {
-  80% {
-    transform: none;
-  }
-  100% {
-    transform: rotate3d(1, 1, 0, 180deg);
+  @media $l_min {
+    padding-left: 125px;
   }
 }
-@keyframes logoFlip {
-  80% {
-    transform: none;
+.title {
+  display: flex;
+  align-items: baseline;
+  & h2 {
+    padding-right: 15px;
+    color: $azure;
   }
-  100% {
-    transform: rotate3d(1, 1, 0, 360deg);
+  @media $s_max {
+    justify-content: center;
   }
+}
+.text {
+  max-width: 350px;
+  padding-top: 15px;
+}
+.button {
+  margin-top: 30px;
 }

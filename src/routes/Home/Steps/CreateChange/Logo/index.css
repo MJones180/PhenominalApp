@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 220px;
+  margin: 30px 0;
+  @media $s_max {
+    justify-content: center;
+  }
+}
+.outlineX, .outlineY, .circle, .logo {
+  position: absolute;
+  animation: 5s infinite ease-in-out;
+}
+.outlineX, .outlineY, .circle {
+  border-radius: 100%;
+  box-shadow: $shadow $darkStone;
+}
+.outlineX, .outlineY {
+  width: 220px;
+  height: 220px;
+  border: 3px solid $darkAzure;
+}
+.outlineX {
+  animation-name: outlineXFlip;
+}
+.outlineY {
+  animation-name: outlineYFlip;
+}
+.circle {
+  width: 200px;
+  height: 200px;
+  animation-name: circleFlip;
+  background-color: $darkAzure;
+  @media $m_min {
+    left: 10px;
+  }
+}
+.logo {
+  z-index: 10;
+  width: 170px;
+  animation-name: logoFlip;
+  @media $m_min {
+    left: 25px;
+  }
+}
+@keyframes outlineXFlip {
+  80% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+@keyframes outlineYFlip {
+  80% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+}
+@keyframes circleFlip {
+  80% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 180deg);
+  }
+}
+@keyframes logoFlip {
+  80% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}

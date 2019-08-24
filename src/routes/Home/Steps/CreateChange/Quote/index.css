@@ -1,0 +1,43 @@
+.container {
+  color: white;
+  background: linear-gradient(135deg, $azure 25%, $darkAzure 100%);
+  background-color: $azure;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px $azure, 0 0 15px 1px $darkStone;
+  @media $s_max {
+    margin: 0 auto 30px;
+  }
+  @media $m_max {
+    width: 235px;
+    padding: 50px 25px 40px;
+  }
+  @media $l_min {
+    width: 275px;
+    padding: 80px 30px 70px;
+  }
+}
+.startQuote, .endQuote {
+  font-size: 50px;
+}
+.endQuote {
+  line-height: 0;
+  margin-top: -10px;
+  @media $s_max {
+    margin-left: 170px;
+  }
+  @media $m_only {
+    margin-left: 110px;
+  }
+  @media $l_min {
+    margin-left: 120px;
+  }
+}
+.text {
+  font-weight: 200;
+  margin-top: -30px;
+  white-space: pre-wrap;
+  text-transform: uppercase;
+}
+.name {
+  margin-top: 10px;
+  text-align: right;
+}

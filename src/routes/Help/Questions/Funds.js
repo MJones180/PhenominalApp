@@ -13,7 +13,7 @@ export default () => (
       This button can be found next to your balance. Adding funds is faciliated by Stripe.
     </Question>
     <Question title="Why is there a fee?">
-      Stripe takes 2.9% + 30¢ on all funds added for processing fees.
+      Stripe takes 2.2% + 30¢ on all funds added for processing fees.
     </Question>
     <Question title="What is Stripe?">
       Stripe is a payment processing service that Phenominal utilizes to add funds to your account.

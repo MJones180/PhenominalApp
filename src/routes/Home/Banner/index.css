@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  padding: 200px 50px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px $darkStone, 1px 1px 0 $stone;
+  @media min($size_l_max) {
+    margin-top: 30px;
+  }
+  @mixin parallaxBackdrop assets/Backgrounds/Home.jpg;
+}
+.stripe {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 350px;
+  border-radius: $radiusLarge;
+  &:hover {
+    background-color: color($darkStone alpha(50%));
+  }
+  &:active {
+    background-color: color($azure alpha(50%));
+  }
+  @media $s_max {
+    width: 300px;
+  }
+  @media $m_min {
+    width: 350px;
+  }
+}
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.text {
+  line-height: unset;
+  margin: 30px auto;
+  @media $m_max {
+    max-width: 550px;
+  }
+  @media $l_min {
+    width: 650px;
+  }
+}
